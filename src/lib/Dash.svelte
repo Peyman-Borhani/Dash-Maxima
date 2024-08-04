@@ -1,35 +1,35 @@
 <script>
-    import ChevronLeft  from '~icons/lucide/chevron-left';
-    import ChevronRight from '~icons/lucide/chevron-right';
-    import Copy         from '~icons/lucide/copy';
-    import CreditCard   from '~icons/lucide/credit-card';
-    import File         from '~icons/lucide/file';
-    import Home         from '~icons/lucide/home';
-    import LineChart    from '~icons/lucide/line-chart';
-    import ListFilter   from '~icons/lucide/list-filter';
-    import Package      from '~icons/lucide';
-    import Package2     from '~icons/lucide';
-    import PanelLeft    from '~icons/lucide';
-    import Search       from '~icons/lucide';
-    import Settings     from '~icons/lucide';
-    import ShoppingCart from '~icons/lucide';
-    import Truck        from '~icons/lucide';
-    import UsersRound   from '~icons/lucide';
-    import EllipsisVertical from '~icons/lucide';
+    import  ChevronLeft     from '~icons/lucide/chevron-left';
+    import  ChevronRight    from '~icons/lucide/chevron-right';
+    import  Copy            from '~icons/lucide/copy';
+    import  CreditCard      from '~icons/lucide/credit-card';
+    import  File            from '~icons/lucide/file';
+    import  Home            from '~icons/lucide/home';
+    import  LineChart       from '~icons/lucide/line-chart';
+    import  ListFilter      from '~icons/lucide/list-filter';
+    import  Package         from '~icons/lucide/package';
+    import  Package2        from '~icons/lucide/package2';
+    import  PanelLeft       from '~icons/lucide/panel-left';
+    import  Search          from '~icons/lucide/search';
+    import  Settings        from '~icons/lucide/settings';
+    import  ShoppingCart    from '~icons/lucide/shopping-cart';
+    import  Truck           from '~icons/lucide/truck';
+    import  UsersRound      from '~icons/lucide/users-round';
+    import  EllipsisVertical from '~icons/lucide/ellipsis-vertical';
 
-    import { Badge } from '$lib/components/ui/badge/index.js';
-    import * as Breadcrumb from '$lib/components/ui/breadcrumb/index.js';
-    import { Button } from '$lib/components/ui/button/index.js';
-    import * as Card from '$lib/components/ui/card/index.js';
+    import { Badge }    from '$lib/components/ui/badge/index.js';
+    import * as Breadcrumb  from '$lib/components/ui/breadcrumb/index.js';
+    import { Button }       from '$lib/components/ui/button/index.js';
+    import * as Card        from '$lib/components/ui/card/index.js';
     import * as DropdownMenu from '$lib/components/ui/dropdown-menu/index.js';
-    import { Input } from '$lib/components/ui/input/index.js';
-    import * as Pagination from '$lib/components/ui/pagination/index.js';
-    import { Progress } from '$lib/components/ui/progress/index.js';
-    import { Separator } from '$lib/components/ui/separator/index.js';
-    import * as Sheet from '$lib/components/ui/sheet/index.js';
-    import * as Table from '$lib/components/ui/table/index.js';
-    import * as Tabs from '$lib/components/ui/tabs/index.js';
-    import * as Tooltip from '$lib/components/ui/tooltip/index.js';
+    import { Input }        from '$lib/components/ui/input/index.js';
+    import * as Pagination  from '$lib/components/ui/pagination/index.js';
+    import { Progress }     from '$lib/components/ui/progress/index.js';
+    import { Separator }    from '$lib/components/ui/separator/index.js';
+    import * as Sheet       from '$lib/components/ui/sheet/index.js';
+    import * as Table       from '$lib/components/ui/table/index.js';
+    import * as Tabs        from '$lib/components/ui/tabs/index.js';
+    import * as Tooltip     from '$lib/components/ui/tooltip/index.js';
   </script>
   
   <div class='flex min-h-screen w-full flex-col bg-muted/40'>
