@@ -1,0 +1,53 @@
+{
+	"name": "runed",
+	"version": "0.0.1",
+	"private": true,
+    "description": "sveltekit, runed, shadcn-svelte, bits-ui, unplugin-icons",
+	"scripts": {
+		"dev": "vite dev",
+		"build": "vite build",
+		"preview": "vite preview"
+	},
+	"devDependencies": {
+		"@iconify-json/bi": "^1.1.23",
+		"@iconify-json/ci": "^1.1.13",
+		"@iconify-json/clarity": "^1.1.13",
+		"@iconify-json/f7": "^1.1.0",
+		"@iconify-json/gravity-ui": "^1.1.4",
+		"@iconify-json/gridicons": "^1.1.14",
+		"@iconify-json/lucide": "^1.1.204",
+		"@iconify-json/mingcute": "^1.1.18",
+		"@iconify-json/octicon": "^1.1.56",
+		"@iconify-json/ph": "^1.1.13",
+		"@iconify-json/quill": "^1.1.10",
+		"@iconify-json/radix-icons": "^1.1.14",
+		"@iconify-json/solar": "^1.1.9",
+		"@iconify-json/system-uicons": "^1.1.12",
+		"@iconify-json/uil": "^1.1.8",
+		"@sveltejs/adapter-auto": "^3.2.2",
+		"@sveltejs/kit": "^2.5.20",
+		"@sveltejs/vite-plugin-svelte": "^3.1.1",
+		"@tailwindcss/typography": "^0.5.13",
+		"autoprefixer": "^10.4.20",
+		"bits-ui": "^0.21.13",
+		"postcss": "^8.4.40",
+		"runed": "^0.15.0",
+		"shadcn-svelte": "^0.12.1",
+		"svelte": "5.0.0-next.208",
+		"tailwindcss": "^3.4.7",
+		"unplugin-icons": "^0.19.1",
+		"vite": "^5.3.5"
+	},
+	"type": "module",
+	"packageManager": "pnpm@9.6.0+sha512.38dc6fba8dba35b39340b9700112c2fe1e12f10b17134715a4aa98ccf7bb035e76fd981cf0bb384dfa98f8d6af5481c2bef2f4266a24bfa20c34eb7147ce0b5e",
+	"dependencies": {
+		"@internationalized/date": "^3.5.5",
+		"clsx": "^2.1.1",
+		"formsnap": "^1.0.1",
+		"sveltekit-superforms": "^2.16.1",
+		"tailwind-merge": "^2.4.0",
+		"tailwind-variants": "^0.2.1",
+		"valibot": "^0.37.0",
+		"zod": "^3.23.8"
+	}
+}
