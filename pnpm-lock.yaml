@@ -34,50 +34,50 @@ importers:
         version: 3.23.8
     devDependencies:
       '@iconify-json/bi':
-        specifier: ^1.1.23
-        version: 1.1.23
+        specifier: ^1.1.24
+        version: 1.1.24
       '@iconify-json/ci':
-        specifier: ^1.1.13
-        version: 1.1.13
-      '@iconify-json/clarity':
-        specifier: ^1.1.13
-        version: 1.1.13
-      '@iconify-json/f7':
-        specifier: ^1.1.0
-        version: 1.1.0
-      '@iconify-json/gravity-ui':
-        specifier: ^1.1.4
-        version: 1.1.4
-      '@iconify-json/gridicons':
         specifier: ^1.1.14
         version: 1.1.14
+      '@iconify-json/clarity':
+        specifier: ^1.1.14
+        version: 1.1.14
+      '@iconify-json/f7':
+        specifier: ^1.1.1
+        version: 1.1.1
+      '@iconify-json/gravity-ui':
+        specifier: ^1.1.5
+        version: 1.1.5
+      '@iconify-json/gridicons':
+        specifier: ^1.1.15
+        version: 1.1.15
       '@iconify-json/lucide':
-        specifier: ^1.1.204
-        version: 1.1.204
+        specifier: ^1.1.205
+        version: 1.1.205
       '@iconify-json/mingcute':
-        specifier: ^1.1.18
-        version: 1.1.18
+        specifier: ^1.1.19
+        version: 1.1.19
       '@iconify-json/octicon':
-        specifier: ^1.1.56
-        version: 1.1.56
+        specifier: ^1.1.57
+        version: 1.1.57
       '@iconify-json/ph':
-        specifier: ^1.1.13
-        version: 1.1.13
+        specifier: ^1.1.14
+        version: 1.1.14
       '@iconify-json/quill':
+        specifier: ^1.1.11
+        version: 1.1.11
+      '@iconify-json/radix-icons':
+        specifier: ^1.1.15
+        version: 1.1.15
+      '@iconify-json/solar':
         specifier: ^1.1.10
         version: 1.1.10
-      '@iconify-json/radix-icons':
-        specifier: ^1.1.14
-        version: 1.1.14
-      '@iconify-json/solar':
+      '@iconify-json/system-uicons':
+        specifier: ^1.1.13
+        version: 1.1.13
+      '@iconify-json/uil':
         specifier: ^1.1.9
         version: 1.1.9
-      '@iconify-json/system-uicons':
-        specifier: ^1.1.12
-        version: 1.1.12
-      '@iconify-json/uil':
-        specifier: ^1.1.8
-        version: 1.1.8
       '@sveltejs/adapter-auto':
         specifier: ^3.2.2
         version: 3.2.2(@sveltejs/kit@2.5.20(@sveltejs/vite-plugin-svelte@3.1.1(svelte@5.0.0-next.208)(vite@5.3.5))(svelte@5.0.0-next.208)(vite@5.3.5))
@@ -454,56 +454,56 @@ packages:
   '@hapi/topo@5.1.0':
     resolution: {integrity: sha512-foQZKJig7Ob0BMAYBfcJk8d77QtOe7Wo4ox7ff1lQYoNNAb6jwcY1ncdoy2e9wQZzvNy7ODZCYJkK8kzmcAnAg==}
 
-  '@iconify-json/bi@1.1.23':
-    resolution: {integrity: sha512-1te+g9ZzI+PU1Lv6Xerd3XPXf4DE6g3TvDL2buIopTAfrauPHyXCHPFQMrzoQVNrVPCpN3rv3vBtJMPyBwJ9IA==}
+  '@iconify-json/bi@1.1.24':
+    resolution: {integrity: sha512-K8U7s6Hm0Y06q9z41AGLLe+zuwZ7t8LNLG0EUkzZMvUMoZwZosmzFWlp2ajit1MGX+ealu4IKkMioKgjVNQ5ZQ==}
 
-  '@iconify-json/ci@1.1.13':
-    resolution: {integrity: sha512-UXKTbxmWMUy4Iz6OL2GXzy2PtzKzT5WkM7IJ9OEdq7fe210yJ535hdNaJ6TeKHsxZ0TrVgTvR2gvctAMVobBeg==}
+  '@iconify-json/ci@1.1.14':
+    resolution: {integrity: sha512-i/idwyOyz11qT6zxTDaIUDt+mCdS9LBSoiT29KOqdOy27j3AfjHFOtKRaIbPcaO3gwJXr+S7LCd0UDc1WPJTEA==}
 
-  '@iconify-json/clarity@1.1.13':
-    resolution: {integrity: sha512-VoXlDP1ZYBhFMgW1axPQEUn5UFw5jAzmxG5Oolm+Oe7n4FnhGEBS2pYoEOs4tVXaN+LOSfvNAZF59rsGZOcBcg==}
+  '@iconify-json/clarity@1.1.14':
+    resolution: {integrity: sha512-iZICEs5OZi64+IBt/Yj+DwifGLBP6je4WKJkfi2wpNILTp7EFcIIXPD3+laLlaRk3/Sfe45yJbPqK0dYw39XXg==}
 
-  '@iconify-json/f7@1.1.0':
-    resolution: {integrity: sha512-CSY3ZVPkCGBdx1FjAi/VDV3is68CMM1E8qVWUQwy3rGJeHHsfdo0M10sY4I65gC8DvcUdr+uqnRQ64R3eHC69g==}
+  '@iconify-json/f7@1.1.1':
+    resolution: {integrity: sha512-R8QxEsPmOKY9eZXgyFT+c5cQZv6RPPTJ7ft4Ef/90s9C6Bc/NfiDrUCSnoPnVWKVK1PHGWtaEvhIE3IgJVg93Q==}
 
-  '@iconify-json/gravity-ui@1.1.4':
-    resolution: {integrity: sha512-Oezyd2Ga/gRWqP/RptimLe4Xx1q1psdq4CS3gVASDzTxbUCjMOJe4hf3+ilkYZNv6L4Ib5L26s40MFTKh6Tjlg==}
+  '@iconify-json/gravity-ui@1.1.5':
+    resolution: {integrity: sha512-6mfIAuC2a5dKYSXElpBGDRjG1yjxn0W79yIdpTI+a8FlUnWKOOkmf+RNKciPA6xIOjjGl01/XFfuA6eXtO1OIg==}
 
-  '@iconify-json/gridicons@1.1.14':
-    resolution: {integrity: sha512-N5AghmFtUPvbvts3Yu/lDJxUq00rULo/oyVhJepEpILzN9CJVk2VY8MLLq8mdJWLpLFnpC9VyeLjOaeEqwkOTg==}
+  '@iconify-json/gridicons@1.1.15':
+    resolution: {integrity: sha512-6pdTeYjZJI/FIPRFJBMWbOm6MlU9hGezY0vDE23Xv+GyMm0fykzItMnI1OmzZj+MnHuLX3yK8I1nGOK/9foCEQ==}
 
-  '@iconify-json/lucide@1.1.204':
-    resolution: {integrity: sha512-yu85ErrSULW+4/glQjfa+RhwNVq/N55nxQJMUSo2d/gojSr6DdyaoI/l/o6YkPrG0UEwvnP6nWDD8YEJSThVrA==}
+  '@iconify-json/lucide@1.1.205':
+    resolution: {integrity: sha512-PTA7UXYCRETE7DneGSW5XbUKCmyNYHp2KuM623NgTK3IjqdRbTw0dm2YPhsSZpaRswvHFFi71JtbKPHQTLfX+Q==}
 
-  '@iconify-json/mingcute@1.1.18':
-    resolution: {integrity: sha512-P5szgBqUMv8XVjZpbVT5eG1XtqpRPgfvZWxOR/uSqBwmVroHpxN5+nbLTHj9HJxL16msMsNbA294b69MNEQzaw==}
+  '@iconify-json/mingcute@1.1.19':
+    resolution: {integrity: sha512-O7h8mEQPUBfpsMagPI7ab/w5JzpijMMYmlabD43hyXyjh2LBfz+FlC+AcgSjQERx9+zb1dECb0FA34L5+VKs/Q==}
 
-  '@iconify-json/octicon@1.1.56':
-    resolution: {integrity: sha512-fCSFHruJQwTuD7E95Tgm1cr/PQJgMt6wgS01z0VvwFmxbaqdC56f6UkZ16JUQ0tYGHpgkd8shsB+c+nYo0NVPg==}
+  '@iconify-json/octicon@1.1.57':
+    resolution: {integrity: sha512-ruzC4/zCOHoYP7nY9aGg7Pc8K9l+w1m03kHfhJgJwqHwqcLJWK8Bm+ZoINLupvQbB6GX5q11LATSX+0U/aOUpA==}
 
-  '@iconify-json/ph@1.1.13':
-    resolution: {integrity: sha512-xtM4JJ63HCKj09WRqrBswXiHrpliBlqboWSZH8odcmqYXbvIFceU9/Til4V+MQr6+MoUC+KB72cxhky2+A6r/g==}
+  '@iconify-json/ph@1.1.14':
+    resolution: {integrity: sha512-s1hZVaxIpl40qLEhjqPRMcZl4A3M4fZ+77Fi+VuOb/eKkIHIMutAoBHIR+0a3l7psUweZQGj9hSyL2P5CIj6qA==}
 
-  '@iconify-json/quill@1.1.10':
-    resolution: {integrity: sha512-6QVP1pHVGTNcmFHart8SozxjmAhaJTpQ6xoJS7DBqa/wuQgFPjTBblrR/6GEe2vrphQtuYXnT/YKWKLlSlHWHw==}
+  '@iconify-json/quill@1.1.11':
+    resolution: {integrity: sha512-EpcAI0wSpQ+U9+VEqLjgUjubcg5gsuCJEr2LgMl8TC17Wz2c3IWaD+kdUUgrY3plYl6JHtFK6RPs222QtTJ7BA==}
 
-  '@iconify-json/radix-icons@1.1.14':
-    resolution: {integrity: sha512-AYBOyhnJ2hXlg3aIn8Ekphrr7zHRyz1l8x6bidM3PDUuTL+aRt8r6cpCvN3GeuTHy2JOhmihbVJRF0bt2FF7Ag==}
+  '@iconify-json/radix-icons@1.1.15':
+    resolution: {integrity: sha512-vdscxBpE5bIAJcecKhkbkR1/3qwQCR/mqobUDtn+WbpjiVtnaz+naoPRS9nzLT9cIBa4HQ9tDQVpUAWiH0s+Mg==}
 
-  '@iconify-json/solar@1.1.9':
-    resolution: {integrity: sha512-BcWzZqA02BiQduYizqU/J4v4RNs0MkjZUGpMbejpozH8YQSt3+S/LfV6zfVRonx/2DhXTVSqiLa1abDRAZtojQ==}
+  '@iconify-json/solar@1.1.10':
+    resolution: {integrity: sha512-g+p9GbYrzfLkbcbs+TwBr42YvUeRgNUbVv0ZRi464MvlTWN9B/ekgFZszbIBqgjQT9GjfToQQLP6GOmDPDhLNw==}
 
-  '@iconify-json/system-uicons@1.1.12':
-    resolution: {integrity: sha512-W3laFVxVNG4qmS8tsSMt2kQMVK+6i1hZOxZTxSaWQWRnmki4qp9rGHnMfRhxBqZ7SQoIrG3toodooK+y4qoBcQ==}
+  '@iconify-json/system-uicons@1.1.13':
+    resolution: {integrity: sha512-CufoMT3vWS7wTB6gWWi+uIGCH3Hodl6cdcJyEcAKTjAEkZf/tr16uOnrngcPmKl7Hq4GrvFXyLmbYfuANdh0Kg==}
 
-  '@iconify-json/uil@1.1.8':
-    resolution: {integrity: sha512-zkWB8XImzb1gfi5kN9xAfDXF5OqzxbKvtZq9xRUplEWEJYOoDB1RpbbQpCwJQ41j8Nf0ag0LFJr++qhYmvxftQ==}
+  '@iconify-json/uil@1.1.9':
+    resolution: {integrity: sha512-NZkqwKfG2TsJClxzVjYi2a3Mam/3ZrNjzxHNniqqwrSiAQ6QYx9VlFmazQUXQF5xu9v1z1wIeQo3vYClvanrnw==}
 
   '@iconify/types@2.0.0':
     resolution: {integrity: sha512-+wluvCrRhXrhyOmRDJ3q8mux9JkKy5SJ/v8ol2tu4FVjyYvtEzkc/3pK15ET6RKg4b4w4BmTk1+gsCUhf21Ykg==}
 
-  '@iconify/utils@2.1.29':
-    resolution: {integrity: sha512-wCcTsmlJvTi1VWBgcJ7HeuWlh7gLGWY7L9HmbgMfjOfsoo7DADemB2Nqnrw1KvCdEAxLL5wTMBAOP5BesFrtng==}
+  '@iconify/utils@2.1.30':
+    resolution: {integrity: sha512-bY0IO5xLOlbzJBnjWLxknp6Sss3yla03sVY9VeUz9nT6dbc+EGKlLfCt+6uytJnWm5CUvTF/BNotsLWF7kI61A==}
 
   '@internationalized/date@3.5.5':
     resolution: {integrity: sha512-H+CfYvOZ0LTJeeLOqm19E3uj/4YjrmOFtBufDHPfvtI80hFAMqtrp7oCACpe4Cil5l8S0Qu/9dYfZc/5lY8WQQ==}
@@ -805,8 +805,8 @@ packages:
     resolution: {integrity: sha512-8WB3Jcas3swSvjIeA2yvCJ+Miyz5l1ZmB6HFb9R1317dt9LCQoswg/BGrmAmkWVEszSrrg4RwmO46qIm2OEnSA==}
     engines: {node: '>=16'}
 
-  caniuse-lite@1.0.30001647:
-    resolution: {integrity: sha512-n83xdNiyeNcHpzWY+1aFbqCK7LuLfBricc4+alSQL2Xb6OR3XpnQAmlDG+pQcdTfiHRuLcQ96VOfrPSGiNJYSg==}
+  caniuse-lite@1.0.30001649:
+    resolution: {integrity: sha512-fJegqZZ0ZX8HOWr6rcafGr72+xcgJKI9oWfDW5DrD7ExUtgZC7a7R7ZYmZqplh7XDocFdGeIFn7roAxhOeYrPQ==}
 
   chalk@5.2.0:
     resolution: {integrity: sha512-ree3Gqw/nazQAPuJJEy+avdl7QfZMcUvmHIKgEZkGL+xOBzRvup5Hxo6LHuMceSxOabuJLJm5Yp/92R9eMmMvA==}
@@ -1874,69 +1874,69 @@ snapshots:
       '@hapi/hoek': 9.3.0
     optional: true
 
-  '@iconify-json/bi@1.1.23':
+  '@iconify-json/bi@1.1.24':
     dependencies:
       '@iconify/types': 2.0.0
 
-  '@iconify-json/ci@1.1.13':
+  '@iconify-json/ci@1.1.14':
     dependencies:
       '@iconify/types': 2.0.0
 
-  '@iconify-json/clarity@1.1.13':
+  '@iconify-json/clarity@1.1.14':
     dependencies:
       '@iconify/types': 2.0.0
 
-  '@iconify-json/f7@1.1.0':
+  '@iconify-json/f7@1.1.1':
     dependencies:
       '@iconify/types': 2.0.0
 
-  '@iconify-json/gravity-ui@1.1.4':
+  '@iconify-json/gravity-ui@1.1.5':
     dependencies:
       '@iconify/types': 2.0.0
 
-  '@iconify-json/gridicons@1.1.14':
+  '@iconify-json/gridicons@1.1.15':
     dependencies:
       '@iconify/types': 2.0.0
 
-  '@iconify-json/lucide@1.1.204':
+  '@iconify-json/lucide@1.1.205':
     dependencies:
       '@iconify/types': 2.0.0
 
-  '@iconify-json/mingcute@1.1.18':
+  '@iconify-json/mingcute@1.1.19':
     dependencies:
       '@iconify/types': 2.0.0
 
-  '@iconify-json/octicon@1.1.56':
+  '@iconify-json/octicon@1.1.57':
     dependencies:
       '@iconify/types': 2.0.0
 
-  '@iconify-json/ph@1.1.13':
+  '@iconify-json/ph@1.1.14':
     dependencies:
       '@iconify/types': 2.0.0
 
-  '@iconify-json/quill@1.1.10':
+  '@iconify-json/quill@1.1.11':
     dependencies:
       '@iconify/types': 2.0.0
 
-  '@iconify-json/radix-icons@1.1.14':
+  '@iconify-json/radix-icons@1.1.15':
     dependencies:
       '@iconify/types': 2.0.0
 
-  '@iconify-json/solar@1.1.9':
+  '@iconify-json/solar@1.1.10':
     dependencies:
       '@iconify/types': 2.0.0
 
-  '@iconify-json/system-uicons@1.1.12':
+  '@iconify-json/system-uicons@1.1.13':
     dependencies:
       '@iconify/types': 2.0.0
 
-  '@iconify-json/uil@1.1.8':
+  '@iconify-json/uil@1.1.9':
     dependencies:
       '@iconify/types': 2.0.0
 
   '@iconify/types@2.0.0': {}
 
-  '@iconify/utils@2.1.29':
+  '@iconify/utils@2.1.30':
     dependencies:
       '@antfu/install-pkg': 0.1.1
       '@antfu/utils': 0.7.10
@@ -2201,7 +2201,7 @@ snapshots:
   autoprefixer@10.4.20(postcss@8.4.40):
     dependencies:
       browserslist: 4.23.3
-      caniuse-lite: 1.0.30001647
+      caniuse-lite: 1.0.30001649
       fraction.js: 4.3.7
       normalize-range: 0.1.2
       picocolors: 1.0.1
@@ -2231,7 +2231,7 @@ snapshots:
 
   browserslist@4.23.3:
     dependencies:
-      caniuse-lite: 1.0.30001647
+      caniuse-lite: 1.0.30001649
       electron-to-chromium: 1.5.4
       node-releases: 2.0.18
       update-browserslist-db: 1.1.0(browserslist@4.23.3)
@@ -2246,7 +2246,7 @@ snapshots:
   camelcase@8.0.0:
     optional: true
 
-  caniuse-lite@1.0.30001647: {}
+  caniuse-lite@1.0.30001649: {}
 
   chalk@5.2.0: {}
 
@@ -3015,7 +3015,7 @@ snapshots:
     dependencies:
       '@antfu/install-pkg': 0.3.3
       '@antfu/utils': 0.7.10
-      '@iconify/utils': 2.1.29
+      '@iconify/utils': 2.1.30
       debug: 4.3.6
       kolorist: 1.8.0
       local-pkg: 0.5.0
