@@ -13,7 +13,9 @@
 	)}
 	bind:value
 	{readonly}
+    on:blur={()=> value=''}
 	on:blur
+    on:change ={e=>e.target.blur()}
 	on:change
 	on:click
 	on:focus
