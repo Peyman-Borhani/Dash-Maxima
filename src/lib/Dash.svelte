@@ -215,9 +215,10 @@
               size='icon'
               class='overflow-hidden rounded-full'
               builders={[builder]}
-            >
+            >                
+            <!-- /images/placeholder-user.jpg' '~icons/lucide/users' -->
               <img
-                src='/images/placeholder-user.jpg'
+                src='https://avatars.githubusercontent.com/u/26680960'
                 width={36}
                 height={36}
                 alt='Avatar'
