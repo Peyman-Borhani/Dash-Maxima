@@ -1,7 +1,7 @@
 <script>
 	import { Dialog as SheetPrimitive } from "bits-ui";
-	import X from "lucide-svelte/icons/x";
-	import { fly } from "svelte/transition";
+	import X        from "~icons/lucide/x";
+	import { fly }  from "svelte/transition";
 	import { SheetOverlay, SheetPortal, sheetTransitions, sheetVariants } from "./index.js";
 	import { cn } from "$lib/utils.js";
 	let className = undefined;

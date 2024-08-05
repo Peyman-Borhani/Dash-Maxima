@@ -1,6 +1,6 @@
 <script>
-	import Ellipsis from "lucide-svelte/icons/ellipsis";
-	import { cn } from "$lib/utils.js";
+	import Ellipsis from  '~icons/lucide/ellipsis'; //"lucide-svelte/icons/";
+	import { cn }   from  "$lib/utils.js";
 	export let el = undefined;
 	let className = undefined;
 	export { className as class };
