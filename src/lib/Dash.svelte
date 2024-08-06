@@ -43,23 +43,23 @@
   
   <div class='flex min-h-screen w-full flex-col bg-muted/40'>
     <aside class='fixed inset-y-0 left-0 z-10 hidden w-14 flex-col border-r bg-background sm:flex'>
-      <nav class='flex flex-col items-center gap-4 px-2 sm:py-5'>
+      <nav class='flex flex-col items-center gap-4 px-2 sm:py-5 group-hover:scale-125'>
         <a
           href='##'
-          class='group flex h-9 w-9 shrink-0 items-center justify-center gap-2 rounded-full bg-primary text-lg font-semibold text-primary-foreground md:h-8 md:w-8 md:text-base'
+          class='flex h-9 w-9  group shrink-0 items-center justify-center gap-2 rounded-full bg-primary text-lg font-semibold text-primary-foreground md:h-8 md:w-8 md:text-base'
         >
-          <Package2 class='h-4 w-4 transition-all group-hover:scale-110' />
+          <Package2 class='h-4 w-4  group-hover:scale-125  transition-all duration-300' />
           <span class='sr-only'>Acme Inc</span>
         </a>
         <Tooltip.Root>
           <Tooltip.Trigger asChild let:builder>
             <a
               href='##'
-              class='flex h-9 w-9 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:text-foreground md:h-8 md:w-8'
+              class='group flex h-9 w-9 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:text-foreground md:h-8 md:w-8'
               use:builder.action
               {...builder}
             >
-              <Home class='h-5 w-5' />
+              <Home class='h-5 w-5 group-hover:scale-125  transition-all duration-300' />
               <span class='sr-only'>Dashboard</span>
             </a>
           </Tooltip.Trigger>
@@ -69,11 +69,11 @@
           <Tooltip.Trigger asChild let:builder>
             <a
               href='##'
-              class='flex h-9 w-9 items-center justify-center rounded-lg bg-accent text-accent-foreground transition-colors hover:text-foreground md:h-8 md:w-8'
+              class='flex h-9 w-9  group items-center justify-center rounded-lg bg-accent text-accent-foreground transition-colors hover:text-foreground md:h-8 md:w-8'
               use:builder.action
               {...builder}
             >
-              <ShoppingCart class='h-5 w-5' />
+              <ShoppingCart class='h-5 w-5  group-hover:scale-125  transition-all duration-300' />
               <span class='sr-only'>Orders</span>
             </a>
           </Tooltip.Trigger>
@@ -83,11 +83,11 @@
           <Tooltip.Trigger asChild let:builder>
             <a
               href='##'
-              class='flex h-9 w-9 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:text-foreground md:h-8 md:w-8'
+              class='flex h-9 w-9  group items-center justify-center rounded-lg text-muted-foreground transition-colors hover:text-foreground md:h-8 md:w-8'
               use:builder.action
               {...builder}
             >
-              <Package class='h-5 w-5' />
+              <Package class='h-5 w-5  group-hover:scale-125  transition-all duration-300' />
               <span class='sr-only'>Products</span>
             </a>
           </Tooltip.Trigger>
@@ -97,25 +97,44 @@
           <Tooltip.Trigger asChild let:builder>
             <a
               href='##'
-              class='flex h-9 w-9 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:text-foreground md:h-8 md:w-8'
+              class='flex h-9 w-9  group items-center justify-center rounded-lg text-muted-foreground transition-colors hover:text-foreground md:h-8 md:w-8'
               use:builder.action
               {...builder}
             >
-              <UsersRound class='h-5 w-5' />
+              <UsersRound class='h-5 w-5  group-hover:scale-125  transition-all duration-300' />
               <span class='sr-only'>Customers</span>
             </a>
           </Tooltip.Trigger>
           <Tooltip.Content side='right'>Customers</Tooltip.Content>
         </Tooltip.Root>
+        
+        <Tooltip.Root>
+        <Tooltip.Trigger asChild let:builder>
+            <a
+              href='##'
+              class='flex h-9 w-9  group items-center justify-center rounded-lg text-cyan-300 hover:text-foreground text-xl md:h-8 md:w-8'
+              use:builder.action
+              {...builder}
+            >
+              <p    class='group-hover:scale-125  transition-all duration-300' 
+                    style='text-shadow: 0 0 1ch #def;'>
+                    {activeElement.current?.tagName[0]}
+              </p>
+              <span style='color: red !important;' class='sr-only'>{activeElement?.nodeName}</span>
+            </a>
+          </Tooltip.Trigger>
+          <Tooltip.Content side='right'>{inp_Elm}</Tooltip.Content>
+        </Tooltip.Root>
+
         <Tooltip.Root>
           <Tooltip.Trigger asChild let:builder>
             <a
               href='##'
-              class='flex h-9 w-9 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:text-foreground md:h-8 md:w-8'
+              class='flex h-9 w-9  group items-center justify-center rounded-lg text-muted-foreground transition-colors hover:text-foreground md:h-8 md:w-8'
               use:builder.action
               {...builder}
             >
-              <LineChart class='h-5 w-5' />
+              <LineChart class='h-5 w-5  group-hover:scale-125  transition-all duration-300' />
               <span class='sr-only'>Analytics</span>
             </a>
           </Tooltip.Trigger>
@@ -127,11 +146,11 @@
           <Tooltip.Trigger asChild let:builder>
             <a
               href='##'
-              class='flex h-9 w-9 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:text-foreground md:h-8 md:w-8'
+              class='flex h-9 w-9  group items-center justify-center rounded-lg text-muted-foreground transition-colors hover:text-foreground md:h-8 md:w-8'
               use:builder.action
               {...builder}
             >
-              <Settings class='h-5 w-5' />
+              <Settings class='h-5 w-5  group-hover:scale-125  transition-all duration-300' />
               <span class='sr-only'>Settings</span>
             </a>
           </Tooltip.Trigger>
@@ -154,9 +173,9 @@
             <nav class='grid gap-6 text-lg font-medium'>
               <a
                 href='##'
-                class='group flex h-10 w-10 shrink-0 items-center justify-center gap-2 rounded-full bg-primary text-lg font-semibold text-primary-foreground md:text-base'
+                class='flex h-10 w-10 group shrink-0 items-center justify-center gap-2 rounded-full bg-primary text-lg font-semibold text-primary-foreground md:text-base'
               >
-                <Package2 class='h-5 w-5 transition-all group-hover:scale-110' />
+                <Package2 class='h-5 w-5 transition-all  group-hover:scale-110' />
                 <span class='sr-only'>Acme Inc</span>
               </a>
               <a
