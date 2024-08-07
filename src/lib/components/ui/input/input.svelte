@@ -23,6 +23,7 @@
 	on:focusout
 	on:keydown
 	on:keypress
+	on:keyup ={e=> (e.key==='Escape')? e.target.blur() :'' }
 	on:keyup
 	on:mouseover
 	on:mouseenter
