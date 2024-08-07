@@ -1,12 +1,16 @@
-## a set of different ui related testing for projects.
+## A Dashboard Showcase + Hot Libs template set on Svelte5 Runes  
+- To test and compare various UI Libs 
+- Made them work together with svelte 5 runes.  
+- Libs: Shadcn-svelte - BitsUI - Formsnap - Unplugin-icons - Runed.  
+- Compared to Shadcn Dashboard: UI, design, functions, reusabile and interactive.  
+- A preview free to use showcase, improved compared to original version, yet a custom complete solution can be better.  
+- You may order specific, reusable, and interactive components for your use-case, connecting to your business functions and Data.
+---
 
-- To test and compare different UIs.
-- To see how they work in a unified matter in svelte 5
-- Runed - Shadcn-svelte - BitsUI - Formsnap - Unplugin-icons
+## Creating the project
 
-## Creating a project
+Download the repo, setup or modify as needed (Shadcn, icons...), then: `pnpm install` - `pnpm dev`
 
-Download the repo, do the settings and `pnpm install`
 That's it, the rest is Svelte.dev guide...
 
 ```bash
