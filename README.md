@@ -1,18 +1,28 @@
-## A Dashboard Showcase + Hot Libs template set on Svelte5 Runes  
-- To test and compare various UI Libs 
-- Made them work together with svelte 5 runes.  
-- Libs: Shadcn-svelte - BitsUI - Formsnap - Unplugin-icons - Runed.  
+## A Dashboard Showcase using some hot Libs template using Svelte5 Runes  
+
+- Setup various top Libs to work together on svelte 5.  
+- Libs: Shadcn-svelte - BitsUI - Formsnap - Unplugin-icons - Runed.
+- A ready template to reuse, save time on setup, config...
+- Replaced icons lib: lucid-svelte with unplugin-icons.
+- Update examples. improvements + new icons + runes + runed.  
+  
 - Compared to Shadcn Dashboard: UI, design, functions, reusabile and interactive.  
-- A preview free to use showcase, improved compared to original version, yet a custom complete solution can be better.  
-- You may order specific, reusable, and interactive components for your use-case, connecting to your business functions and Data.
+- A Dashboard sample showcase: this preview version improves over the original example.  
+- Extend to connect it to your business data/functions for an interactive dynamic ui panel. (or request my services to do it for you...)  
 ---
 
-## Creating the project
+## Project Setup
 
-Download the repo, setup or modify as needed (Shadcn, icons...), then: `pnpm install` - `pnpm dev`
+Download the repo, modify config files if needed, (add/remove extras..)  then:
 
-That's it, the rest is Svelte.dev guide...
+```bash
+pnpm install
+pnpm run dev
+```
 
+For more details and customization check specific library docs(Shadcn-svelte,...) That's it, the rest is Svelte.dev guide...  
+
+## Create a new svelte project
 ```bash
 # create a new project in the current directory
 pnpm create svelte@latest
