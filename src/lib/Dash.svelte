@@ -1,20 +1,22 @@
 <script>
-  import  ChevronLeft     from  '~icons/lucide/chevron-left';
-  import  ChevronRight    from  '~icons/lucide/chevron-right';
-  import  Copy            from  '~icons/lucide/copy';
-  import  CreditCard      from  '~icons/lucide/credit-card';
-  import  File            from  '~icons/lucide/file';
-  import  Home            from  '~icons/lucide/home';
-  import  LineChart       from  '~icons/lucide/line-chart';
-  import  ListFilter      from  '~icons/lucide/list-filter';
-  import  Package         from  '~icons/lucide/package';
-  import  Package2        from  '~icons/lucide/package2';
-  import  PanelLeft       from  '~icons/lucide/panel-left';
-  import  Search          from  '~icons/lucide/search';
-  import  Settings        from  '~icons/lucide/settings';
-  import  ShoppingCart    from  '~icons/lucide/shopping-cart';
-  import  Truck           from  '~icons/lucide/truck';
-  import  UsersRound      from  '~icons/lucide/users-round';
+  import  ChevronLeft   from  '~icons/lucide/chevron-left';
+  import  ChevronRight  from  '~icons/lucide/chevron-right';
+  import  Copy          from  '~icons/lucide/copy';
+  import  CreditCard    from  '~icons/lucide/credit-card';
+  import  File          from  '~icons/lucide/file';
+  import  Home          from  '~icons/lucide/home';
+  import  LineChart     from  '~icons/lucide/line-chart';
+  import  ListFilter    from  '~icons/lucide/list-filter';
+  import  Package       from  '~icons/lucide/package';
+  import  Package2      from  '~icons/lucide/package2';
+  import  PanelLeft     from  '~icons/lucide/panel-left';
+  import  Search        from  '~icons/lucide/search';
+  import  Settings      from  '~icons/lucide/settings';
+  import  ShoppingCart  from  '~icons/lucide/shopping-cart';
+  import  Truck         from  '~icons/lucide/truck';
+  import  UsersRound    from  '~icons/lucide/users-round';
+  import  Sun           from  '~icons/lucide/sun';
+  import  Moon          from  '~icons/lucide/moon';
   import  EllipsisVertical  from  '~icons/lucide/ellipsis-vertical';
   import  {activeElement}   from  'runed';
    
@@ -31,6 +33,7 @@
   import  * as Sheet    from '$lib/components/ui/sheet/index.js';
   import  * as Table    from '$lib/components/ui/table/index.js';
   import  * as Tabs     from '$lib/components/ui/tabs/index.js';
+  import  {setMode, mode, systemPrefersMode}  from  'mode-watcher';
 
     $effect(()=> console.log(activeElement.current.nodeName))
     let inp_Elm =$derived( (activeElement.current?.nodeName==='INPUT'? 'Search...' 
@@ -38,7 +41,9 @@
                           : 'Search... or hit interactive elements'
     ) );
     let glow    =$derived(activeElement.current?.nodeName==='BODY'? ''  :'shadow-cyan-200');
-  </script>
+    setMode( $systemPrefersMode !== 'light'?  'dark'  :'light' );
+
+</script>
   
   
   <div class='flex min-h-screen w-full flex-col bg-muted/40'>
