@@ -9,6 +9,7 @@
 - Compared to Shadcn Dashboard: UI, design, functions, reusabile and interactive.  
 - A Dashboard sample showcase: this preview version improves over the original example.  
 - Extend to connect it to your business data/functions for an interactive dynamic ui panel. (or request my services to do it for you...)  
+
 ---
 
 ## Project Setup
