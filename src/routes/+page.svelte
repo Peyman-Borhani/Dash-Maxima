@@ -1,8 +1,5 @@
 <script>
-
-import  {Accordion}     from  'bits-ui';
-import  Dash            from  '$lib/Dash.svelte';
-import  {Button}        from  '$lib/components/ui/button';
+        import  Dash            from  '$lib/Dash.svelte';
 </script>
 
 <Dash />
