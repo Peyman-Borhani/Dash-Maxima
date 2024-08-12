@@ -15,7 +15,7 @@
 		"@iconify-json/f7": "^1.1.1",
 		"@iconify-json/gravity-ui": "^1.1.5",
 		"@iconify-json/gridicons": "^1.1.15",
-		"@iconify-json/lucide": "^1.1.205",
+		"@iconify-json/lucide": "^1.1.206",
 		"@iconify-json/mingcute": "^1.1.19",
 		"@iconify-json/octicon": "^1.1.57",
 		"@iconify-json/ph": "^1.1.14",
@@ -33,7 +33,7 @@
 		"postcss": "^8.4.41",
 		"runed": "^0.15.0",
 		"shadcn-svelte": "^0.12.1",
-		"svelte": "5.0.0-next.212",
+		"svelte": "5.0.0-next.216",
 		"tailwindcss": "^3.4.9",
 		"unplugin-icons": "^0.19.2",
 		"vite": "^5.4.0"
@@ -46,7 +46,7 @@
 		"formsnap": "^1.0.1",
 		"mode-watcher": "^0.4.1",
 		"sveltekit-superforms": "^2.16.1",
-		"tailwind-merge": "^2.4.0",
+		"tailwind-merge": "^2.5.0",
 		"tailwind-variants": "^0.2.1",
 		"valibot": "^0.37.0",
 		"zod": "^3.23.8"
