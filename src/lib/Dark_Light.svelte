@@ -5,16 +5,16 @@
   let Thm_Hov = false;
 </script>
 
-<button  class='flex rounded-full bg-transparent text-2xl select-none z-2 h-10 w-10 transition-all duration-1000'
+<button  class='flex rounded-full bg-transparent text-xl select-none z-2 h-10 w-10 transition-all duration-800 hover:scale-150'
 
         onclick={()=> setMode($mode==='light'? 'dark' :'light')}
         onpointerenter ={_=> Thm_Hov= true} 
         onpointerleave ={_=> Thm_Hov= false}
 >   
   
-        <span   class ='absolute  place-self-center font-semibold font-serif transition-all duration-700 -translate-x-4' style='line-height: 1.6ch; letter-spacing: -6pt;'
+        <span   class ='flex absolute  place-self-center font-semibold font-serif' style='line-height: 12pt; letter-spacing: -6pt;  translate: -1ch 0'
               >   
-            {#if Thm_Hov} 🌜✨<br>🌞     
+            {#if Thm_Hov}  <span > 🌜✨<br>🌞 </span> 
                             <!--(  self-end -rotate-90 🙂✨🔆🌙 -->
             {:else if  $mode==='light'}  🌞
             {:else                    }  🌜✨     
