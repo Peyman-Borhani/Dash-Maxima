@@ -5,7 +5,6 @@
 
         let  {inp_Elm,  activeElm}    = $props();
         let  glow  = $derived(activeElm==='BODY'? ''  :'shadow-cyan-200');
-        $effect(()=>console.log(activeElm.current.nodeName))
 </script>
 
 
