@@ -1,6 +1,6 @@
 {
 	"name": "runed",
-	"version": "0.0.1",
+	"version": "0.0.5",
 	"private": true,
 	"description": "sveltekit, runed, shadcn-svelte, bits-ui, unplugin-icons",
 	"scripts": {
@@ -25,6 +25,7 @@
 		"@iconify-json/system-uicons": "^1.1.13",
 		"@iconify-json/uil": "^1.1.9",
 		"@sveltejs/adapter-auto": "^3.2.4",
+		"@sveltejs/adapter-static": "^3.0.4",
 		"@sveltejs/kit": "^2.5.22",
 		"@sveltejs/vite-plugin-svelte": "^3.1.1",
 		"@tailwindcss/typography": "^0.5.14",
