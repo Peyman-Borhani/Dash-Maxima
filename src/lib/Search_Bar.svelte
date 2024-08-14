@@ -14,7 +14,7 @@
 </button>
 
 <div  class ='fixed  inline-grid  right-[14vw]  md:grow-0  h-15  min-w-fit 
-              select-none  drop-shadow-lg  shadow-cyan-700'
+              z-50  select-none  drop-shadow-lg  shadow-cyan-700'
 >
   <Input  type  ='search'
           style ={view? 'display: inline-grid; box-shadow: 0 0 1.7ch #306'  : 'display:none;'}
