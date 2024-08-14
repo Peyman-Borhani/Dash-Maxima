@@ -431,14 +431,15 @@ let  inp_Elm =$derived( (activeElement.current?.nodeName==='INPUT'? 'Search...'
           <Card.Root class='overflow-hidden'>
             <Card.Header class='flex flex-row items-start bg-muted/50'>
               <div class='grid gap-0.5'>
-                <Card.Title class='group flex items-center gap-2 text-lg'>
-                  Order Oe31b70H
+                <Card.Title  class='group flex items-center gap-2 text-lg'
+                             onclick = {e=> navigator.clipboard.writeText(e.currentTarget.childNodes[1].textContent)}
+                > Order Oe31b70H
                   <Button
-                    size='icon'
-                    variant='outline'
-                    class='h-6 w-6 opacity-0 transition-opacity group-hover:opacity-100'
+                        size    ='icon'
+                        variant ='outline'
+                        class   ='h-6 w-6 opacity-0 transition-opacity group-hover:opacity-100'
                   >
-                    <Copy class='h-3 w-3' />
+                    <Copy class='size-3 scale-y-125' />
                     <span class='sr-only'>Copy Order ID</span>
                   </Button>
                 </Card.Title>
