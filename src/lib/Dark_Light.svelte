@@ -12,7 +12,7 @@
         onpointerleave ={_=> Thm_Hov= false}
 >   
   
-        <span   class ='flex absolute  place-self-center font-semibold font-serif' style='line-height: 12pt; letter-spacing: -6pt;  translate: -1ch 0'
+        <span   class ='absolute  place-self-center font-semibold font-serif' style='line-height: 12pt; letter-spacing: -6pt;  translate: -1ch 0'
               >   
             {#if Thm_Hov}  <span > 🌜✨<br>🌞 </span> 
                             <!--(  self-end -rotate-90 🙂✨🔆🌙 -->
