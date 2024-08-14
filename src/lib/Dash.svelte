@@ -114,14 +114,14 @@ let  inp_Elm =$derived( (activeElement.current?.nodeName==='INPUT'? 'Search...'
           </Breadcrumb.List>
         </Breadcrumb.Root>
         
-        <Search_Bar  {inp_Elm}  {activeElement} />
+        <Search_Bar  {inp_Elm} />
         <Dark_Light />
 
-        <DropdownMenu.Root>
+        <DropdownMenu.Root  class='size-14'>
           <DropdownMenu.Trigger asChild let:builder>
             <Button
               size='icon'
-              class='w-14 h-12 overflow-hidden rounded-full transition-all duration-300 hover:scale-150  border-black border-2 select-none shadow-xl shadow-blue-800'
+              class='size-14 lg:h-12 overflow-hidden rounded-full transition-all duration-300 hover:scale-150  border-black border-2 select-none shadow-xl shadow-blue-800'
               builders={[builder]}
             >                
             <!-- /images/placeholder-user.jpg' '~icons/lucide/users' -->
