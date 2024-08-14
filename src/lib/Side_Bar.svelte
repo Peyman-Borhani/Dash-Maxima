@@ -6,6 +6,7 @@
     import  UsersRound    from  '~icons/lucide/users-round';
     import  Settings      from  '~icons/lucide/settings';
     import  ShoppingCart  from  '~icons/lucide/shopping-cart';
+    import  Tags          from  '~icons/lucide/tags';
 
     import  * as Tooltip  from '$lib/components/ui/tooltip/index.js';
     import  {activeElement}   from  'runed';
@@ -88,15 +89,17 @@
             use:builder.action
             {...builder}
           >
-            <p    class='group-hover:scale-150  transition-all duration-300 font-sans' 
-                  style='text-shadow: 0 0 1ch #def;  letter-spacing: -2pt'>
-                  EL
-            </p>
+            <Tags  class='group-hover:scale-150  transition-all duration-300 font-sans' 
+                   style='text-shadow: 0 0 1ch #def;  letter-spacing: -2pt'
+            /> 
+          <span  class='sr-only'>Tag-label/Element focused</span>
           </a>
         </Tooltip.Trigger>
-        <Tooltip.Content side='right' class='ml-2 p-4 text-md font-semibold text-violet-600'> Tag-name: 
-            <span class='font-bold text-lg text-green-500'> {activeElement.current?.nodeName} </span> &nbsp - &nbsp Item: 
-            <span class='font-bold text-lg italic text-green-500'> {inp_Elm} </span>
+        <Tooltip.Content side='right' class='ml-2 p-4 italic text-md font-semibold text-violet-600'>
+            Tag-name: 
+            <span class='text-lg text-green-500'> {activeElement.current?.nodeName} </span>
+            &nbsp - &nbsp Item: 
+            <span class='text-lg  text-green-500'> {inp_Elm} </span>
         </Tooltip.Content>
       </Tooltip.Root>
 
