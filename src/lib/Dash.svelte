@@ -44,44 +44,57 @@ let  inp_Elm =$derived( (activeElement.current?.nodeName==='INPUT'? 'Search...'
 </script>
   
 <div  class='flex min-h-screen w-full flex-col bg-muted/40'>
+  <Side_Bar {inp_Elm} />
+
+  <div class='flex top-0 flex-col sm:gap-4 sm:py-4 sm:pl-14 h-80 rounded-b-md'>
+    <header
+        class='flex z-30 items-center center gap-4 border-b bg-background py-2 px-4 sm:static sm:h-auto sm:border-0 sm:bg-transparent sm:px-6'
+    >
+      <Sheet.Root>
+        <Sheet.Trigger asChild let:builder>
+          <Button builders={[builder]} size='icon' variant='outline' class='sm:hidden'>
+            <PanelLeft class='h-5 w-5' />
+            <span class='sr-only'>Toggle Menu</span>
+          </Button>
+        </Sheet.Trigger>
+        <Sheet.Content side='left' class='sm:max-w-xs'>
+          <nav  class='grid gap-6 text-lg font-medium'>
+            <a  href='##'
                 class='flex h-10 w-10 group shrink-0 items-center justify-center gap-2 rounded-full bg-primary text-lg font-semibold text-primary-foreground md:text-base'
-              >
-                <Package2 class='h-5 w-5 transition-all  group-hover:scale-110' />
-                <span class='sr-only'>Acme Inc</span>
-              </a>
-              <a
-                href='##'
+            >
+              <Package2 class='h-5 w-5 transition-all  group-hover:scale-150' />
+              <span class='sr-only'>Acme Inc</span>
+            </a>
+            <a  href='##'
                 class='flex items-center gap-4 px-2.5 text-muted-foreground hover:text-foreground'
-              >
+            >
                 <Home class='h-5 w-5' />
                 Dashboard
-              </a>
-              <a href='##' class='flex items-center gap-4 px-2.5 text-foreground'>
-                <ShoppingCart class='h-5 w-5' />
+            </a>
+            <a  href='##'  
+                class='flex items-center gap-4 px-2.5 text-foreground'>
+            <ShoppingCart class='h-5 w-5' />
                 Orders
-              </a>
-              <a
-                href='##'
+            </a>
+            <a  href='##'
                 class='flex items-center gap-4 px-2.5 text-muted-foreground hover:text-foreground'
-              >
+            >
                 <Package class='h-5 w-5' />
                 Products
-              </a>
-              <a
-                href='##'
+            </a>
+            <a  href='##'
                 class='flex items-center gap-4 px-2.5 text-muted-foreground hover:text-foreground'
-              >
+            >
                 <UsersRound class='h-5 w-5' />
                 Customers
-              </a>
-              <a
-                href='##'
+            </a>
+            <a  href='##'
                 class='flex items-center gap-4 px-2.5 text-muted-foreground hover:text-foreground'
-              >
+            >
                 <LineChart class='h-5 w-5' />
                 Settings
-              </a>
-            </nav>
+            </a>
+          </nav>
           </Sheet.Content>
         </Sheet.Root>
         <Breadcrumb.Root class='hidden md:flex'>
