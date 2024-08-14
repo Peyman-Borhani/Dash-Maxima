@@ -97,14 +97,15 @@ let  inp_Elm =$derived( (activeElement.current?.nodeName==='INPUT'? 'Search...'
           </nav>
           </Sheet.Content>
         </Sheet.Root>
-        <Breadcrumb.Root class='hidden md:flex'>
-          <Breadcrumb.List>
+        
+        <Breadcrumb.Root class ='hidden md:flex pl-3 w-full h-[4ch]  bg-black rounded-lg'>
+          <Breadcrumb.List class ='text-base'>
             <Breadcrumb.Item>
               <Breadcrumb.Link href='##'>Dashboard</Breadcrumb.Link>
             </Breadcrumb.Item>
             <Breadcrumb.Separator />
             <Breadcrumb.Item>
-              <Breadcrumb.Link href='##'>Orders</Breadcrumb.Link>
+              <Breadcrumb.Link  href='##'> Orders </Breadcrumb.Link>
             </Breadcrumb.Item>
             <Breadcrumb.Separator />
             <Breadcrumb.Item>
@@ -112,34 +113,27 @@ let  inp_Elm =$derived( (activeElement.current?.nodeName==='INPUT'? 'Search...'
             </Breadcrumb.Item>
           </Breadcrumb.List>
         </Breadcrumb.Root>
-        <div class='relative ml-auto flex-1 md:grow-0'>
-          <Search class='absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground' />
-          <Input
-            type='search'
-            placeholder='Search...'
-            class='w-full rounded-lg bg-background pl-8 md:w-[200px] lg:w-[336px]'
-          />
-        </div>
+        
+        <Search_Bar  {inp_Elm}  {activeElement} />
+        <Dark_Light />
+
         <DropdownMenu.Root>
           <DropdownMenu.Trigger asChild let:builder>
             <Button
-              variant='outline'
               size='icon'
-              class='overflow-hidden rounded-full'
+              class='w-14 h-12 overflow-hidden rounded-full transition-all duration-300 hover:scale-150  border-black border-2 select-none shadow-xl shadow-blue-800'
               builders={[builder]}
             >                
             <!-- /images/placeholder-user.jpg' '~icons/lucide/users' -->
               <img
-                src='https://avatars.githubusercontent.com/u/26680960'
-                width={36}
-                height={36}
+                src='https://avatars.githubusercontent.com/u/26680960?v=4'
                 alt='Avatar'
-                class='overflow-hidden rounded-full'
+                class='overflow-hidden self-stretch rounded-full'
               />
             </Button>
           </DropdownMenu.Trigger>
           <DropdownMenu.Content align='end'>
-            <DropdownMenu.Label>My Account</DropdownMenu.Label>
+            <DropdownMenu.Label>Account: </DropdownMenu.Label>
             <DropdownMenu.Separator />
             <DropdownMenu.Item>Settings</DropdownMenu.Item>
             <DropdownMenu.Item>Support</DropdownMenu.Item>
@@ -147,8 +141,8 @@ let  inp_Elm =$derived( (activeElement.current?.nodeName==='INPUT'? 'Search...'
             <DropdownMenu.Item>Logout</DropdownMenu.Item>
           </DropdownMenu.Content>
         </DropdownMenu.Root>
-      </header>
-      <main
+    </header>
+
         class='grid flex-1 items-start gap-4 p-4 sm:px-6 sm:py-0 md:gap-8 lg:grid-cols-3 xl:grid-cols-3'
       >
         <div class='grid auto-rows-max items-start gap-4 md:gap-8 lg:col-span-2'>
