@@ -1,5 +1,5 @@
 <script>
-        import  Dash            from  '$lib/Dash.svelte';
+    import   Dash       from  '$lib/Dash.svelte';
 </script>
 
 <Dash />
