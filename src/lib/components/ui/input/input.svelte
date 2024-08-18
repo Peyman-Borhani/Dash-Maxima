@@ -13,9 +13,7 @@
 	)}
 	bind:value
 	{readonly}
-    on:blur={()=> value=''}
 	on:blur
-    on:change ={e=>e.target.blur()}
 	on:change
 	on:click
 	on:focus
@@ -23,7 +21,6 @@
 	on:focusout
 	on:keydown
 	on:keypress
-	on:keyup ={e=> (e.key==='Escape')? e.target.blur() :'' }
 	on:keyup
 	on:mouseover
 	on:mouseenter
