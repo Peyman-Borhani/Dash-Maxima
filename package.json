@@ -6,7 +6,9 @@
 	"scripts": {
 		"dev": "vite dev",
 		"build": "vite build",
-		"preview": "vite preview"
+		"preview": "vite preview",
+		"test": "pnpm run vitest",
+		"deploy": "pnpm build && pnpm dlx gh-pages -d build -t true"
 	},
 	"devDependencies": {
 		"@iconify-json/bi": "^1.1.24",
@@ -15,7 +17,7 @@
 		"@iconify-json/f7": "^1.1.1",
 		"@iconify-json/gravity-ui": "^1.1.5",
 		"@iconify-json/gridicons": "^1.1.15",
-		"@iconify-json/lucide": "^1.1.206",
+		"@iconify-json/lucide": "^1.1.207",
 		"@iconify-json/mingcute": "^1.1.19",
 		"@iconify-json/octicon": "^1.1.57",
 		"@iconify-json/ph": "^1.1.14",
@@ -34,14 +36,14 @@
 		"postcss": "^8.4.41",
 		"runed": "^0.15.1",
 		"shadcn-svelte": "^0.12.2",
-		"svelte": "5.0.0-next.222",
+		"svelte": "5.0.0-next.225",
 		"tailwindcss": "^3.4.10",
 		"unplugin-icons": "^0.19.2",
 		"vite": "^5.4.1",
 		"vitest": "^2.0.5"
 	},
 	"type": "module",
-	"packageManager": "pnpm@9.6.0+sha512.38dc6fba8dba35b39340b9700112c2fe1e12f10b17134715a4aa98ccf7bb035e76fd981cf0bb384dfa98f8d6af5481c2bef2f4266a24bfa20c34eb7147ce0b5e",
+	"packageManager": "pnpm@9.7.1+sha512.faf344af2d6ca65c4c5c8c2224ea77a81a5e8859cbc4e06b1511ddce2f0151512431dd19e6aff31f2c6a8f5f2aced9bd2273e1fed7dd4de1868984059d2c4247",
 	"dependencies": {
 		"@internationalized/date": "^3.5.5",
 		"clsx": "^2.1.1",
