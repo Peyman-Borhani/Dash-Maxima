@@ -11,7 +11,7 @@
     import  * as Tooltip  from '$lib/components/ui/tooltip/index.js';
     import  {activeElement}   from  'runed';
 
-    let  {inp_Elm}    = $props();
+    let  {Active_Itm}    = $props();
 
 </script>
 
@@ -99,7 +99,7 @@
             Tag-name: 
             <span class='text-lg text-green-500'> {activeElement.current?.nodeName} </span>
             &nbsp - &nbsp Item: 
-            <span class='text-lg  text-green-500'> {inp_Elm} </span>
+            <span class='text-lg  text-green-500'> {Active_Itm} </span>
         </Tooltip.Content>
       </Tooltip.Root>
 

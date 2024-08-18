@@ -36,15 +36,15 @@
 
 //$effect( _=> console.log(activeElement.current?.nodeName) );
 
-let  inp_Elm =$derived( (activeElement.current?.nodeName==='INPUT'? 'Search...' 
-                        : activeElement.current?.nodeName!=='BODY'?  activeElement.current?.textContent
-                        : 'Doc Body - Search or click interactive items'
+let  Active_Itm =$derived( (activeElement.current?.nodeName==='INPUT'? 'Search...' 
+                    : activeElement.current?.nodeName!=='BODY'?  activeElement.current?.textContent
+                    : 'Doc Body - Search or click interactive items'
 ) );
 
 </script>
   
 <div  class='flex min-h-screen w-full flex-col bg-muted/40'>
-  <Side_Bar {inp_Elm} />
+  <Side_Bar {Active_Itm} />
 
   <div class='flex top-0 flex-col sm:gap-4 sm:py-4 sm:pl-14 h-80 rounded-b-md'>
     <header
@@ -114,7 +114,7 @@ let  inp_Elm =$derived( (activeElement.current?.nodeName==='INPUT'? 'Search...'
           </Breadcrumb.List>
         </Breadcrumb.Root>
         
-        <Search_Bar  {inp_Elm} />
+        <Search_Bar  {Active_Itm} />
         <Dark_Light />
 
         <DropdownMenu.Root  class='size-14'>
