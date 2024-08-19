@@ -8,7 +8,7 @@
 		"build": "vite build",
 		"preview": "vite preview",
 		"test": "pnpm run vitest",
-		"deploy": "pnpm build && pnpm exec gh-pages -d build -t true"
+		"dploy": "pnpm build && pnpm exec gh-pages -d build -t true"
 	},
 	"devDependencies": {
 		"@iconify-json/bi": "^1.1.24",
