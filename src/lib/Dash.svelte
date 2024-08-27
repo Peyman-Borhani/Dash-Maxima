@@ -9,29 +9,32 @@
   import  {activeElement}   from  'runed';
 
 let  Active_Itm =$derived( (activeElement.current?.nodeName==='INPUT'? 'Search...' 
-                    : activeElement.current?.nodeName!=='BODY'?  activeElement.current?.textContent
-                    : 'Doc Body - Search or click interactive items'
+                : activeElement.current?.nodeName!=='BODY'?  activeElement.current?.textContent
+                : 'Doc Body - Search or click interactive items'
 ) );
 
 </script>
   
 
-<div  class='flex min-h-screen w-full flex-col bg-muted/40'>
+<span   class ='grid  w-[100svw]   place-self-center  place-content-evenly  
+                      p-0  m-0  bg-muted/40   text-[calc((1ch + 2vmin + 1vw) / 3)]'
+>
   <Side_Bar  {Active_Itm} />
 
-  <div  class='flex top-0 flex-col sm:gap-4 sm:py-4 sm:pl-14 h-26 rounded-b-md'>
-    <Header >   <!-- Header component items:  Sheet menu,  Breadcrumbs... -->
-                <Search_Bar  {Active_Itm} />
-                <Dark_Light />
-                <!-- ...Avatar elements -->
-    </Header>
-  </div>
+  <header   class ='inline-grid  fixed  w-screen  min-h-[6svh]  self-start  outline outline-muted  opacity-95
+                    xs:gap-2  md:gap-4  items-center  content-evenly  justify-stretch   bg-background'>
+        <Header >   <!-- Header component items:  Sheet menu,  Breadcrumbs... -->
+                    <Dark_Light />
+                    <Search_Bar  {Active_Itm} />
+                    <!-- ...Avatar elements -->
+        </Header>
+  </header>
 
-  <main
-        class ='grid flex-1 items-start gap-4 p-6 sm:pl-20 sm:py-0
-                md:gap-8 lg:grid-cols-3 xl:grid-cols-3'
+  <main   class ='grid  w-full items-start justify-self-center place-content-center gap-4  md:gap-6
+                  p-10 pt-20  lg:grid-cols-3  xl:grid-cols-3 '
   > 
-    <Content />
+        <Content />
   </main> 
-</div>
+  
+</span>
   
