@@ -1,10 +1,22 @@
 <script> 
 //Runes
-        import  Search      from  '~icons/lucide/search';
-        import  {Input}     from  '$lib/components/ui/input/index.js';
+    import  Search      from  '~icons/lucide/search';
+    //import  {Input}     from  '$lib/components/ui/input/index.js';
+    
+    let  {Active_Itm=$bindable(),  input}  =$props();
+    let  {view, value}  =$state('');
+    let  inp;
 
-        let  {inp_Elm}  = $props();
-        let  view  = $state(false);
+function  keyIn(e) 
+{       console.log(e)
+    if(e.key==='Escape') {  
+        view =view? false  :true;  //e.target.blur()
+        view? e.target.children[0].blur()  :e.target.children[0].focus();//inp.focus();
+    }
+    else if(e.key==='Enter' || e.type==='change') {input=e.value;  inp.blur();  view=false}
+    //else inp.focus();
+
+}
 </script>
 
 <button  onclick ={()=> view=true}>
