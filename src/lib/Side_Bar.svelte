@@ -2,7 +2,7 @@
     import  Home          from  '~icons/lucide/home';
     import  LineChart     from  '~icons/lucide/line-chart';
     import  Package       from  '~icons/lucide/package';
-    import  Package2      from  '~icons/lucide/package2';
+    import  Menu          from  '~icons/lucide/menu';
     import  UsersRound    from  '~icons/lucide/users-round';
     import  Settings      from  '~icons/lucide/settings';
     import  ShoppingCart  from  '~icons/lucide/shopping-cart';
@@ -11,28 +11,31 @@
     import  * as Tooltip  from '$lib/components/ui/tooltip/index.js';
     import  {activeElement}   from  'runed';
 
-    let  {Active_Itm}    = $props();
-
+    let  {Active_Itm, menu}    = $props();
+    let  shade  = false
 </script>
 
-<aside class='fixed inset-y-0 left-0 z-10 hidden w-14 flex-col border-r bg-background sm:flex'>
-    <nav  class='flex flex-col items-center gap-6 px-8 sm:py-5  group-hover:scale-150'>
-      <a  href='##'
-        class='flex h-9 w-9  group shrink-0 items-center justify-center gap-2 rounded-full bg-primary text-lg font-semibold text-primary-foreground md:h-8 md:w-8 md:text-base'
+
+<aside class='hidden md:inline-grid  h-screen  fixed  place-self-start  z-40  w-fit  border-r bg-background '>
+    <nav  class='flex flex-col items-center justify-between  gap-6 px-4 sm:py-5  group-hover:scale-150'
+    >
+      <a  href='##'  class='flex  group shrink-0 items-center justify-center gap-2  md:size-8
+                            rounded-full text-lg font-semibold active:text-primary  md:text-base'
+                            onclick={()=> menu = !menu}
       >
-        <Package2  class='h-4 w-4  group-hover:scale-150  transition-all duration-300' />
-        <span  class='sr-only'> Systemic </span>
+        <Menu  class='size-8 text-slate-600 group-hover:scale-150  transition-all duration-300' />
+        <span  class='sr-only'> Menu </span>
       </a>
 
       <Tooltip.Root >
-        <Tooltip.Trigger  asChild  let:builder class ='text-2xl'>
+        <Tooltip.Trigger  asChild  let:builder class ='text-sm'>
           <a
             href='##'
-            class='group flex h-9 w-9 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:text-foreground md:h-8 md:w-8'
+            class='group flex   items-center justify-center rounded-lg text-muted-foreground transition-colors hover:text-foreground md:size-8'
             use:builder.action
             {...builder}
           >
-            <Home  class='h-5 w-5 group-hover:scale-150  transition-all duration-300' />
+            <Home  class='size-6 group-hover:scale-150  transition-all duration-300' />
             <span  class='sr-only'>Dashboard</span>
           </a>
         </Tooltip.Trigger>
@@ -42,11 +45,11 @@
         <Tooltip.Trigger asChild let:builder>
           <a
             href='##'
-            class='flex h-9 w-9  group items-center justify-center rounded-lg bg-accent text-accent-foreground transition-colors hover:text-foreground md:h-8 md:w-8'
+            class='flex  group items-center justify-center rounded-lg bg-accent text-accent-foreground transition-colors hover:text-foreground md:size-8'
             use:builder.action
             {...builder}
           >
-            <ShoppingCart class='h-5 w-5  group-hover:scale-150  transition-all duration-300' />
+            <ShoppingCart class='size-6  group-hover:scale-150  transition-all duration-300' />
             <span class='sr-only'>Orders</span>
           </a>
         </Tooltip.Trigger>
@@ -56,11 +59,11 @@
         <Tooltip.Trigger asChild let:builder>
           <a
             href='##'
-            class='flex h-9 w-9  group items-center justify-center rounded-lg text-muted-foreground transition-colors hover:text-foreground md:h-8 md:w-8'
+            class='flex  group items-center justify-center rounded-lg text-muted-foreground transition-colors hover:text-foreground md:size-8'
             use:builder.action
             {...builder}
           >
-            <Package class='h-5 w-5  group-hover:scale-150  transition-all duration-300' />
+            <Package class='size-6  group-hover:scale-150  transition-all duration-300' />
             <span class='sr-only'>Products</span>
           </a>
         </Tooltip.Trigger>
@@ -70,11 +73,11 @@
         <Tooltip.Trigger asChild let:builder>
           <a
             href='##'
-            class='flex h-9 w-9  group items-center justify-center rounded-lg text-muted-foreground transition-colors hover:text-foreground md:h-8 md:w-8'
+            class='flex  group items-center justify-center rounded-lg text-muted-foreground transition-colors hover:text-foreground md:size-8'
             use:builder.action
             {...builder}
           >
-            <UsersRound class='h-5 w-5  group-hover:scale-150  transition-all duration-300' />
+            <UsersRound class='size-6  group-hover:scale-150  transition-all duration-300' />
             <span class='sr-only'>Customers</span>
           </a>
         </Tooltip.Trigger>
@@ -85,7 +88,7 @@
       <Tooltip.Trigger asChild let:builder>
           <a
             href='##'
-            class='flex h-9 w-9  group items-center justify-center rounded-lg text-cyan-300 hover:text-foreground text-xl md:h-8 md:w-8'
+            class='flex  group items-center justify-center rounded-lg text-cyan-300 hover:text-foreground text-xl md:size-8'
             use:builder.action
             {...builder}
           >
@@ -107,27 +110,28 @@
         <Tooltip.Trigger asChild let:builder>
           <a
             href='##'
-            class='flex h-9 w-9  group items-center justify-center rounded-lg text-muted-foreground transition-colors hover:text-foreground md:h-8 md:w-8'
+            class='flex  group items-center justify-center rounded-lg text-muted-foreground transition-colors hover:text-foreground md:size-8'
             use:builder.action
             {...builder}
           >
-            <LineChart class='h-5 w-5  group-hover:scale-150  transition-all duration-300' />
+            <LineChart class='size-6  group-hover:scale-150  transition-all duration-300' />
             <span class='sr-only'>Analytics</span>
           </a>
         </Tooltip.Trigger>
         <Tooltip.Content side='right'>Analytics</Tooltip.Content>
       </Tooltip.Root>
     </nav>
+    
     <nav class='mt-auto flex flex-col items-center gap-4 px-2 sm:py-5'>
       <Tooltip.Root>
         <Tooltip.Trigger asChild let:builder>
           <a
             href='##'
-            class='flex h-9 w-9  group items-center justify-center rounded-lg text-muted-foreground transition-colors hover:text-foreground md:h-8 md:w-8'
+            class='flex  group items-center justify-center rounded-lg text-muted-foreground transition-colors hover:text-foreground md:size-8'
             use:builder.action
             {...builder}
           >
-            <Settings class='h-5 w-5  group-hover:scale-150  transition-all duration-300' />
+            <Settings class='size-6  group-hover:scale-150  transition-all duration-300' />
             <span class='sr-only'>Settings</span>
           </a>
         </Tooltip.Trigger>
