@@ -16,12 +16,12 @@ let  Active_Itm =$derived( (activeElement.current?.nodeName==='INPUT'? 'Search..
 </script>
   
 
-<span   class ='grid  w-[100svw]   place-self-center  place-content-evenly  
+<span   class ='grid  w-[100svw]  h-[100svh] place-self-center  place-content-evenly  
                       p-0  m-0  bg-muted/40   text-[calc((1ch + 2vmin + 1vw) / 3)]'
 >
   <Side_Bar  {Active_Itm} />
 
-  <header   class ='inline-grid  fixed  w-screen  min-h-[6svh]  self-start  outline outline-muted  opacity-95
+  <header   class ='inline-grid  portrait:fixed  w-full  min-h-[6svh]  self-start  outline outline-muted  opacity-95
                     xs:gap-2  md:gap-4  items-center  content-evenly  justify-stretch   bg-background'>
         <Header >   <!-- Header component items:  Sheet menu,  Breadcrumbs... -->
                     <Dark_Light />
@@ -30,8 +30,8 @@ let  Active_Itm =$derived( (activeElement.current?.nodeName==='INPUT'? 'Search..
         </Header>
   </header>
 
-  <main   class ='grid  w-full items-start justify-self-center place-content-center gap-4  md:gap-6
-                  p-10 pt-20  lg:grid-cols-3  xl:grid-cols-3 '
+  <main   class ='grid  w-full items-start justify-self-center place-content-center
+                  gap-y-16  gap-x-0  lg:grid-cols-3  xl:grid-cols-3 '
   > 
         <Content />
   </main> 
