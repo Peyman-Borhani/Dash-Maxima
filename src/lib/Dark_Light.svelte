@@ -1,25 +1,27 @@
 <script>
   import  {setMode, mode, systemPrefersMode}  from  'mode-watcher';
+  //import    Sun     from  '~icons/system-uicons/moon';
+  import    Sun     from  '~icons/f7/sun-max-fill';
+  import    Moon    from  '~icons/radix-icons/moon';
 
-  setMode( $systemPrefersMode!=='light'? 'dark'  :'light' );
-  let Thm_Hov = false;
+  setMode( $systemPrefersMode==='dark'?  'dark'  :'light' );
+  let Thm_Hov = $state(false);
+ // let  {onpointerenter, onpointerleave, onpointerup} = $props();{onpointerup} {onpointerenter} {onpointerleave}
 </script>
 
-<button  class='flex rounded-full bg-transparent text-2xl select-none z-2 size-12 transition-all duration-800 hover:scale-150'
-
-        onclick={()=> setMode($mode==='light'? 'dark' :'light')}
-        onpointerenter ={_=> Thm_Hov= true} 
-        onpointerleave ={_=> Thm_Hov= false}
+<button   
+        class ="inline-grid z-2 size-9  text-3xl  self-center  place-items-center select-none rounded-full
+                shadow-inner shadow-violet-700  transition-all duration-300 "
+        style = {Thm_Hov? 'scale: 1.4; box-shadow: 0 0 1ch #408, inset 0 0 1.6ch #409' : ''}
+        onpointerup     ={()=> {setMode($mode==='light'? 'dark' :'light'); Thm_Hov=false} }
+        onpointerenter  ={_=> Thm_Hov= true} 
+        onpointerleave  ={_=> Thm_Hov= false}
 >   
-  
-        <span   class ='absolute  place-self-center font-semibold font-serif' style='line-height: 14pt;  letter-spacing: -6pt;'
-              >   
-            {#if Thm_Hov}  <span > 🌜✨ <br>🌞 </span> 
-                            <!--(  self-end -rotate-90 🙂✨🔆🌙 -->
-            {:else if  $mode==='light'}  🌞
-            {:else                    }  🌜✨     
+                      <!-- self-end -rotate-90  just for fun:🙂🌙🔆🌜✨🌞 -->
+            {#if  $mode==='light'}  <Sun  class='bg-yellow-100  rounded-full shadow-lg shadow-yellow-300' />
+            {:else}                 <Moon class= 'rounded-full shadow-inner shadow-violet-600 ' />
             {/if}
-        </span>
+
      
      <!-- <Moon  class ='text-purple-200 h-7 w-7'/> -->
 
