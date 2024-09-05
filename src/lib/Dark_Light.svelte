@@ -10,16 +10,16 @@
 </script>
 
 <button   
-        class ="inline-grid z-2 size-9  text-3xl  self-center  place-items-center select-none rounded-full
+        class ="inline-grid  z-2  size-9  text-3xl  self-center  place-items-center select-none rounded-full
                 shadow-inner shadow-violet-700  transition-all duration-300 "
-        style = {Thm_Hov? 'scale: 1.4; box-shadow: 0 0 1ch #408, inset 0 0 1.6ch #409' : ''}
+        style = {Thm_Hov? 'scale: 1.4; box-shadow: 0 0 .3ch #62c, 0 0 1.2ch #84e, inset 0 0 1.4ch #409' : ''}
         onpointerup     ={()=> {setMode($mode==='light'? 'dark' :'light'); Thm_Hov=false} }
         onpointerenter  ={_=> Thm_Hov= true} 
         onpointerleave  ={_=> Thm_Hov= false}
 >   
-                      <!-- self-end -rotate-90  just for fun:🙂🌙🔆🌜✨🌞 -->
+                      <!--in case of emoji mix:🙂🌙🔆🌜✨🌞 -rotate-90 -->
             {#if  $mode==='light'}  <Sun  class='bg-yellow-100  rounded-full shadow-lg shadow-yellow-300' />
-            {:else}                 <Moon class= 'rounded-full shadow-inner shadow-violet-600 ' />
+            {:else}                 <Moon class= 'p-0.5 hover:border border-violet-600 rounded-full shadow-inner shadow-violet-600 ' />
             {/if}
 
      
