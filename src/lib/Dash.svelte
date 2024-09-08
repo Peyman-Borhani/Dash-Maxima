@@ -8,33 +8,40 @@
 
   import  {activeElement}   from  'runed';
 
-let  Active_Itm =$derived( (activeElement.current?.nodeName==='INPUT'? 'Search...' 
+let  Active_Itm =$derived( 
+                 (activeElement.current?.nodeName==='INPUT'? 'Search...' 
                 : activeElement.current?.nodeName!=='BODY'?  activeElement.current?.textContent
-                : 'Doc Body - Search or click interactive items'
-) );
+                : 'Doc Body - Search or click interactive items') 
+);
 
 </script>
   
 
-<span   class ='grid  w-[100svw]  h-[100svh] place-self-center  place-content-evenly  
-                      p-0  m-0  bg-muted/40   text-[calc((1ch + 2vmin + 1vw) / 3)]'
+<span   class ='grid  w-[100svw]  h-[100svh]  p-0  m-0  place-self-stretch  place-content-evenly 
+                grid-rows-12  grid-cols-12  row-auto   text-[calc((1ch + 2vmin + 1vw) / 3)] '
+        
 >
-  <Side_Bar  {Active_Itm} />
 
-  <header   class ='inline-grid  portrait:fixed  w-full  min-h-[6svh]  self-start  outline outline-muted  opacity-95
-                    xs:gap-2  md:gap-4  items-center  content-evenly  justify-stretch   bg-background'>
-        <Header >   <!-- Header component items:  Sheet menu,  Breadcrumbs... -->
-                    <Dark_Light />
+    <Side_Bar  menu {Active_Itm} />
+    <!--Attr:   right (side)    -   menu <-(always show)  -  force (forced always)
+            fixed (no shifting)  -  {Active_Itm} (focused element)
+    -->
+    <header  class ='inline-grid   portrait:fixed      col-start-1       -col-end-1    border-l-2      border-muted
+                    items-center   justify-center      row-start-0      opacity-95   bg-background  w-full grid-cols-12'
+    >
+        <Header> 
+                    <!-- components within Header :  Sheet menu,  Breadcrumbs... -->
                     <Search_Bar  {Active_Itm} />
-                    <!-- ...Avatar elements -->
+                    <Dark_Light />
+                    <!-- Avatar: user/login  -->
         </Header>
-  </header>
+    </header>
 
-  <main   class ='grid  w-full items-start justify-self-center place-content-center
-                  gap-y-16  gap-x-0  lg:grid-cols-3  xl:grid-cols-3 '
-  > 
-        <Content />
-  </main> 
+    <main   class ='grid  col-start-2 col-end-12 row-start-4 row-end-auto 
+                  gap-y-16  gap-x-8  lg:grid-cols-3  xl:grid-cols-3 '
+    > 
+                <Content />
+    </main> 
   
 </span>
   
