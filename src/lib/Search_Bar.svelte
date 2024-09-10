@@ -23,26 +23,26 @@ function  keyIn(e)
 
 <svelte:window   onkeyup ={keyIn} />
 
-<div  class ='inline-grid   fixed  z-40   mt-6 portrait:bottom-8   portrait:scale-150 
-              right-[17svw]  self-center  min-w-fit  place-items-center  place-self-end  select-none '
+<div  class ='inline-grid  fixed   items-center  portrait:bottom-8  select-none bg-transparent p-2 mt-4
+              right-[18svw]  z-50  self-center  min-w-fit  place-items-end  rounded-2xl '
       style ='grid-template-columns: 90% 10%; '
       bind:this={inp}
 >
 
     <input  type  ='text'       bind:value={value}
-            style ='visibility:{view? 'visible' :'hidden'};  box-shadow: 0 0 1.7ch #306; font-size: calc(2svmin + 1svw); padding: .46ch .6ch;'
-            class ='inline-grid  w-fit  invisible  z-50  text-center  place-items-end  justify-self-center  
-                    mr-4  md:w-[20ch]  lg:w-[38ch]  rounded-l-2xl    placeholder-opacity-10   bg-background '
+            style ='visibility:{view? 'visible' :'hidden'};  box-shadow: 0 0 1ch #308, inset 0 0 2pt #6668; font-size: calc(1.4svmin + 1.2svw); padding: .46ch .6ch;'
+            class ='inline-grid  w-fit h-fit invisible  z-50  text-center  place-items-end  outline-none border-muted
+                    mr-2  sm:w-[28ch]  md:w-[36ch]  rounded-l-2xl    placeholder-opacity-20   '
             placeholder={Active_Itm} contenteditable
             onchange ={keyIn}
     >
     <button   onpointerup={()=> view=!view}
-              class ='size-7  z-40   {view? 'rounded-r-2xl ' :'rounded-full '} -ml-2  mr-6
-                      bg-background  transition-transform  duration-500  border border-muted-foreground/30'
-              style ='box-shadow: 0 0 2ch #24b, inset 0 0 1.6ch #208; scale:180%; '  
+              class ='size-7  z-50   {view? 'rounded-r-lg '  :'rounded-full  hover:scale-125'}
+                      bg-background  mr-6  transition-transform  duration-300  portrait:scale-125'
+              style ='box-shadow: 0 0 1ch #138, inset 0 0 1.2ch #207; scale: 180%; '  
     >   
-        {#if view}  <span   class ='text-[#700]  font-normal hover:font-semibold'> X  </span>
-        {:else}     <Search  class='text-foreground'   style='translate: 2pt 0;'/>
+        {#if view}  <span   class ='text-muted-foreground  font-normal '> X </span>
+        {:else}     <Search  class='text-muted-foreground  translate-x-1 ' />
         {/if}
         <span class='sr-only'> Search/close button </span>
     </button>
