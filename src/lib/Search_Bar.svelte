@@ -19,29 +19,34 @@ function  keyIn(e)
 }
 </script>
 
-<button  onclick ={()=> view=true}>
-  <Search  class='flex  h-9 w-9 mr-10  p-1  text-muted-foreground'
-  />
-  <span class=sr-only>Search...</span>
-</button>
+<!--svelte:options accessors / -->
 
-<div  class ='fixed  inline-grid  right-[14vw]  md:grow-0  h-15  min-w-fit 
-              z-50  select-none  drop-shadow-lg  shadow-cyan-700'
+<svelte:window   onkeyup ={keyIn} />
+
+<div  class ='inline-grid   fixed  z-40   mt-6 portrait:bottom-8   portrait:scale-150 
+              right-[17svw]  self-center  min-w-fit  place-items-center  place-self-end  select-none '
+      style ='grid-template-columns: 90% 10%; '
+      bind:this={inp}
 >
-  <Input  type  ='search'
-          style ={view? 'display: inline-grid; box-shadow: 0 0 1.7ch #306'  : 'display:none;'}
-          class ='placeholder-opacity-100 w-auto rounded-full  px-2  bg-background
-                  md:w-[20ch] lg:w-[40ch]  text-xl  scroll-m-90  transition-all duration-400'
-          placeholder={inp_Elm}
-  />
-      
-  {#if view}
-    <button   onpointerdown={()=> view=false}
-              class='absolute px-2 py-1 scale-x-125 text-2xl font-normal text-[#61c]
-                     justify-self-end self-center rounded-l-3xl rounded-r-full  shadow-inner  shadow-violet-900  bg-background'
-            > X
+
+    <input  type  ='text'       bind:value={value}
+            style ='visibility:{view? 'visible' :'hidden'};  box-shadow: 0 0 1.7ch #306; font-size: calc(2svmin + 1svw); padding: .46ch .6ch;'
+            class ='inline-grid  w-fit  invisible  z-50  text-center  place-items-end  justify-self-center  
+                    mr-4  md:w-[20ch]  lg:w-[38ch]  rounded-l-2xl    placeholder-opacity-10   bg-background '
+            placeholder={Active_Itm} contenteditable
+            onchange ={keyIn}
+    >
+    <button   onpointerup={()=> view=!view}
+              class ='size-7  z-40   {view? 'rounded-r-2xl ' :'rounded-full '} -ml-2  mr-6
+                      bg-background  transition-transform  duration-500  border border-muted-foreground/30'
+              style ='box-shadow: 0 0 2ch #24b, inset 0 0 1.6ch #208; scale:180%; '  
+    >   
+        {#if view}  <span   class ='text-[#700]  font-normal hover:font-semibold'> X  </span>
+        {:else}     <Search  class='text-foreground'   style='translate: 2pt 0;'/>
+        {/if}
+        <span class='sr-only'> Search/close button </span>
     </button>
-  {/if}
+
 </div>
 
     <!--style = {glow? 'scale: 1.12;  box-shadow: 0 0 1ch #cde !important;'  :'opacity: 0;  width:1ch; border-radius: 50vmax;  border: solid 1pt #aaa'} -->
