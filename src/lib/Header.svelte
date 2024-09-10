@@ -6,22 +6,20 @@
   import    {Button}            from '$lib/components/ui/button/index.js';
 
   
-  //inline-grid  top-0  w-full  h-24  
-  //items-center  content-center self-start  justify-center  sm:gap-4  rounded-b-md'
-  //  let  {children}  =$props();
-  //  col-start-1 grid-cols-12 col-span-full row-start-0 row-span-2
+  //inline-grid  top-0  w-full  h-24  //items-center  content-center self-start  justify-center  sm:gap-4  rounded-b-md'
+    let {fixed}  =$props();
 </script>
 
 
 <span   class =
-      ' inline-grid    gap-x-4  z-30  m-0  p-0   h-fit  w-full  min-h-[7.4ch] 
-        grid-cols-12   grid-flow-col  items-end  place-items-center
-        col-span-full  sm:border-1    border-b  border-muted  
-        bg-opacity-80  bg-secondary  dark:bg-opacity-80  dark:bg-background '
+      ' inline-grid   m-0 top-0  h-fit w-full {fixed? 'fixed ' :'absolute '}
+        grid-cols-12  p-0 z-30  min-h-[8ch]  items-center place-items-center 
+        grid-flow-col gap-x-4  col-span-full  place-content-evenly  border-b
+        bg-stone-300/85  dark:bg-background/80  sm:border-1  border-muted '
 >
 
-<Breadcrumb.Root  class ='inline-grid  invisible   md:visible  rounded-lg  bg-background
-                          col-start-2   col-end-7  px-4  py-2   contrast-200 justify-self-start'
+<Breadcrumb.Root  class ='inline-grid  invisible   md:visible  rounded-lg  bg-muted/80 dark:bg-muted
+                          col-start-2   col-end-7  px-4  py-2   contrast-200 justify-self-start '
 >
   <Breadcrumb.List  class= 'text-[2ch]' >
     <Breadcrumb.Item> 
