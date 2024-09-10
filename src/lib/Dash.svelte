@@ -1,7 +1,6 @@
 <script>
 //S5 Runes active
   import  Header        from  '$lib/Header.svelte';
-  import  Dark_Light    from  '$lib/Dark_Light.svelte';
   import  Side_Bar      from  '$lib/Side_Bar.svelte';
   import  Search_Bar    from  '$lib/Search_Bar.svelte';
   import  Content       from  '$lib/Content.svelte';
@@ -17,7 +16,7 @@ let  Active_Itm =$derived(
 </script>
   
 
-<span   class ='grid  w-[100svw]  h-[100svh]  p-0  m-0  place-self-stretch  place-content-evenly 
+<span   class ='grid  w-[100svw]  h-[100svh]  p-0  m-0  place-self-stretch  place-content-evenly overflow-x-hidden 
                 grid-rows-12  grid-cols-12  row-auto   text-[calc((1ch + 2vmin + 1vw) / 3)] '
         
 >
@@ -26,15 +25,13 @@ let  Active_Itm =$derived(
     <!--Attr:   right (side)    -   menu <-(always show)  -  force (forced always)
             fixed (no shifting)  -  {Active_Itm} (focused element)
     -->
-    <header  class ='inline-grid   portrait:fixed      col-start-1       -col-end-1    border-l-2      border-muted
-                    items-center   justify-center      row-start-0      opacity-95   bg-background  w-full grid-cols-12'
+    <header  class ='inline-grid   portrait:fixed   col-start-1     -col-end-1    border-x-2  border-muted
+                    items-center   justify-center   row-start-1     bg-transparent  w-full    grid-cols-12'
     >
-        <Header> 
-                    <!-- components within Header :  Sheet menu,  Breadcrumbs... -->
-                    <Search_Bar  {Active_Itm} />
-                    <Dark_Light />
-                    <!-- Avatar: user/login  -->
-        </Header>
+        <Header />      <!--  components inside  Header: 
+                Sheet menu - Breadcrumbs -  Dark_Light theme - Avatar: user/login...
+                -->
+        <Search_Bar  {Active_Itm} />
     </header>
 
     <main   class ='grid  col-start-2 col-end-12 row-start-4 row-end-auto 

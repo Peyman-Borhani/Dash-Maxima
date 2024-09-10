@@ -10,7 +10,7 @@
 </script>
 
 <button   
-        class ="inline-grid  z-2  size-9  text-3xl  self-center  place-items-center select-none rounded-full
+        class ="inline-grid  z-30  size-9  text-3xl  self-center  place-items-center select-none rounded-full
                 shadow-inner shadow-violet-700  transition-all duration-300 "
         style = {Thm_Hov? 'scale: 1.4; box-shadow: 0 0 .3ch #62c, 0 0 1.2ch #84e, inset 0 0 1.4ch #409' : ''}
         onpointerup     ={()=> {setMode($mode==='light'? 'dark' :'light'); Thm_Hov=false} }
