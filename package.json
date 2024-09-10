@@ -1,6 +1,6 @@
 {
 	"name": "dash-maxima",
-	"version": "0.0.9",
+	"version": "0.1.0",
 	"private": true,
 	"description": "sveltekit, shadcn-svelte, bits-ui, unplugin-icons, runed, tailwind,...",
 	"scripts": {
