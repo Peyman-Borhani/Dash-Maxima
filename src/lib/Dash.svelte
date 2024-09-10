@@ -16,28 +16,31 @@ let  Active_Itm =$derived(
 </script>
   
 
-<span   class ='grid  w-[100svw]  h-[100svh]  p-0  m-0  place-self-stretch  place-content-evenly overflow-x-hidden 
-                grid-rows-12  grid-cols-12  row-auto   text-[calc((1ch + 2vmin + 1vw) / 3)] '
+<span   class ='grid   w-[100svw]    h-[100svh]    p-0 m-0  place-self-stretch  place-content-evenly overflow-x-hidden
+                fixed  grid-rows-12  grid-cols-12  text-[calc((1ch + 2vmin + 1vw) / 3)] bg-muted/75 '
         
 >
 
-    <Side_Bar  menu {Active_Itm} />
-    <!--Attr:   right (side poisition)  -  {Active_Itm} (focused element)
-                menu <-(always use)    -   fixed (placement/won't shift)   
-                show/hide (forced visibility)
+    <Side_Bar  menu  fixed {Active_Itm} />
+    <!-- props:  right (side poisition) -  show/hide (forced visibility)
+                 menu <-(force menu)    -  fixed (placement/won't shift)   
+                 {Active_Itm} (focused element)
     -->
-    <header  class ='inline-grid   portrait:fixed   col-start-1     -col-end-1    border-x-2  border-muted
-                    items-center   justify-center   row-start-1     bg-transparent  w-full    grid-cols-12'
+    <header  class ='inline-grid   portrait:fixed   grid-cols-12  col-start-1  -col-end-1  
+                    items-center   justify-center   row-start-1   w-full  border-x-2  border-muted  '
     >
-        <Header />      <!--  components inside  Header: 
-                Sheet menu - Breadcrumbs -  Dark_Light theme - Avatar: user/login...
-                -->
-        <Search_Bar  {Active_Itm} />
+        <Header  fixed />  <!--   props:  fixed (stays, won't scroll)  
+        Header contains_____________________________________________
+                        Sheet (panel menu)  -   Breadcrumbs
+                        Dark_Light (theme)  -   Avatar (user/login...)
+                    -->
+        <Search_Bar  {Active_Itm}  />    
     </header>
 
-    <main   class ='grid  col-start-2 col-end-12 row-start-4 row-end-auto 
-                  gap-y-16  gap-x-8  lg:grid-cols-3  xl:grid-cols-3 '
-    > 
+    <main   class ='grid   col-start-2  col-span-10 row-start-3 row-end-auto auto-rows-auto  h-fit rounded-lg
+                    gap-8  grid-cols-1  lg:grid-cols-2  xl:grid-cols-3  landscape:grid-cols-3  p-4 m-0  bg-black/25'
+            style ='box-shadow: 0 0 1ch #000;'
+    >       
                 <Content />
     </main> 
   
