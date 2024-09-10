@@ -15,7 +15,7 @@
 
     let  {Active_Itm,  menu,  right,  hide,  show,  fixed}  = $props();
     /*  Attr:   right (side poisition)  -  {Active_Itm} (focused element)
-                menu <-(always show)    -   fixed (placement/won't shift)   
+                menu <-(always use)    -   fixed (placement/won't shift)   
                 show/hide (forced visibility)
     */
     let  items    =['Dashboard', 'Orders', 'Products', 'Customers', 'Analytics', 'Settings'];
@@ -72,7 +72,7 @@
   </Sheet.Root>
 
     <nav  class='inline-grid  grid-flow-row  invisible landscape:visible lg:visible  group-hover:scale-150
-                {force?  'visible' :''}  row-start-3  row-end-13 justify-center  place-content-evenly '
+                {show?  'visible' :''}  row-start-3  row-end-13 justify-center  place-content-evenly '
     >
     <!--
       <a  href='##'  class='flex  group shrink-0 items-center justify-center gap-2  md:size-8
