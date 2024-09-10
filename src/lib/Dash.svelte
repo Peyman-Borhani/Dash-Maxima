@@ -22,8 +22,9 @@ let  Active_Itm =$derived(
 >
 
     <Side_Bar  menu {Active_Itm} />
-    <!--Attr:   right (side)    -   menu <-(always show)  -  force (forced always)
-            fixed (no shifting)  -  {Active_Itm} (focused element)
+    <!--Attr:   right (side poisition)  -  {Active_Itm} (focused element)
+                menu <-(always show)    -   fixed (placement/won't shift)   
+                show/hide (forced visibility)
     -->
     <header  class ='inline-grid   portrait:fixed   col-start-1     -col-end-1    border-x-2  border-muted
                     items-center   justify-center   row-start-1     bg-transparent  w-full    grid-cols-12'
