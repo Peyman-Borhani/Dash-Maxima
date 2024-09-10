@@ -21,7 +21,7 @@
     let  items    =['Dashboard', 'Orders', 'Products', 'Customers', 'Analytics', 'Settings'];
     
     let  menu_css ='flex items-center w-fit gap-4 px-2.5 text-muted-foreground hover:text-foreground ',
-         sbar_css ='size-6  group-hover:scale-150  transition-transform duration-300 ';
+         sbar_css ='size-7  group-hover:scale-150  transition-transform duration-300 ';
 
     let  side = right?  'col-start-13 -col-end-1  border-l'  :  'col-start-0  col-end-1  border-r ';
     side +=  fixed? 'fixed '  :'absolute ';
@@ -30,8 +30,8 @@
 </script>
 
 
-<aside  class ='inline-grid  {side} z-40  h-screen  grid-rows-12  grid-flow-row row-span-full  
-                py-4 px-1.5  row-start-0  justify-center  content-between  place-self-stretch  bg-background '
+<aside  class ='inline-grid  {side} z-40  h-screen  grid-rows-12  grid-flow-row row-span-full  bg-stone-200/80
+                py-4 px-2  row-start-0  justify-center  content-between  place-self-stretch  dark:bg-black/80 '
 >
 <!--
 {#snippet Side_bar(itm)}
@@ -54,18 +54,16 @@
 
     {#if menu}
         <Sheet.Content  side={right? 'right' :'left'}   class ='w-max'>
-        <nav  class='inline-grid  justify-between  h-full row-start-0 font-medium text-2xl' 
+        <nav  class='inline-grid  justify-between  h-full row-start-0 font-medium  text-xl' 
         >
-            <!-- <Menu> <br>
-                <span class='sr-only'  onpointerdown={()=> menu=!menu}
-                >  Menu </span>
-            </Menu> -->
-            <a  href='##'  class={menu_css}>   <Home        class='size-6' /> Dashboard </a>
-            <a  href='##'  class={menu_css}>   <ShoppingCart class='size-6'/> Orders    </a>
-            <a  href='##'  class={menu_css}>   <Package     class='size-6' /> Products  </a>
-            <a  href='##'  class={menu_css}>   <UsersRound  class='size-6' /> Customers </a>
-            <a  href='##'  class={menu_css}>   <LineChart   class='size-6' /> Analytics </a>
-            <a  href='##'  class={menu_css}>   <Settings    class='size-6' /> Settings  </a>
+            <Menu  class='size-8' />
+            
+            <a  href='##'  class={menu_css}>   <Home        class='size-7' /> Dashboard </a>
+            <a  href='##'  class={menu_css}>   <ShoppingCart class='size-7'/> Orders    </a>
+            <a  href='##'  class={menu_css}>   <Package     class='size-7' /> Products  </a>
+            <a  href='##'  class={menu_css}>   <UsersRound  class='size-7' /> Customers </a>
+            <a  href='##'  class={menu_css}>   <LineChart   class='size-7' /> Analytics </a>
+            <a  href='##'  class={menu_css}>   <Settings    class='size-7' /> Settings  </a>
         </nav>
         </Sheet.Content>
     {/if}
