@@ -1,6 +1,6 @@
 {
 	"name": "dash-maxima",
-	"version": "0.1.0",
+	"version": "0.1.1",
 	"private": true,
 	"description": "sveltekit, shadcn-svelte, bits-ui, unplugin-icons, runed, tailwind,...",
 	"scripts": {
@@ -17,7 +17,7 @@
 		"@iconify-json/f7": "^1.2.0",
 		"@iconify-json/gravity-ui": "^1.2.1",
 		"@iconify-json/gridicons": "^1.2.0",
-		"@iconify-json/lucide": "^1.2.3",
+		"@iconify-json/lucide": "^1.2.4",
 		"@iconify-json/mingcute": "^1.2.0",
 		"@iconify-json/octicon": "^1.2.0",
 		"@iconify-json/ph": "^1.2.0",
@@ -28,20 +28,20 @@
 		"@iconify-json/uil": "^1.2.0",
 		"@sveltejs/adapter-auto": "^3.2.4",
 		"@sveltejs/adapter-static": "^3.0.4",
-		"@sveltejs/kit": "^2.5.26",
+		"@sveltejs/kit": "^2.5.27",
 		"@sveltejs/vite-plugin-svelte": "4.0.0-next.6",
 		"@tailwindcss/typography": "^0.5.15",
 		"autoprefixer": "^10.4.20",
 		"bits-ui": "^0.21.13",
 		"gh-pages": "^6.1.1",
-		"postcss": "^8.4.45",
+		"postcss": "^8.4.47",
 		"runed": "^0.15.2",
 		"shadcn-svelte": "^0.13.0",
-		"svelte": "^5.0.0-next.244",
-		"tailwindcss": "^3.4.10",
+		"svelte": "5.0.0-next.246",
+		"tailwindcss": "^3.4.11",
 		"unplugin-icons": "^0.19.3",
-		"vite": "^5.4.3",
-		"vitest": "^2.0.5"
+		"vite": "^5.4.5",
+		"vitest": "^2.1.1"
 	},
 	"type": "module",
 	"packageManager": "pnpm@9.7.1+sha512.faf344af2d6ca65c4c5c8c2224ea77a81a5e8859cbc4e06b1511ddce2f0151512431dd19e6aff31f2c6a8f5f2aced9bd2273e1fed7dd4de1868984059d2c4247",
@@ -50,10 +50,9 @@
 		"clsx": "^2.1.1",
 		"formsnap": "^1.0.1",
 		"mode-watcher": "^0.4.1",
-		"sveltekit-superforms": "^2.17.0",
+		"sveltekit-superforms": "^2.18.1",
 		"tailwind-merge": "^2.5.2",
 		"tailwind-variants": "^0.2.1",
-		"valibot": "^0.37.0",
-		"zod": "^3.23.8"
+		"valibot": "^0.37.0"
 	}
 }

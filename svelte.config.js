@@ -11,11 +11,12 @@ const config = {
 		// See https://kit.svelte.dev/docs/adapters for more information about adapters.
 		adapter: adapter({fallback: '404.html'}),
         paths: {base: process.argv.includes('dev') ? '' : process.env.BASE_PATH},
-        prerender: {handleMissingId:({})=>{return},
+        prerender: {
+                    handleMissingId:({})=>{return},
                     handleHttpError: ({ path, referrer, message })=> {return}
         },
         alias: {"@/*": "./src/lib/*"},        
-	}
+	    }
 };
 
 export default config;
