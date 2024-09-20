@@ -18,7 +18,6 @@ let  Active_Itm =$derived(
 
 <span   class ='grid  fixed   w-svw  h-svh  p-0 m-0 z-0  place-self-stretch  place-content-evenly    
                 grid-rows-12  grid-cols-12  bg-muted/75  overflow-x-hidden   text-[calc((1ch + 2vmin + 1vw) / 3)] '
-        
 >
 
     <Side_Bar  menu  fixed {Active_Itm} />
@@ -26,19 +25,23 @@ let  Active_Itm =$derived(
                  menu <-(force menu)    -  fixed (placement/won't shift)   
                  {Active_Itm} (focused element)
     -->
-    <header  class ='sub-grid   portrait:fixed   col-start-1  col-end-12  row-start-1
-                     items-center   justify-center   w-full  border-x-2   border-muted  '
+    <header  class ='grid   portrait:fixed  items-center justify-stretch  w-full
+                     z-30   col-span-full   border-x-2  border-muted '
     >
         <Header  fixed />  <!--   props:  fixed (stays, won't scroll)  
         Header contains_____________________________________________
                         Sheet (panel menu)  -   Breadcrumbs
                         Dark_Light (theme)  -   Avatar (user/login...)
                     -->
-        <Search_Bar  {Active_Itm}  />    
+        <Search_Bar  {Active_Itm}  />   
+        <!--  KB shortcuts >>   
+                    toggle search:  [alt  +  /]  or  [Escape] (if input is cleared) 
+                    clear/reset input text:  [Escape]  (1st time)
+        -->
     </header>
 
-    <main   class ='grid  h-fit  col-start-2  col-end-12   col-span-10  portrait:-col-end-1 rounded-lg 
-                    p-4   ml-4   row-start-3  row-end-auto auto-rows-auto bg-black/25  portrait:row-start-2  portrait:mr-10'
+    <main   class ='grid  h-fit  col-start-2  col-end-13   p-4 landscape:px-6  portrait:py-6  ml-4 portrait:mr-8
+                    mr-14  z-10   row-start-3  row-end-auto auto-rows-auto bg-black/25  portrait:row-start-2   rounded-lg '
             style ='box-shadow: 0 0 1ch #000;'
     >       
             <Content />
