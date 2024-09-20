@@ -1,18 +1,18 @@
-## A Dashboard component template template using Svelte5 Runes and other best Libs  
+## A Dashboard component template using Svelte5 Runes and other best Libs  
 
-- Shadcn-svelte Dashboard on steroids, coded from start into resusable components.  
-- Compared to Shadcn sample: X times more refined, responsive as reusable components.  
+- A shadcn-svelte Dashboard example on steroids.
+- Completely modified into a more responsive resusable components.  
+- Much more refined compared to Shadcn sample:  refined, responsive as reusable components.  
 - Improved styles, UI, CSS grid, theme, dynamic responsive sizing, functions...  
 - Extend it to your business data/functions for an interactive dynamic Dash panel.  
 - Or request my services to make your desired integration...  
 
 ### Features
 
-- Set of various top Libs to work together using svelte 5.  
+- Set of top Libs working together on svelte 5.  
 - Libs: Shadcn-svelte - BitsUI - Unplugin-icons - tailwind CSS - Runed...  
-- A ready template to reuse, save time on setup, config, customizing...  
+- Made reusable and customizable, save time on setup, config...  
 - Replaced icons lib: lucid-svelte with unplugin-icons, now can use any icon sets.  
-- Update examples. improvements + new icons + runes + runed.  
 
 ---
 
