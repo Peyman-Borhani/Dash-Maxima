@@ -69,10 +69,12 @@
 }
  
 @layer base {
-  * {
-    @apply border-border;
-  }
-  body {
-    @apply bg-background text-foreground  w-svw  h-svh  overflow-x-hidden;
-  }
+  *     {@apply border-border;}
+  body  {@apply bg-background text-foreground  w-svw  h-svh  overflow-x-hidden;}
+}
+@media screen and (orientation: portrait) {
+    :root {font-size: calc((1svh + 3svw + 1ch) / 2)}
+}
+@media screen and (orientation: landscape) {
+    :root {font-size: calc((2svh + 2svw + 1ch ) / 3)}
 }
