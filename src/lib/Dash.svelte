@@ -12,32 +12,33 @@ let  Active_Itm =$derived(
                 : activeElement.current?.nodeName!=='BODY'?  activeElement.current?.textContent
                 : 'Doc Body - Search or click interactive items') 
 );
-
 </script>
   
 
 <span   class ='grid  fixed   w-svw  h-svh  p-0 m-0 z-0  place-self-stretch  place-content-evenly    
-                grid-rows-12  grid-cols-12  bg-muted/75  overflow-x-hidden   text-[calc((1ch + 2vmin + 1vw) / 3)] '
+                grid-rows-12  grid-cols-12  bg-muted/75  overflow-x-hidden   '
 >
 
-    <Side_Bar  menu  fixed {Active_Itm} />
-    <!-- props:  right (side poisition) -  show/hide (forced visibility)
-                 menu <-(force menu)    -  fixed (placement/won't shift)   
-                 {Active_Itm} (focused element)
+    <Side_Bar  menu  fixed  {Active_Itm} />
+    <!--PROPS:  show  (force visible on portrait)
+                hide  (no Side_Bar / just menu button)
+                left/right    (side)  -  fixed  (stays, no shift/scroll)
+                menu    (force menu)  -  {Active_Itm}  (focused element)
     -->
     <header  class ='grid   portrait:fixed  items-center justify-stretch  w-full
                      z-30   col-span-full   border-x-2  border-muted '
     >
-        <Header  fixed />  <!--   props:  fixed (stays, won't scroll)  
-        Header contains_____________________________________________
-                        Sheet (panel menu)  -   Breadcrumbs
-                        Dark_Light (theme)  -   Avatar (user/login...)
+        <Header  fixed />  <!--PROPS:  fixed (stays, no shift/scroll)  
+                    _______________Header contains_______________
+                    Sheet (panel menu)  -   Breadcrumbs
+                    Dark_Light (theme)  -   Avatar (user/login..)
                     -->
         <Search_Bar  {Active_Itm}  />   
-        <!--  KB shortcuts >>   
-                    toggle search:  [alt  +  /]  or  [Escape] (if input is cleared) 
-                    clear/reset input text:  [Escape]  (1st time)
-        -->
+                <!--_________________KB shortcuts___________________
+                    [alt + /]   (toggle Search_Bar on/off)
+                    [Escape]    (clear input text 1st time or toggle
+                                 Search_Bar if input text is clear) 
+                -->
     </header>
 
     <main   class ='grid  h-fit  col-start-2  col-end-13   p-4 landscape:px-6  portrait:py-6  ml-4 portrait:mr-8
