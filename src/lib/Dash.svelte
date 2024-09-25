@@ -12,18 +12,23 @@ let  Active_Itm =$derived(
                 : activeElement.current?.nodeName!=='BODY'?  activeElement.current?.textContent
                 : 'Doc Body - Search or click interactive items') 
 );
+    let  show =true, // sidebar on portrait ?
+         right=false; // sidebar on right ?
 </script>
   
 
 <span   class ='grid  fixed   w-svw  h-svh  p-0 m-0 z-0  place-self-stretch  place-content-evenly    
-                grid-rows-12  grid-cols-12  bg-muted/75  overflow-x-hidden   '
+                grid-rows-12  grid-cols-12  bg-muted/75  overflow-x-hidden '
 >
 
-    <Side_Bar  menu  fixed  {Active_Itm} />
-    <!--PROPS:  show  (force visible on portrait)
-                hide  (no Side_Bar / just menu button)
-                left/right    (side)  -  fixed  (stays, no shift/scroll)
-                menu    (force menu)  -  {Active_Itm}  (focused element)
+    <Side_Bar   menu fixed {right} {show} {Active_Itm}  />
+    <!--PROPS:   (var-> a variable value, else act as boolean)
+            fixed   [stays, no shift/scroll]
+    var     show    [force side bar visible on both (portrait too)]
+            hide    [force side bar hidden on both (landscape too)]
+    var     right   [side]   -   Active_Itm  [focused element]
+            menu    [force menu panel on both(landscape too)]
+            no_menu [force no menu on both (portrait too)]
     -->
     <header  class ='grid   portrait:fixed  items-center justify-stretch  w-full
                      z-30   col-span-full   border-x-2  border-muted '
@@ -41,12 +46,11 @@ let  Active_Itm =$derived(
                 -->
     </header>
 
-    <main   class ='grid  h-fit  col-start-2  col-end-13   p-4 landscape:px-6  portrait:py-6  ml-4 portrait:mr-8
-                    mr-14  z-10   row-start-3  row-end-auto auto-rows-auto bg-black/25  portrait:row-start-2   rounded-lg '
+    <main   class ='grid  h-fit  col-start-1  col-span-full  p-4 landscape:px-6  portrait:py-6 
+                    z-10  row-start-3  row-end-auto auto-rows-auto bg-black/25  rounded-lg  '
             style ='box-shadow: 0 0 1ch #000;'
     >       
-            <Content />
+            <Content  sidebar={{show, right}}/> <!--props: stating space for sidebar or not-->
     </main>
   
 </span>
-  
