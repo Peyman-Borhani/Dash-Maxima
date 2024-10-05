@@ -73,8 +73,8 @@
   body  {@apply bg-background text-foreground  w-svw  h-svh  overflow-x-hidden;}
 }
 @media screen and (orientation: portrait) {
-    :root {font-size: calc((1svh + 3svw + 2ch) / 2)}
+    :root {font-size: calc((1svh + 4svw + 1ch) / 2)}
 }
 @media screen and (orientation: landscape) {
-    :root {font-size: calc((2svh + 2svw + 1ch ) / 3)}
+    :root {font-size: calc((2svh + 2.6svw + 1ch ) / 3)}
 }
