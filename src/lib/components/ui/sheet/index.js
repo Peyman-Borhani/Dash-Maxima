@@ -75,25 +75,27 @@ export const sheetTransitions = {
 	left: {
 		in: {
 			x: "-100%",
-			duration: 500,
+            y: "-8%",
+			duration: 300,
 			opacity: 1,
 		},
 		out: {
 			x: "-100%",
-			duration: 300,
-			opacity: 1,
+			duration: 400,
+			opacity: 0.2,
 		},
 	},
 	right: {
 		in: {
 			x: "100%",
-			duration: 500,
+            y: "-8%",
+			duration: 300,
 			opacity: 1,
 		},
 		out: {
 			x: "100%",
-			duration: 300,
-			opacity: 1,
+			duration: 400,
+			opacity: 0.2,
 		},
 	},
 };
