@@ -1,8 +1,8 @@
 
 ## A new shadcn-svelte dashboard component on Svelte5 Runes  
 
-- Shadcn-svelte Dashboard sample on steroids, much refined and improved.  
-- Fully re-written, customizable, dynamic responsive, in resusable components.  
+- Shadcn-svelte Dashboard sample on steroids, fully rewritten.  
+- Customizable, dynamic responsive, in resusable components.  
 - Improved: styles, UI, grid layout, theme, dynamic sizing, interactive.  
 - Customize it for your use-case and integrate your business data/functions.  
 - or request my services to build + integrate a desired interactive Dash panel.  

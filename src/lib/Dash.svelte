@@ -17,7 +17,8 @@ const   Pshow =false,    // show Side_Bar on portrait ?
 </script>
   
 
-<span   class ='grid  fixed   w-svw  h-svh  p-0 m-0 z-0  place-self-stretch  place-content-evenly    
+  
+
                 grid-rows-12  grid-cols-12  bg-muted/75  overflow-x-hidden '
 >
     <Side_Bar   menu fixed {Right} {Pshow} {Active_Itm}  />
