@@ -18,16 +18,22 @@
   import  {Separator}   from  '$lib/components/ui/separator/index.js';
   import  * as Table    from  '$lib/components/ui/table/index.js';
   import  * as Tabs     from  '$lib/components/ui/tabs/index.js';
+
+
+  let  {Tdata } =$props();
+
 </script>
 
 
-<div class='grid   w-full  items-start   justify-between grid-cols-6
-            auto-rows-max  col-span-full  gap-x-[2svw]  gap-y-[8svh] min-h-full'
+<h1   class='text-3xl mb-8  ' >Orders </h1>
+
+<article class='grid grid-cols-6   items-start   justify-between  min-h-full 
+                auto-rows-max  col-span-full  *:gap-x-[2svw]  *:gap-y-[4svh] '
 >
 
-  <div class='grid gap-4 col-span-5 row-span-2  xs:grid-cols-1 sm:grid-cols-3  md-grid-cols-3 landscape:grid-cols-5 '>
+  <div  class='grid grid-cols-subgrid gap-4 row-start-1  col-span-full md:col-span-3 landscape:col-span-4 '>
     
-    <Card.Root class='col-span-4 row-span-1 landscape:col-span-2 '>
+    <Card.Root class='col-span-full    landscape:col-span-4 '>
         <Card.Header class='pb-4'>
             <Card.Title>Your Orders</Card.Title>
             <Card.Description class='max-w-lg text-balance leading-relaxed'>
@@ -52,7 +58,7 @@
         </Card.Footer>
     </Card.Root>
         
-    <Card.Root  class='col-span-1 row-span-1'>
+    <Card.Root  class='row-start-2 row-span-1'>
         <Card.Header class='pb-2'>
             <Card.Description>This Month</Card.Description>
             <Card.Title class='text-3xl'>$5,329</Card.Title>
@@ -65,11 +71,12 @@
         </Card.Footer>
     </Card.Root>
   </div>
-
-  <div class = 'portrait:col-span-full  portrait:col-start-1  portrait:row-start-3  landscape:row-start-1 landscape:col-start-5 landscape:col-span-2 landscape:row-span-3' >
+  
+  <!------------------------ Last orders -------------------------->
+  <div class = 'col-span-full  col-start-1 row-start-3  landscape:col-start-5  landscape:row-start-1  ' >
     <Card.Root class='overflow-hidden'>
     <Card.Header class='flex flex-row items-start bg-muted/50'>
-        <div class='grid gap-0.5'>
+        <div class='grid gap-1'>
         <Card.Title  class='group flex items-center gap-2 text-lg'
                         onclick = {e=> navigator.clipboard.writeText(e.currentTarget.childNodes[1].textContent)}
         > Order Oe31b70H
@@ -78,11 +85,11 @@
                 variant ='outline'
                 class   ='h-6 w-6 opacity-0 transition-opacity group-hover:opacity-100'
             >
-            <Copy class='size-3 scale-y-125' />
+            <Copy class='size-5 scale-y-125' />
             <span class='sr-only'>Copy Order ID</span>
             </Button>
         </Card.Title>
-        <Card.Description>Date: November 23, 2023</Card.Description>
+        <Card.Description>Date: November 23, 2024</Card.Description>
         </div>
         <div class='ml-auto flex items-center gap-1'>
         <Button size='sm' variant='outline' class='h-8 gap-1'>
@@ -150,13 +157,12 @@
         </ul>
         </div>
         <Separator class='my-4' />
-        <div class='grid grid-cols-2 gap-4'>
-        <div class='grid gap-3'>
+        <div class='grid w-full grid-cols-2 justify-between'>
+        <div class='grid justify-between'>
             <div class='font-semibold'>Shipping Information</div>
             <address class='grid gap-0.5 not-italic text-muted-foreground'>
-            <span>Liam Johnson</span>
-            <span>1234 Main St.</span>
-            <span>Anytown, CA 12345</span>
+            <span>{Tdata[0][0]}</span>
+            <span>{Tdata[0][7]}</span>
             </address>
         </div>
         <div class='grid auto-rows-max gap-3'>
@@ -170,18 +176,18 @@
         <dl class='grid gap-3'>
             <div class='flex items-center justify-between'>
             <dt class='text-muted-foreground'>Customer</dt>
-            <dd>Liam Johnson</dd>
+            <dd>{Tdata[0][0]}</dd>
             </div>
             <div class='flex items-center justify-between'>
             <dt class='text-muted-foreground'>Email</dt>
             <dd>
-                <a href='mailto:'>liam@acme.com</a>
+                <a href='mailto:'>{Tdata[0][1]}</a>
             </dd>
             </div>
             <div class='flex items-center justify-between'>
             <dt class='text-muted-foreground'>Phone</dt>
             <dd>
-                <a href='tel:'>+1 234 567 890</a>
+                <a href='tel:'>{Tdata[0][6]}</a>
             </dd>
             </div>
         </dl>
@@ -200,21 +206,21 @@
         </dl>
         </div>
     </Card.Content>
-    <Card.Footer class='flex flex-row items-center border-t bg-muted/50 px-6 py-3'>
-        <div class='text-xs text-muted-foreground'>
-        Updated <time dateTime='2023-11-23'>November 23, 2023</time>
+    <Card.Footer class='flex flex-row items-center justify-between border-t bg-muted/50 px-6 py-3'>
+        <div class='text-md text-muted-foreground'>
+        Updated on <time dateTime='2024-11-23'> 23-11-2024 </time>
         </div>
-        <Pagination.Root count={10} class='ml-auto mr-0 w-auto'>
+        <Pagination.Root count={10} class='ml-auto mr-1 w-max'>
         <Pagination.Content>
             <Pagination.Item>
-            <Button size='icon' variant='outline' class='h-6 w-6'>
-                <ChevronLeft class='h-3.5 w-3.5' />
+            <Button size='icon' variant='outline' class='size-7'>
+                <ChevronLeft class='size-6' />
                 <span class='sr-only'>Previous Order</span>
             </Button>
             </Pagination.Item>
             <Pagination.Item>
-            <Button size='icon' variant='outline' class='h-6 w-6'>
-                <ChevronRight class='h-3.5 w-3.5' />
+            <Button size='icon' variant='outline' class='size-7'>
+                <ChevronRight class='size-6' />
                 <span class='sr-only'>Next Order</span>
             </Button>
             </Pagination.Item>
@@ -224,249 +230,83 @@
     </Card.Root>
   </div>
 
- <div class = 'row-start-4 col-span-full'>
-  <Tabs.Root  value='week'>
-    <div class='flex items-center'>
-        <Tabs.List>
-            <Tabs.Trigger value='week'>Week</Tabs.Trigger>
-            <Tabs.Trigger value='month'>Month</Tabs.Trigger>
-            <Tabs.Trigger value='year'>Year</Tabs.Trigger>
-        </Tabs.List>
-        <div class='ml-auto flex items-center gap-2'>
-        <DropdownMenu.Root>
+ <main class = 'grid col-span-full w-full '>
+    <Card.Root>
+        <section class='inline-grid  portrait:grid-rows-2 w-full  justify-between gap-x-4 items-start pb-6 grid-flow-col '>
+
+            <Card.Header>
+                <Card.Title class='font-light -mt-4 pb-4 tracking-wider text-2xl' >Orders Table</Card.Title>
+                <Card.Description >Recent orders from store:</Card.Description>
+            </Card.Header>
+        <span class= 'inline-grid grid-flow-col items-end gap-3 '> 
+        <Tabs.Root  value='week'  > 
+            <Tabs.Content value='week'>
+            <Tabs.List class='dark:bg-[#333a] hover:shadow-md  gap-1 '>
+                <Tabs.Trigger value='week'>Week</Tabs.Trigger>
+                <Tabs.Trigger value='month'>Month</Tabs.Trigger>
+                <Tabs.Trigger value='year'>Year</Tabs.Trigger>
+            </Tabs.List>
+            </Tabs.Content>
+        </Tabs.Root>
+
+          <DropdownMenu.Root>
             <DropdownMenu.Trigger asChild let:builder>
-            <Button
-                variant='outline'
-                size='sm'
-                class='h-7 gap-1 text-sm'
-                builders={[builder]}
-            >
-                <ListFilter class='h-3.5 w-3.5' />
-                <span class='sr-only sm:not-sr-only'>Filter</span>
-            </Button>
+                <Button     size='sm'   variant='outline'   
+                            builders={[builder]} >
+                    <ListFilter />
+                    <span class='sr-only sm:not-sr-only'>Filter</span>
+                </Button>
             </DropdownMenu.Trigger>
             <DropdownMenu.Content align='end'>
                 <DropdownMenu.Label>Filter by</DropdownMenu.Label>
                 <DropdownMenu.Separator />
-                <DropdownMenu.CheckboxItem checked>
-                    Fulfilled
-                </DropdownMenu.CheckboxItem>
+                <DropdownMenu.CheckboxItem checked>Fulfilled</DropdownMenu.CheckboxItem>
                 <DropdownMenu.CheckboxItem>Declined</DropdownMenu.CheckboxItem>
                 <DropdownMenu.CheckboxItem>Refunded</DropdownMenu.CheckboxItem>
             </DropdownMenu.Content>
-        </DropdownMenu.Root>
-        <Button size='sm' variant='outline' class='h-7 gap-1 text-sm'>
-            <File class='h-3.5 w-3.5' />
-            <span class='sr-only sm:not-sr-only'>Export</span>
-        </Button>
-      </div>
-    </div>
-    
-        <Tabs.Content value='week'>
-            <Card.Root>
-            <Card.Header class='px-7'>
-                <Card.Title>Orders</Card.Title>
-                <Card.Description>Recent orders from your store.</Card.Description>
-            </Card.Header>
-            <Card.Content>
-                <Table.Root>
+          </DropdownMenu.Root>
+
+          <Button   size='sm' variant='outline' class='gap-1'>
+                    <File class='h-3.5 w-3.5' />
+                    <span class='sr-only sm:not-sr-only'>Export</span>
+          </Button></span>
+
+        </section>
+        <hr>
+            <Card.Content class='flex items-center' >
+                <Table.Root class='border-dotted' >
+
                 <Table.Header>
-                    <Table.Row>
-                    <Table.Head>Customer</Table.Head>
-                    <Table.Head class='hidden sm:table-cell'>
-                        Type
-                    </Table.Head>
-                    <Table.Head class='hidden sm:table-cell'>
-                        Status
-                    </Table.Head>
-                    <Table.Head class='hidden md:table-cell'>
-                        Date
-                    </Table.Head>
-                    <Table.Head class='text-right'>Amount</Table.Head>
+                    <Table.Row class='table-row  text-lg bg-black *:h-8 *:bg-muted/80 border-collapse border-muted-foreground'>
+                    <Table.Head class=' table-cell'>Customer</Table.Head>
+                    <Table.Head class=' sm:table-cell'>Type</Table.Head>
+                    <Table.Head class=' sm:table-cell'>Status</Table.Head>
+                    <Table.Head class=' sm:table-cell'>Date</Table.Head>
+                    <Table.Head class='sm:table-cell text-right'>Amount</Table.Head>
                     </Table.Row>
                 </Table.Header>
-                <Table.Body>
-                    <Table.Row class='bg-accent'>
-                    <Table.Cell>
-                        <div class='font-medium'>Liam Johnson</div>
-                        <div
-                        class='hidden text-sm text-muted-foreground md:inline'
-                        >
-                        liam@example.com
-                        </div>
-                    </Table.Cell>
-                    <Table.Cell class='hidden sm:table-cell'>
-                        Sale
-                    </Table.Cell>
-                    <Table.Cell class='hidden sm:table-cell'>
-                        <Badge class='text-xs' variant='secondary'>
-                        Fulfilled
-                        </Badge>
-                    </Table.Cell>
-                    <Table.Cell class='hidden md:table-cell'>
-                        2023-06-23
-                    </Table.Cell>
-                    <Table.Cell class='text-right'>$250.00</Table.Cell>
-                    </Table.Row>
-                    <Table.Row>
-                    <Table.Cell>
-                        <div class='font-medium'>Olivia Smith</div>
-                        <div
-                        class='hidden text-sm text-muted-foreground md:inline'
-                        >
-                        olivia@example.com
-                        </div>
-                    </Table.Cell>
-                    <Table.Cell class='hidden sm:table-cell'>
-                        Refund
-                    </Table.Cell>
-                    <Table.Cell class='hidden sm:table-cell'>
-                        <Badge class='text-xs' variant='outline'>
-                        Declined
-                        </Badge>
-                    </Table.Cell>
-                    <Table.Cell class='hidden md:table-cell'>
-                        2023-06-24
-                    </Table.Cell>
-                    <Table.Cell class='text-right'>$150.00</Table.Cell>
-                    </Table.Row>
-                    <Table.Row>
-                    <Table.Cell>
-                        <div class='font-medium'>Noah Williams</div>
-                        <div
-                        class='hidden text-sm text-muted-foreground md:inline'
-                        >
-                        noah@example.com
-                        </div>
-                    </Table.Cell>
-                    <Table.Cell class='hidden sm:table-cell'>
-                        Subscription
-                    </Table.Cell>
-                    <Table.Cell class='hidden sm:table-cell'>
-                        <Badge class='text-xs' variant='secondary'>
-                        Fulfilled
-                        </Badge>
-                    </Table.Cell>
-                    <Table.Cell class='hidden md:table-cell'>
-                        2023-06-25
-                    </Table.Cell>
-                    <Table.Cell class='text-right'>$350.00</Table.Cell>
-                    </Table.Row>
-                    <Table.Row>
-                    <Table.Cell>
-                        <div class='font-medium'>Emma Brown</div>
-                        <div
-                        class='hidden text-sm text-muted-foreground md:inline'
-                        >
-                        emma@example.com
-                        </div>
-                    </Table.Cell>
-                    <Table.Cell class='hidden sm:table-cell'>
-                        Sale
-                    </Table.Cell>
-                    <Table.Cell class='hidden sm:table-cell'>
-                        <Badge class='text-xs' variant='secondary'>
-                        Fulfilled
-                        </Badge>
-                    </Table.Cell>
-                    <Table.Cell class='hidden md:table-cell'>
-                        2023-06-26
-                    </Table.Cell>
-                    <Table.Cell class='text-right'>$450.00</Table.Cell>
-                    </Table.Row>
-                    <Table.Row>
-                    <Table.Cell>
-                        <div class='font-medium'>Liam Johnson</div>
-                        <div
-                        class='hidden text-sm text-muted-foreground md:inline'
-                        >
-                        liam@example.com
-                        </div>
-                    </Table.Cell>
-                    <Table.Cell class='hidden sm:table-cell'>
-                        Sale
-                    </Table.Cell>
-                    <Table.Cell class='hidden sm:table-cell'>
-                        <Badge class='text-xs' variant='secondary'>
-                        Fulfilled
-                        </Badge>
-                    </Table.Cell>
-                    <Table.Cell class='hidden md:table-cell'>
-                        2023-06-23
-                    </Table.Cell>
-                    <Table.Cell class='text-right'>$250.00</Table.Cell>
-                    </Table.Row>
-                    <Table.Row>
-                    <Table.Cell>
-                        <div class='font-medium'>Liam Johnson</div>
-                        <div
-                        class='hidden text-sm text-muted-foreground md:inline'
-                        >
-                        liam@example.com
-                        </div>
-                    </Table.Cell>
-                    <Table.Cell class='hidden sm:table-cell'>
-                        Sale
-                    </Table.Cell>
-                    <Table.Cell class='hidden sm:table-cell'>
-                        <Badge class='text-xs' variant='secondary'>
-                        Fulfilled
-                        </Badge>
-                    </Table.Cell>
-                    <Table.Cell class='hidden md:table-cell'>
-                        2023-06-23
-                    </Table.Cell>
-                    <Table.Cell class='text-right'>$250.00</Table.Cell>
-                    </Table.Row>
-                    <Table.Row>
-                    <Table.Cell>
-                        <div class='font-medium'>Olivia Smith</div>
-                        <div
-                        class='hidden text-sm text-muted-foreground md:inline'
-                        >
-                        olivia@example.com
-                        </div>
-                    </Table.Cell>
-                    <Table.Cell class='hidden sm:table-cell'>
-                        Refund
-                    </Table.Cell>
-                    <Table.Cell class='hidden sm:table-cell'>
-                        <Badge class='text-xs' variant='outline'>
-                        Declined
-                        </Badge>
-                    </Table.Cell>
-                    <Table.Cell class='hidden md:table-cell'>
-                        2023-06-24
-                    </Table.Cell>
-                    <Table.Cell class='text-right'>$150.00</Table.Cell>
-                    </Table.Row>
-                    <Table.Row>
-                    <Table.Cell>
-                        <div class='font-medium'>Emma Brown</div>
-                        <div
-                        class='hidden text-sm text-muted-foreground md:inline'
-                        >
-                        emma@example.com
-                        </div>
-                    </Table.Cell>
-                    <Table.Cell class='hidden sm:table-cell'>
-                        Sale
-                    </Table.Cell>
-                    <Table.Cell class='hidden sm:table-cell'>
-                        <Badge class='text-xs' variant='secondary'>
-                        Fulfilled
-                        </Badge>
-                    </Table.Cell>
-                    <Table.Cell class='hidden md:table-cell'>
-                        2023-06-26
-                    </Table.Cell>
-                    <Table.Cell class='text-right'>$450.00</Table.Cell>
-                    </Table.Row>
+
+                <Table.Body class='table-row-group'>
+                    {#each Tdata  as  tr}
+                      <Table.Row>
+                        <Table.Cell>
+                        <div  class='font-medium'>{tr[0]}</div>
+                        <div  class='hidden text-sm text-muted-foreground md:inline'>{tr[1]}</div>
+                        </Table.Cell>
+                        <Table.Cell class='hidden sm:table-cell'>{tr[2]}</Table.Cell>
+                        <Table.Cell class='hidden sm:table-cell'>
+                            <Badge class='text-xs' variant='secondary'>
+                              {tr[3]==='J'? '✔' :tr[3]==='X'? '❌' : '🏁'}
+                            </Badge>
+                        </Table.Cell>
+                        <Table.Cell class='hidden md:table-cell'>{tr[4]}</Table.Cell>
+                        <Table.Cell class='text-right'>${tr[5]}</Table.Cell>
+                      </Table.Row>
+                    {/each}
                 </Table.Body>
-                </Table.Root>
+              </Table.Root>
             </Card.Content>
-            </Card.Root>
-        </Tabs.Content>
-    </Tabs.Root>
-  </div>
-</div>
+ </Card.Root>
+</main>
+
+</article>
