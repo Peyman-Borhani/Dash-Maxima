@@ -28,6 +28,7 @@
   let  On_Page = $state(cfg.On_Page)
 </script>
 
+
 <ModeWatcher  />
     
     
@@ -44,7 +45,7 @@
                 Dark_Light (theme)  -   Avatar (user/login..)
                 Search_Bar (input, inline infopop, search data page/defined)
     -->
-            <Header   {cfg} {On_Page}/>
+            <Header  {cfg}  {On_Page}/>
             <!--PROPS:      fixed        (stays, no shift/scroll)   {Active_Itm} {Right} {None}
                     vars:   {Active_Itm} {Right} {None}  (...sidebar status...)
     
@@ -53,7 +54,7 @@
                             Exit (same as tapping none sidebar screen)
                             menu Items   +   Settings (at the end)
         -->
-            <Side_Bar  {cfg} {On_Page} />
+            <Side_Bar  {cfg} bind:On_Page={On_Page} {Active_Itm} />
             <!--------------------- PROPS ----------------------
                         {Right}  {P_sbar}  {H_Sbar}
                         {On_Page}  {Active_Itm}   
