@@ -31,5 +31,3 @@ export function  load(){
         [ 'Anna Jensen',  'anna@example.com',   'Sale',     'P', '2024-06-26', '750',   '+1 140 227 929', 'Unit 8, Main St. Anytown, CA 12345'],
 ]
 }}
-
-
