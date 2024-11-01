@@ -1,194 +1,152 @@
 <script>
-    import  Home          from  '~icons/lucide/home';
-    import  LineChart     from  '~icons/lucide/line-chart';
-    import  Package       from  '~icons/lucide/package';
-    import  Menu          from  '~icons/lucide/menu';
-    import  UsersRound    from  '~icons/lucide/users-round';
-    import  Settings      from  '~icons/lucide/settings';
-    import  ShoppingCart  from  '~icons/lucide/shopping-cart';
-    import  Tags          from  '~icons/lucide/tags';
-    import  * as Sheet    from  '$lib/components/ui/sheet/index.js';
-    import  {Button}      from  '$lib/components/ui/button/index.js';
+    import  Home          from  '~icons/lucide/home'
+    import  LineChart     from  '~icons/lucide/line-chart'
+    import  Package       from  '~icons/lucide/package'
+    import  Menu          from  '~icons/lucide/menu'
+    import  UsersRound    from  '~icons/lucide/users-round'
+    import  Settings      from  '~icons/lucide/settings'
+    import  ShoppingCart  from  '~icons/lucide/shopping-cart'
+    import  Tags          from  '~icons/lucide/tags'
+    import  Cross         from  '~icons/radix-icons/cross2'
+    import  * as Sheet      from  '$lib/components/ui/sheet/index.js'
+    import  {Button}        from  '$lib/components/ui/button/index.js'
+    import  * as Tooltip    from  '$lib/components/ui/tooltip/index.js'
+    import  {activeElement} from  'runed'
 
-    import  * as Tooltip    from '$lib/components/ui/tooltip/index.js';
-    import  {activeElement} from  'runed';
 
-    let  {Active_Itm,  menu,  right,  hide,  show,  fixed}  = $props();
-    /*  Attr:   right (side poisition)  -  {Active_Itm} (focused element)
-                menu <-(always use)    -   fixed (placement/won't shift)   
-                show/hide (forced visibility)
-    */
-    let  items    =['Dashboard', 'Orders', 'Products', 'Customers', 'Analytics', 'Settings'];
+let     {cfg,   Active_Itm=$bindable(''),     On_Page=$bindable('Home'),
+        items= ['Home', 'Orders', 'Products', 'Customers', 'Analytics', '', 'Settings']
+}=$props();     //max word size among items. min: 2 (char+icon) //const menu_size = `${items.reduce((x,itm)=> {return itm.length>x? itm.length :x}, 2)}ch`;
     
-    let  menu_css ='flex items-center w-fit gap-4 px-2.5 text-muted-foreground hover:text-foreground ',
-         sbar_css ='size-7  group-hover:scale-150  transition-transform duration-300 ';
+//let  fixed=cfg.fixed,  P_sbar=cfg.P_sbar,  S_bar=cfg.S_bar,  Right=cfg.Right,  menu=cfg.menu;
+let  {fixed,  P_sbar,  S_bar,  Right,  menu, no_menu} = cfg;
 
-    let  side = right?  'col-start-13 -col-end-1  border-l'  :  'col-start-0  col-end-1  border-r ';
-    side +=  fixed? 'fixed '  :'absolute ';
-    side +=  show? 'visible '  :hide? 'invisible ' :'lg:visible  landscape:visible ';
-    //  md:inline-grid 
+    /*Props:        (var-> a variable value, else act as boolean)
+            fixed   [stays, no shift/scroll]
+    var     P_sbar  [force side bar visiblity (on portrait too)]
+    var     S_bar   [force side bar visiblity (on landscape too)]
+    var     Right   [side]   -   Active_Itm  [focused element]
+            menu    [force menu panel on both(landscape too)]
+            no_menu [force no menu on both (portrait too)]
+    */
+ 
+ const  menu_css =`flex  w-fit items-center justify-items-between gap-4 p-3  hover:scale-125  transition-transform  whitespace-nowrap *:size-9 
+                      ${Right? 'flex-row-reverse self-start' : 'justify-self-end '} text-muted-foreground hover:text-foreground hover:text-foreground self-stretch `
+        ,
+        icon_css ="size-8  group-hover:scale-150  transition-all duration-200 rounded-md  shadow-lg " ;
+
+ const  side  = Right? 'left'    :'right'; //Tooltip popup side
+    //sidebar portrait visiblity
+ const  sbar_vis = ` ${P_sbar? 'inline-grid ' :!S_bar? 'hidden '  :'landscape:inline-grid  portrait:hidden '} 
+                     ${(P_sbar || S_bar)? 'h-full row-start-2   row-end-13 ' :'h-full portrait:h-0 row-start-1 row-end-1 landscape:row-start-2 landscape:row-end-13 '} `;
+
+ const  sbar_css = ` pt-2
+            ${fixed? 'fixed '  :'absolute '} 
+            ${P_sbar? 'h-screen grid-rows-12 ' : ''}
+            ${!S_bar?  'h-fit grid-rows-1 row-span-1 p-2.5 '  :'landscape:h-screen  landscape:grid-rows-12 '} 
+            ${Right? 'col-start-13 -col-end-1  border-l  justify-self-end '  :'col-start-0 col-end-1  border-r transition-all duration-300  shadow-lg shadow-stone-700 dark:shadow-stone-400 '}
+            `;
 </script>
 
 
-<aside  class ='inline-grid  {side} z-40  h-screen  grid-rows-12  grid-flow-row row-span-full  bg-stone-200/80
-                py-4 px-2  row-start-0  justify-center  content-between  place-self-stretch  dark:bg-black/80 '
->
-<!--
-{#snippet Side_bar(itm)}
-    <a  href='#todo.{itm}'   class='flex items-center gap-4 px-2.5 text-muted-foreground hover:text-foreground break-keep'
-    >   {itm}
-    </a>
+{#snippet  Icon(itm, css)} 
+    <!--Icons: compiles to 1 component per item. (won't repeat whole block) -->
+            {#if      itm===items[0]}   <Home class={css}/>
+            {:else if itm===items[1]}   <ShoppingCart class={css}/>
+            {:else if itm===items[2]}   <Package    class={css} />
+            {:else if itm===items[3]}   <UsersRound class={css} />
+            {:else if itm===items[4]}   <LineChart  class={css} />
+            {:else if itm==='Settings'}  <Settings  class={css} />
+            {/if}
 {/snippet}
--->
-  <Sheet.Root >
 
+
+<aside  class ="inline-grid z-50  grid-flow-row  bg-background {sbar_css}  content-between dark:bg-black/80 select-none "
+>
+    <!--------------------  Menu  (side panel) ----------------->
+  <Sheet.Root>
     <Sheet.Trigger  asChild  let:builder 
     >
-        <Button     builders={[builder]}  size='icon'  variant='outline' 
-                    class='row-start-1 row-end-3  text-xl'
-        >
-            <Menu  class=' size-8' />
-            <span  class='sr-only'> Toggle Menu </span>
+        <Button     builders ={[builder]}   size='icon'     variant='outline'
+                    class ="row-start-1 row-end-2 portrait:m-1.5  place-self-center  justify-self-center size-fit z-50 {Right? 'mr-2' :'ml-2'} max-h-[8ch] bg-muted rounded-xl "
+        >                   
+            <Menu   class ='size-12 '/>
+            <span   class ='sr-only'> Toggle Menu </span>
         </Button>
     </Sheet.Trigger>
 
-    {#if menu}
-        <Sheet.Content  side={right? 'right' :'left'}   class ='w-max'>
-        <nav  class='inline-grid  justify-between  h-full row-start-0 font-medium  text-xl' 
-        >
-            <Menu  class='size-8' />
-            
-            <a  href='##'  class={menu_css}>   <Home        class='size-7' /> Dashboard </a>
-            <a  href='##'  class={menu_css}>   <ShoppingCart class='size-7'/> Orders    </a>
-            <a  href='##'  class={menu_css}>   <Package     class='size-7' /> Products  </a>
-            <a  href='##'  class={menu_css}>   <UsersRound  class='size-7' /> Customers </a>
-            <a  href='##'  class={menu_css}>   <LineChart   class='size-7' /> Analytics </a>
-            <a  href='##'  class={menu_css}>   <Settings    class='size-7' /> Settings  </a>
+    {#if menu  ||  !no_menu}
+      <Sheet.Content  side={Right? 'right' :'left'}   class ='w-fit h-full '
+      > <!-- v Hides tiny useless Btn v         //onpointerleave={e=> {e.currentTarget.lastElementChild.click()}} -->
+        <span class='absolute  p-4 z-50  right-1  top-0  select-none  outline-none bg-background '> </span>
+        <button class="absolute  py-2 z-40  top-0  {Right? 'rounded-es-full -ml-1 -left-14  hover:-ml-3 pl-3' :'rounded-ee-full -right-14 hover:-right-16 pr-3'} hover:top-1  transition-all duration-150 scale-y-110 hover:scale-x-125 hover:scale-y-150 select-none outline-none  bg-[#3332] opacity-80 hover:opacity-100
+                            shadow-xl shadow-muted-foreground hover:shadow-red-400  dark:shadow-muted-foreground/60  dark:hover:shadow-red-900/60 "
+                onpointerup={e=> e.target.parentElement.parentElement.lastElementChild.click()}
+                > <Cross  class="w-11 h-12  z-50  place-self-center  transition-all text-muted-foreground hover:text-red-900  border-none  outline-none "
+                          onpointerup={e=> e.target.parentElement.parentElement.parentElement.lastElementChild.click()}/>
+        </button>
+
+        <nav  class ='inline-grid  h-full w-fit  grid-rows-{items.length}  text-xl mt-4 place-content-evenly
+          items-center  *:text-muted-foreground   font-medium  whitespace-nowrap  break-inside-avoid '>
+          {#each  items as itm, i}
+            <a  href='#{itm}'  class={menu_css}
+            >   {itm} 
+                {@render Icon(itm)}
+            </a>
+          {/each}
         </nav>
-        </Sheet.Content>
+      </Sheet.Content>
     {/if}
   </Sheet.Root>
 
-    <nav  class='inline-grid  grid-flow-row  invisible landscape:visible lg:visible  group-hover:scale-150
-                {show?  'visible' :''}  row-start-3  row-end-13 justify-center  place-content-evenly '
-    >
-    <!--
-      <a  href='##'  class='flex  group shrink-0 items-center justify-center gap-2  md:size-8
-                            rounded-full text-lg font-semibold active:text-primary  md:text-base'
-                     onclick={()=> menu = !menu}
-      >
-        <Menu   class ='size-8 text-slate-600 group-hover:scale-150  transition-all duration-300' />
-        <span   class ='sr-only'> Menu </span>
-      </a>
-        -->
-      <Tooltip.Root >
-        <Tooltip.Trigger  asChild  let:builder class ='text-sm'>
-          <a
-            href='##'
-            class='inline-grid  group justify-center rounded-lg text-muted-foreground transition-all  hover:text-foreground  md:size-8'
-            use:builder.action
-            {...builder}
-          >
-            <Home  class ={sbar_css} />
-            <span  class='sr-only'>Dashboard</span>
-          </a>
-        </Tooltip.Trigger>
-        <Tooltip.Content side='right'>Dashboard</Tooltip.Content>
-      </Tooltip.Root>
+<!------------------------- Side_Bar ---------------------------->
+
+  {#if S_bar || P_sbar}
+    <nav  class=" {sbar_vis} grid-flow-row  pt-3  bg-inherit  px-7  group-hover:scale-150
+                place-content-evenly  {Right? 'justify-start pl-3.5' :'justify-end  pr-3.5'}  "
+    > 
+      {#each items  as  itm }
+      {#if itm}
+        <Tooltip.Root>
+            <Tooltip.Trigger  asChild  let:builder >
+            <a  href='#{itm}'
+                class='inline-grid  group place-content-center  last:row-start-12 
+                       rounded-md text-foreground/60 transition-all  hover:text-foreground  *:size-8 '
+                onpointerup={()=>On_Page=itm}
+                use:builder.action   {...builder}
+            >
+                {@render Icon(itm,`${icon_css}  ${On_Page===itm? 'dark:text-foreground text-black shadow-lg p-1 shadow-blue-700 rounded-lg size-10 scale-150' :'shadow-muted'} `) }
+                <span  class='sr-only'>{itm}</span>
+            </a>
+            </Tooltip.Trigger>
+            <Tooltip.Content {side}>{itm}</Tooltip.Content>
+        </Tooltip.Root>
+      {/if}
+      {/each}
+
+
+    {#if  !items[items.length-2]}
       <Tooltip.Root>
         <Tooltip.Trigger asChild let:builder>
-          <a
-            href='##'
-            class='flex  group items-center justify-center rounded-lg bg-accent text-accent-foreground transition-colors hover:text-foreground md:size-8'
-            use:builder.action
-            {...builder}
-          >
-            <ShoppingCart class ={sbar_css} />
-            <span class='sr-only'>Orders</span>
-          </a>
+            <a  href='##'
+                class='{icon_css} row-start-6  row-end-8  text-xl '
+                use:builder.action    {...builder}
+            >
+                <Tags   class='hover:scale-150  transition-all duration-300 font-sans size-8 justify-center' 
+                        style='text-shadow: 0 0 1ch #def; '
+                /> 
+                <span  class='sr-only'>Tag-label/Element focused</span>
+            </a>
         </Tooltip.Trigger>
-        <Tooltip.Content side='right'>Orders</Tooltip.Content>
-      </Tooltip.Root>
-      <Tooltip.Root>
-        <Tooltip.Trigger asChild let:builder>
-          <a
-            href='##'
-            class='flex  group items-center justify-center rounded-lg text-muted-foreground transition-colors hover:text-foreground md:size-8'
-            use:builder.action
-            {...builder}
-          >
-            <Package class ={sbar_css} />
-            <span class='sr-only'>Products</span>
-          </a>
-        </Tooltip.Trigger>
-        <Tooltip.Content side='right'>Products</Tooltip.Content>
-      </Tooltip.Root>
-      <Tooltip.Root>
-        <Tooltip.Trigger asChild let:builder>
-          <a
-            href='##'
-            class='flex  group items-center justify-center rounded-lg text-muted-foreground transition-colors hover:text-foreground md:size-8'
-            use:builder.action
-            {...builder}
-          >
-            <UsersRound class ={sbar_css} />
-            <span class='sr-only'>Customers</span>
-          </a>
-        </Tooltip.Trigger>
-        <Tooltip.Content side='right'>Customers</Tooltip.Content>
-      </Tooltip.Root>
-      
-      <Tooltip.Root>
-      <Tooltip.Trigger asChild let:builder>
-          <a
-            href='##'
-            class='flex  group items-center justify-center rounded-lg text-cyan-300 hover:text-foreground text-xl md:size-8'
-            use:builder.action
-            {...builder}
-          >
-            <Tags  class='group-hover:scale-150  transition-all duration-300 font-sans' 
-                   style='text-shadow: 0 0 1ch #def;  letter-spacing: -2pt'
-            /> 
-          <span  class='sr-only'>Tag-label/Element focused</span>
-          </a>
-        </Tooltip.Trigger>
-        <Tooltip.Content side='right' class='ml-2 p-4 italic text-md font-semibold text-violet-600'>
+        <Tooltip.Content {side}  class ='ml-2 p-4 italic text-md font-semibold text-violet-600'>
             Tag-name: 
             <span class='text-lg text-green-500'> {activeElement.current?.nodeName} </span>
             &nbsp - &nbsp Item: 
             <span class='text-lg  text-green-500'> {Active_Itm} </span>
         </Tooltip.Content>
       </Tooltip.Root>
+    {/if}
 
-      <Tooltip.Root>
-        <Tooltip.Trigger  asChild let:builder>
-          <a
-            href ='##'
-            class='flex  group items-center justify-center rounded-lg text-muted-foreground transition-colors hover:text-foreground md:size-8'
-            use:builder.action
-            {...builder}
-          >
-            <LineChart  class ={sbar_css} />
-            <span class='sr-only'>Analytics</span>
-          </a>
-        </Tooltip.Trigger>
-        <Tooltip.Content  side='right'>Analytics</Tooltip.Content>
-      </Tooltip.Root>
-
-      <Tooltip.Root>
-        <Tooltip.Trigger  asChild let:builder>
-          <a
-            href='##'
-            class='inline-grid row-start-9  group  mt-auto  md:size-8 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:text-foreground '
-            use:builder.action
-            {...builder}
-          >
-            <Settings  class ={sbar_css} />
-            <span  class='sr-only'>Settings</span>
-          </a>
-        </Tooltip.Trigger>
-        <Tooltip.Content  side='right'>Settings</Tooltip.Content>
-      </Tooltip.Root>
     </nav>
-
+  {/if}
 </aside>
