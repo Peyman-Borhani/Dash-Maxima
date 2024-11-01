@@ -1,83 +1,83 @@
 <script>
-  import  ChevronLeft   from  '~icons/lucide/chevron-left';
-  import  ChevronRight  from  '~icons/lucide/chevron-right';
-  import  Copy          from  '~icons/lucide/copy';
-  import  CreditCard    from  '~icons/lucide/credit-card';
-  import  File          from  '~icons/lucide/file';
-  import  ListFilter    from  '~icons/lucide/list-filter';
-
-  import  Truck              from  '~icons/lucide/truck';
-  import  EllipsisVertical   from  '~icons/lucide/ellipsis-vertical';
+    import  ChevronLeft   from  '~icons/lucide/chevron-left'
+    import  ChevronRight  from  '~icons/lucide/chevron-right'
+    import  Copy          from  '~icons/lucide/copy'
+    import  CreditCard    from  '~icons/lucide/credit-card'
+    import  File          from  '~icons/lucide/file'
+    import  ListFilter    from  '~icons/lucide/list-filter'
   
-  import  * as DropdownMenu  from '$lib/components/ui/dropdown-menu/index.js';
-  import  * as Card          from '$lib/components/ui/card/index.js';
-  import  * as Pagination    from '$lib/components/ui/pagination/index.js';
-  import  {Badge}       from  '$lib/components/ui/badge/index.js';
-  import  {Button}      from  '$lib/components/ui/button/index.js';
-  import  {Progress}    from  '$lib/components/ui/progress/index.js';
-  import  {Separator}   from  '$lib/components/ui/separator/index.js';
-  import  * as Table    from  '$lib/components/ui/table/index.js';
-  import  * as Tabs     from  '$lib/components/ui/tabs/index.js';
-
-
-  let  {Tdata } =$props();
-
-</script>
-
-
-<h1   class='text-3xl mb-8  ' >Orders </h1>
-
-<article class='grid grid-cols-6   items-start   justify-between  min-h-full 
-                auto-rows-max  col-span-full  *:gap-x-[2svw]  *:gap-y-[4svh] '
->
-
-  <div  class='grid grid-cols-subgrid gap-4 row-start-1  col-span-full md:col-span-3 landscape:col-span-4 '>
+    import  Truck              from  '~icons/lucide/truck'
+    import  EllipsisVertical   from  '~icons/lucide/ellipsis-vertical';
     
-    <Card.Root class='col-span-full    landscape:col-span-4 '>
-        <Card.Header class='pb-4'>
-            <Card.Title>Your Orders</Card.Title>
-            <Card.Description class='max-w-lg text-balance leading-relaxed'>
-                Dynamic Orders Dashboard for seamless management and insightful analysis.
-            </Card.Description>
-        </Card.Header>
-        <Card.Footer>
-            <Button>Create New Order</Button>
-        </Card.Footer>
-    </Card.Root>
-
-    <Card.Root  class='col-span-1 row-span-1 row-start-2 '>
-        <Card.Header class='pb-2'>
-            <Card.Description>This Week</Card.Description>
-            <Card.Title class='text-4xl'>$1329</Card.Title>
-        </Card.Header>
-        <Card.Content>
-            <div class='text-xs text-muted-foreground'>+25% from last week</div>
-        </Card.Content>
-        <Card.Footer>
-            <Progress value={25} aria-label='25% increase' />
-        </Card.Footer>
-    </Card.Root>
-        
-    <Card.Root  class='row-start-2 row-span-1'>
-        <Card.Header class='pb-2'>
-            <Card.Description>This Month</Card.Description>
-            <Card.Title class='text-3xl'>$5,329</Card.Title>
-        </Card.Header>
-        <Card.Content>
-            <div class='text-xs text-muted-foreground'>+10% from last month</div>
-        </Card.Content>
-        <Card.Footer>
-            <Progress value={12} aria-label='12% increase' />
-        </Card.Footer>
-    </Card.Root>
-  </div>
+    import  * as DropdownMenu  from '$lib/components/ui/dropdown-menu/index.js'
+    import  * as Card          from '$lib/components/ui/card/index.js'
+    import  * as Pagination    from '$lib/components/ui/pagination/index.js'
+    import  {Badge}       from  '$lib/components/ui/badge/index.js'
+    import  {Button}      from  '$lib/components/ui/button/index.js'
+    import  {Progress}    from  '$lib/components/ui/progress/index.js'
+    import  {Separator}   from  '$lib/components/ui/separator/index.js'
+    import  * as Table    from  '$lib/components/ui/table/index.js'
+    import  * as Tabs     from  '$lib/components/ui/tabs/index.js';
   
-  <!------------------------ Last orders -------------------------->
-  <div class = 'col-span-full  col-start-1 row-start-3  landscape:col-start-5  landscape:row-start-1  ' >
-    <Card.Root class='overflow-hidden'>
-    <Card.Header class='flex flex-row items-start bg-muted/50'>
-        <div class='grid gap-1'>
-        <Card.Title  class='group flex items-center gap-2 text-lg'
+  
+    let  {Tdata } =$props();
+  
+  </script>
+  
+  
+  <h1   class='text-3xl  mb-8 '>Orders </h1>
+  
+  <article  class='grid grid-cols-6   items-start   justify-between  min-h-full 
+                   auto-rows-max  col-span-full  *:gap-x-[2svw]  *:gap-y-[4svh] '
+  >
+  
+    <div  class='grid grid-cols-subgrid gap-4 row-start-1  col-span-full md:col-span-3 landscape:col-span-4 '>
+      
+      <Card.Root class='col-span-full  landscape:col-span-4 '>
+          <Card.Header class='pb-4'>
+              <Card.Title>Your Orders</Card.Title>
+              <Card.Description class='max-w-lg text-balance leading-relaxed'>
+                  Dynamic Orders Dashboard for seamless management and insightful analysis.
+              </Card.Description>
+          </Card.Header>
+          <Card.Footer>
+              <Button>Create New Order</Button>
+          </Card.Footer>
+      </Card.Root>
+  
+      <Card.Root  class='col-span-1 row-span-1 row-start-2 '>
+          <Card.Header class='pb-2'>
+              <Card.Description>This Week</Card.Description>
+              <Card.Title class='text-4xl'>$1329</Card.Title>
+          </Card.Header>
+          <Card.Content>
+              <div class='text-xs text-muted-foreground'>+25% from last week</div>
+          </Card.Content>
+          <Card.Footer>
+              <Progress value={25} aria-label='25% increase' />
+          </Card.Footer>
+      </Card.Root>
+          
+      <Card.Root  class='row-start-2 row-span-1'>
+          <Card.Header class='pb-2'>
+              <Card.Description>This Month</Card.Description>
+              <Card.Title class='text-3xl'>$5,329</Card.Title>
+          </Card.Header>
+          <Card.Content>
+              <div class='text-xs text-muted-foreground'>+10% from last month</div>
+          </Card.Content>
+          <Card.Footer>
+              <Progress value={12} aria-label='12% increase' />
+          </Card.Footer>
+      </Card.Root>
+    </div>
+    
+    <!------------------------ Last orders -------------------------->
+    <div class = 'col-span-full  col-start-1 row-start-3  landscape:col-start-5  landscape:row-start-1  ' >
+      <Card.Root class='overflow-hidden'>
+      <Card.Header class='flex flex-row items-start bg-muted/50'>
+          <div class='grid gap-1'>
+          <Card.Title   class='group flex items-center gap-2 text-lg'
                         onclick = {e=> navigator.clipboard.writeText(e.currentTarget.childNodes[1].textContent)}
         > Order Oe31b70H
             <Button
