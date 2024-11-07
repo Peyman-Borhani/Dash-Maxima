@@ -14,22 +14,21 @@
     import  {activeElement} from  'runed'
 
 
-let     {cfg,   Active_Itm=$bindable(''),     On_Page=$bindable('Home'),
+let     {cfg,    Active_Itm,    On_Page=$bindable('Home'),
         items= ['Home', 'Orders', 'Products', 'Customers', 'Analytics', '', 'Settings']
 }=$props();     //max word size among items. min: 2 (char+icon) //const menu_size = `${items.reduce((x,itm)=> {return itm.length>x? itm.length :x}, 2)}ch`;
 
 //let  fixed=cfg.fixed,  P_sbar=cfg.P_sbar,  S_bar=cfg.S_bar,  Right=cfg.Right,  menu=cfg.menu;
 let  {fixed,  P_sbar,  S_bar,  Right,  menu, no_menu} = cfg;
 
-    /*Props:        (var-> a variable value, else act as boolean)
+/*  Props:   
             fixed   [stays, no shift/scroll]
-    var     P_sbar  [force side bar visiblity (on portrait too)]
-    var     S_bar   [force side bar visiblity (on landscape too)]
-    var     Right   [side]   -   Active_Itm  [focused element]
-            menu    [force menu panel on both(landscape too)]
+            S_bar   [Side_Bar visiblity]
+            P_sbar  [force side bar visiblity (on portrait too)]
+            Right   [side]      -      Active_Itm  [focused element]
+            menu    [force menu Btn+panel on both(landscape too)]
             no_menu [force no menu on both (portrait too)]
-    */
- 
+*/
  const  menu_css =`flex  w-fit items-center justify-items-between gap-4 p-3  hover:scale-125  transition-transform  whitespace-nowrap *:size-9 
                       ${Right? 'flex-row-reverse self-start' : 'justify-self-end '} text-muted-foreground hover:text-foreground hover:text-foreground self-stretch `
         ,
@@ -37,12 +36,14 @@ let  {fixed,  P_sbar,  S_bar,  Right,  menu, no_menu} = cfg;
 
  const  side  = Right? 'left'    :'right'; //Tooltip popup side
     //sidebar portrait visiblity
- const  sbar_vis = ` ${P_sbar? 'inline-grid ' :!S_bar? 'hidden '  :'landscape:inline-grid  portrait:hidden '} 
-                     ${(P_sbar || S_bar)? 'h-full row-start-2   row-end-13 ' :'h-full portrait:h-0 row-start-1 row-end-1 landscape:row-start-2 landscape:row-end-13 '} `;
-
+ const  sbar_vis =  !S_bar? ' hidden  h-0 '
+                    :(P_sbar && S_bar)?  'hidden  h-0  lg:portrait:inline-grid  lg:portrait:h-full  row-start-2  row-end-13  landscape:inline-grid  landscape:h-full '
+                    :(S_bar && !P_sbar)? 'portrait:hidden portrait:h-0 landscape:inline-grid  landscape:h-full landscape:row-start-2 landscape:row-end-13 '
+                    :' ';
+                 
  const  sbar_css = ` py-2.5   dark:shadow-stone-50  transition-all duration-300
             ${fixed?  'fixed '  :'absolute '} 
-            ${P_sbar? 'h-screen  grid-rows-12 ' : ' '}
+            ${P_sbar? 'lg:h-screen  lg:grid-rows-12 ' : ' '}
             ${!S_bar? 'h-fit grid-rows-1 row-span-1 p-2.5 '  :'landscape:h-screen  landscape:grid-rows-12 '} 
             ${Right?  'col-start-13 -col-end-1  border-l  justify-self-end '  :'col-start-0 col-end-1  border-r '}
             `;
@@ -61,17 +62,17 @@ let  {fixed,  P_sbar,  S_bar,  Right,  menu, no_menu} = cfg;
 
 
 
-<aside  class ="inline-grid z-50  grid-flow-row  bg-background {sbar_css} dark:shadow-[0_10svh_4svw_#ccda,0_10svh_0.4svw_#eefa] shadow-[0_9svh_4svw_#889a,0_9svh_1svw_#000] 
-                content-between  select-none   portrait:hidden  portrait:lg:inline-grid    *:hover:opacity-100 "
-
+<aside   class ="inline-grid z-50  grid-flow-row  bg-background  {sbar_css}  content-between  select-none 
+                {S_bar? 'landscape:shadow-[0_9svh_4svw_#889a,0_9svh_1svw_#000]  landscape:dark:shadow-[0_10svh_4svw_#ccda,0_10svh_0.4svw_#eefa] ' : ' '} 
+                "
 >
     <!--------------------  Menu  (side panel) -----------        style= 'filter: drop-shadow(0 9ch 2svw #ddfa)'------>
   <Sheet.Root  >
     <Sheet.Trigger  asChild  let:builder 
     >
         <Button     builders ={[builder]}   size='icon'     variant='outline'
-                    class ="row-start-1 row-end-2 portrait:m-1.5  place-self-center  justify-self-center size-fit z-50 {Right? 'mr-2' :'ml-2'}
-                            max-h-[8ch]  bg-inherit  shadow-lg shadow-gray-700/80  rounded-lg  hover:scale-125 transition-transform "
+                    class ="row-start-1 row-end-2 mx-1.5 place-self-center  justify-self-center size-fit z-50 {Right? 'mr-2' :'ml-2'}
+                            max-h-[5.8ch] max-w-[7ch] bg-inherit  shadow-[0_0_1ch_#666]  rounded-lg  hover:scale-125 transition-transform "
         >                   
             <Menu   class ='size-12 '/>
             <span   class ='sr-only'> Toggle Menu </span>
@@ -104,8 +105,8 @@ let  {fixed,  P_sbar,  S_bar,  Right,  menu, no_menu} = cfg;
 
 <!------------------------- Side_Bar ---------------------------->
 
-  {#if S_bar || P_sbar}
-    <nav  class=" {sbar_vis} grid-flow-row  pt-4  bg-inherit  px-2.5 landscape:px-5 group-hover:scale-150 
+  {#if S_bar || (S_bar && P_sbar)}
+    <nav  class="{sbar_vis}  grid-flow-row  pt-4  justify-evenly bg-inherit  px-2.5 landscape:px-5 group-hover:scale-150 
                 place-content-evenly  {Right? 'justify-start pl-3.5' :'justify-end  pr-3.5'}  "
     > 
       {#each items  as  itm }
@@ -145,7 +146,7 @@ let  {fixed,  P_sbar,  S_bar,  Right,  menu, no_menu} = cfg;
             Tag-name: 
             <span class='text-lg text-green-500'> {activeElement.current?.nodeName} </span>
             &nbsp - &nbsp Item: 
-            <span class='text-lg  text-green-500'> {Active_Itm} </span>
+            <span class='text-lg  text-green-500'> {activeElement.current?.textContent} </span>
         </Tooltip.Content>
       </Tooltip.Root>
     {/if}
