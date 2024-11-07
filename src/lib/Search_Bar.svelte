@@ -23,7 +23,7 @@ function  keyIn(e)
 
 <svelte:window   onkeyup ={keyIn} />
 
-<div  class ="inline-grid  absolute  items-center   portrait:fixed    portrait:bottom-8  select-none bg-none  row-start-1  col-start-1 opacity-100
+<div  class ="inline-grid  absolute  items-center   portrait:fixed    portrait:bottom-8  select-none bg-none  opacity-100
             {view? 'fixed  rounded-r-xl  scale-150  landscape:-translate-x-52 portrait:-translate-x-16 mt-28'  :'rounded-full  hover:scale-150 portrait:opacity-80'}
             portrait:right-4  z-50  self-center  place-items-center justify-self-start  rounded-full bg-none scale-110  transition-all duration-200 "
         style ='grid-template-columns: 90% 10%; '
