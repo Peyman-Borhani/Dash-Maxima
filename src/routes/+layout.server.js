@@ -10,11 +10,11 @@ export function  load(){
         H_bar:   true,      // T-> Header   F->  none/hidden
         F_bar:   false,     // T-> Footer   F->  none/hidden
         S_bar:   true,      // T-> S_bar    F->  no Side_Bar at all
-        P_sbar:  false,     // T-> force Side_Bar in portrait
-        menu:    false,     // T-> Menu panel   F->  none/hidden
+        P_sbar:  true,      // T-> force Side_Bar in portrait
+        menu:    true,      // T-> Menu panel   F->  none/hidden
         no_menu: false,     // T-> no Menu panelin any condition
         Hide:    false,     // hides Dashboard (no Side_Bar, no Header... Just Content)
-        fixed:   true,
+        fixed:   true,      // T-> fixed header   F-> scroll away
         On_Page: 'Home',    // current landing item/page focus
     }
     ,
