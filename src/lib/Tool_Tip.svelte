@@ -10,8 +10,8 @@ let hov = false
 <Root>
     <Trigger  asChild  let:builder >
       <span
-            class  ='inline-grid  items-center  justify-center   place-content-center 
-                     text-foreground/60  hover:text-foreground   rounded-md  text-black
+            class  ='inline-grid   w-fit   {css} mx-auto  items-center   justify-between   
+                     hover:text-foreground   rounded-md  text-black   place-content-between
                      hover:scale-150  transition-all  duration-200   dark:text-foreground '
             onpointerover   ={()=>hov=true}
             onpointerleave  ={()=>hov=false}
