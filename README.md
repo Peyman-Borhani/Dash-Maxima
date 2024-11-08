@@ -1,34 +1,63 @@
 
-## A new shadcn-svelte dashboard component on Svelte5 Runes  
+## A new shadcn-svelte dashboard showcase  
 
-- Shadcn-svelte Dashboard sample on steroids, fully rewritten.  
-- Customizable, dynamic responsive, in resusable components.  
-- Improved: styles, UI, grid layout, theme, dynamic sizing, interactive.  
-- Customize it for your use-case and integrate your business data/functions.  
-- or request my services to build + integrate a desired interactive Dash panel.  
+- Shadcn-svelte Dashboard samples on steroids, fully rewritten.  
+- One of the best starter templates which exist in this category  
+- My signature design pattern blend "Perfect Theme" used for best UX  
+- Customizable, dynamic responsive, interctive, resusable components  
+- Improved styles: UI, grid layout, D/L themes, dynamic sizing  
+- Production ready and interactive, design is feature complete  
+- Customize for your use-case, integrate your web page & business data  
+- Or request my services to provide a custom solution, build + integrate desired interactions, functions and dash panels for your use-case, business...  
+
+.  
 
 ### Features
 
-- Coolest Libs out there working together on svelte5, easier setup.  
-- Shadcn-svelte - BitsUI - Unplugin-icons - tailwind CSS - Runed.  
-- Reusable, customizable and interactive functions, better styles.  
-- Replaced icons lib: lucid-svelte with unplugin-icons, now can use any icon sets.  
+- Coolest Libs out there working together on svelte 5, easier setup  
+- Added: multiple useful new components & object orinted App  structure  
+- Added: Svelte 5 Runes + Svelte-kit (routes + website structure)  
+- Reuse/Customize: add new content as child(+pages) & data as props  
+- Replaced lucid-svelte icons with unplugin-icons, now is possible to use icons set as plugins, and any individual icons from different sets combined as you wish.  
+  
+.  
 
----
+### Perfect Theme *<sup> ____________ ( my signature design pattern :) </sup>*
+
+- Semi-minimal design theme blend (D/L +shad +neomorphism +synthwave)  
+- Shadcn-svelte - BitsUI - Unplugin-icons - tailwind CSS - CSS  
+- Arbitrary CSS values used in places which Tailwind-[fails/lack-precision]...  
+
+.  
+.  
 
 ## Project Setup
 
-Download the repo, modify config files if needed, (add/remove extras..)
-then:
+Download the repo, modify config files, add/remove extras if needed... then:
 
 ```bash
 pnpm install
 pnpm run dev
 ```
 
-For more details and customization check specific library docs(Shadcn-svelte,...)  
-That's it, the rest is Svelte.dev guide...  
+For more details and customization check specific library docs(Shadcn-svelte, vite, svelte...)  
+.  
+.  
+## *Credits*
 
+Dash-Maxima: v.0.2.0  by Peyman Borhani (Systemic Labs)  
+
+Open and free to use, but for commercial usage is better to order or license, get it better & more secure, +support a hard working dev...  
+
+> If it was useful, please do support, credit/knowledgement, contribute, or at least follow/engage on X or Linkedin incentive for further open source development.  
+
+##### That's it, the rest is Svelte.dev's starter guide...  
+
+---
+
+.  
+.  
+.  
 ## Create a new svelte project
 
 ```bash
