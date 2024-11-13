@@ -26,6 +26,7 @@
   let  cfg   =new Object(data.cfg);
   let  Hide     = $state(cfg.Hide);  //just Content - hides Dashboard (no Side_Bar, no Header...) //let  None  =$derived(!P_sbar && !H_bar && !F_bar); 
   let  On_Page  = $state(cfg.On_Page)
+  
 </script>
 
 
@@ -33,7 +34,7 @@
     
     
 <span   class ='grid  fixed   w-svw  h-svh  p-0 m-0   place-self-stretch  place-content-evenly    
-                    grid-rows-12  grid-cols-12  bg-accent  dark:bg-stone-600 overflow-x-hidden '
+                    grid-rows-12  grid-cols-12  bg-stone-50  dark:bg-stone-600 overflow-x-hidden '
 >
 {#if Hide}  <span   class='fixed  right-1 top-1 text-2xl'
                     onpointerup ={Hide=!Hide}
