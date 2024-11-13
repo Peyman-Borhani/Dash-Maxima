@@ -28,13 +28,13 @@
 
 
   <!-- Headline -->
-  <h1   class='text-3xl  mt-2 mb-4'>Orders </h1>
+  <h1   class='text-3xl dark:text-foreground/80 mt-1 mb-9 font-medium xl:font-semibold'>Orders </h1>
   
-  <article  class='grid grid-cols-10   items-start   justify-between  min-h-full 
-                   auto-rows-max  col-span-full  gap-x-[3svw]  gap-y-[4svh] '
+  <article  class='grid  grid-cols-10   items-start  justify-between   min-h-full  gap-y-[5svh] 
+                   auto-rows-max  col-span-full  gap-x-[3svw] portrait:gap-x-[1.4svw]'
   >
   
-    <div  class='grid grid-cols-subgrid gap-[3svw] row-start-1 col-span-full portrait:lg:col-span-6 landscape:col-span-6  *:shadow-gray-500 *:shadow-inner '>
+    <section  class='grid grid-cols-subgrid gap-[3svmin] portrait:gap-x-[1svw] row-start-1 col-span-full portrait:lg:col-span-6 landscape:col-span-6  *:shadow-gray-500 *:shadow-inner '>
       
       <Card.Root class='col-span-full  '>
           <Card.Header class='pb-6'>
@@ -68,68 +68,59 @@
           <Card.Footer>     <Progress  value={12}  aria-label='12% increase' />
           </Card.Footer>
       </Card.Root>
-    </div>
+    </section>
     
     
     <!------------------------ Last orders -------------------------->
-    <Card.Root class=' grid w-full overflow-hidden col-span-full  col-start-1 row-start-3  *:shadow-gray-500 *:shadow-inner 
-                         lg:portrait:row-start-1  lg:col-start-7  landscape:col-start-7  lg:row-start-1 landscape:row-start-1 '
-    >
-      <Card.Header class='inline-grid  col-span-full grid-flow-col items-start bg-muted/50  justify-between '
+    <Card.Root class='grid w-full overflow-y-hidden  col-span-full  col-start-1 row-start-3  *:shadow-gray-500 *:shadow-inner 
+                       focus:col-start-6 lg:col-start-7  lg:row-start-1   landscape:col-start-7  landscape:row-start-1 '
+    >  <!-- nice purple theme from-[#dce] via-[#a9b] to-[#547]  dark:from-[#325] dark:via-[#213] dark:to-[#102] -->
+      <Card.Header class='inline-grid  w-full h-full col-span-full grid-flow-col row-start-1 items-stretch justify-between p-0.5  mt-0  mx-auto
+                          bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))]  from-[#eef] via-[#ccd] to-[#98a]  dark:from-[#435] dark:via-[#213] dark:to-[#001] '
         >
-        <Card.Title   class='inline-grid w-full  col-span-full grid-flow-col  *:hover:opacity-100  transition-all  items-center justify-between  text-lg  xl:text-xl font-semibold'
-                      onclick = {e=> navigator.clipboard.writeText(e.currentTarget.childNodes[1].textContent)}
-        > 
-            <h2>Order Oe31b70H</h2>
-
-            <Tool_Tip   
-                        t   ='Copy Order ID'
-                        css ='opacity-0 '
-            >
-                <Button     size    ='icon'
-                            variant ='outline'
-                            class   ='size-fit'
+            <Pagination.Root  count={10} >
+                <Pagination.Content  class='inline-grid grid-flow-col col-span-full gap-x-[2ch]  w-full h-fit items-stretch justify-between *:transition-all duration-300 overflow-hidden'
+                                    style ='grid-template: 10% 80% 10%; '
                 >
-                        <Copy  class =' h-6  lg:h-7  scale-y-125 '/> 
-                </Button>
-            </Tool_Tip>
+                    <Pagination.Item>
+                      <Tool_Tip  t='Previous'  css='h-full -ml-2.5 rounded-ee-full opacity-25 hover:opacity-80   hover:scale-y-150  border-none shadow-[0_3pt_1ch_#102a_,_inset_0_0_2ch_#324a]  dark:shadow-[0_0_1ch_#abda_,_inset_0_0_1ch_#8afa]'>
+                          <ChevronLeft  class='size-[6.4ch]' />
+                          <span class='sr-only'>Previous Order</span>
+                      </Tool_Tip>
+                    </Pagination.Item>
 
-            <Tool_Tip   t ='Track'>
-                <Button  size='icon'  variant='outline'  class='size-8 gap-1'>
-                        <Truck class='size-5' />
-                        <span   class='sr-only'>Track</span>
-                </Button>
-            </Tool_Tip>
-
-            <DropdownMenu.Root>
-                <DropdownMenu.Trigger asChild let:builder>
-                  <Button
-                    builders={[builder]}
-                    size='icon'
-                    variant='outline'
-                    class='h-8 w-8'
-                    >
-                    <Tool_Tip   t='More' >
-                        <EllipsisVertical class='size-5' />
-                        <span class='sr-only'>More</span>
+                    <Card.Title   class='inline-grid  w-full    grid-flow-col  *:hover:opacity-100  transition-all  sm:font-medium gap-x-[1ch]
+                                    items-center justify-between  text-xl lg:portrait:text-lg  lg:landscape:text-xl  lg:font-semibold landscape:font-bold xl:font-bold '
+                                onclick = {e=> navigator.clipboard.writeText(e.currentTarget.childNodes[1].textContent)} 
+                    >   <span class='text-lg w-full text-muted-foreground  italic font-medium '>Order: </span>
+                        Oe31b70H
+                        <Tool_Tip   
+                                t   ='Copy Order ID'
+                                css ='opacity-0 '
+                        >
+                          <Button   size ='icon'  variant='outline'
+                                    class=' w-7 h-8 '
+                            >
+                                <Copy  class ='h-7 lg:h-8  scale-y-125 '/> 
+                        </Button>
                     </Tool_Tip>
-                  </Button>
-                </DropdownMenu.Trigger>
-                <DropdownMenu.Content align='end'>
-                <DropdownMenu.Item>Edit</DropdownMenu.Item>
-                <DropdownMenu.Item>Export</DropdownMenu.Item>
-                <DropdownMenu.Separator />
-                <DropdownMenu.Item>Trash</DropdownMenu.Item>
-                </DropdownMenu.Content>
-            </DropdownMenu.Root>
-        </Card.Title>        
+                    </Card.Title>
+
+                    <Pagination.Item>
+                        <Tool_Tip  t='Next'  css='h-full -mr-2 rounded-es-full opacity-25 hover:opacity-80  scale-x-100 hover:scale-y-150  border-none  shadow-[0_3pt_1ch_#102a_,_inset_0_0_2ch_#324a]  dark:shadow-[0_0_1ch_#abda_,_inset_0_0_1ch_#8afa]'>
+                            <ChevronRight  class='size-[6.4ch] ' />
+                            <span class='sr-only'>Next Order</span>
+                        </Tool_Tip>
+                      </Pagination.Item>
+                </Pagination.Content>
+            </Pagination.Root>
       </Card.Header>
 
-      <Card.Content class='p-6 text-md'>
+      <Card.Content class='grid  py-3 w-full text-md  bg-[#e7e5eb] dark:bg-[#191721]'>
           <div class='grid gap-3'>
           
-          <div class='inline-flex  items-center justify-between gap-3'> 
-            <Card-Header class='text-lg font-semibold'> Details </Card-Header>
+          <div class='inline-grid  items-center justify-between gap-3'> 
+            <Card-Header class='text-xl font-semibold'> Items </Card-Header>
             <span class='text-sm landscape:text-md text-muted-foreground '> 23.11.2024 </span>
           </div>
           <hr>
@@ -147,7 +138,7 @@
               <span>$49.00</span>
               </li>
           </ul>
-          <Separator class='my-2' />
+          <Separator class='bg-muted  my-2' />
           <ul class='grid gap-3'>
               <li class='flex items-center justify-between'>
               <span class='text-muted-foreground'>Subtotal</span>
@@ -167,22 +158,15 @@
               </li>
           </ul>
           </div>
-          <Separator class='my-4' />
+          <Separator class='bg-muted  my-4' />
 
-          <section class='grid w-full grid-cols-2 justify-between'>
-            <div class='grid justify-between gap-2'>
-              <div class='font-semibold'>Shipping To</div>
-              <address class='grid gap-0.5 not-italic text-sm text-muted-foreground'>
-              <span>{Tdata[0][0]}</span>
+          <section class='inline-grid w-full items-center gap-4 justify-between'>
+            <div class='font-semibold'>Shipping Address</div>
+            <address class='grid gap-1 not-italic text-sm text-muted-foreground'>
               <span>{Tdata[0][7]}</span>
-              </address>
-            </div>
-            <div class='grid auto-rows-max gap-2  *:text-right'>
-              <div class='font-semibold'>Billing Info</div>
-              <div class='text-muted-foreground text-sm text-right'>Same as shipping address</div>
-            </div>
+            </address>
           </section>
-          <Separator class='my-4' />
+          <Separator class='bg-muted  my-3' />
 
           <div class='grid gap-3'>
           <div class='font-semibold'>Customer Information</div>
@@ -205,41 +189,55 @@
               </div>
           </dl>
           </div>
-          <Separator class='my-4' />
+          <Separator class='bg-muted  my-3' />
 
           <div class='grid gap-3'>
           <div class='font-semibold'>Payment Information</div>
-          <dl class='grid gap-3'>
-              <div class='flex items-center justify-between'>
-              <dt class='flex items-center gap-1 text-muted-foreground'>
-                  <CreditCard class='h-4 w-4' />
+          <dl> <div class='flex items-center justify-between'>
+                <dt class='flex items-center gap-1 text-muted-foreground'>
+                  <CreditCard class='size-6' />
                   Visa
-              </dt>
-              <dd>**** **** **** 4532</dd>
+                </dt>
+                <dd>**** **** **** 4532</dd>
               </div>
           </dl>
           </div>
       </Card.Content>
-      <Card.Footer class='flex flex-row items-center justify-between border-t bg-muted/50 px-6 py-3'>
-          <div class='text-md text-muted-foreground'>
-          Updated on <time dateTime='2024-11-23'> 23-11-2024 </time>
+      <Card.Footer class='inline-flex w-full h-[7ch] items-stretch *:self-end justify-between border-t bg-[#aac] dark:bg-[#102] px-3 py-3 '>
+          <div class=' text-md text:black dark:text-muted-foreground items-end h-[3.2ch] font-semibold'>
+            Issued on:   <time dateTime='2024-11-23'> 23-11-2024 </time>
           </div>
-          <Pagination.Root count={10} class='ml-auto mr-1 w-max'>
-          <Pagination.Content>
-              <Pagination.Item>
-              <Button size='icon' variant='outline' class='size-7'>
-                  <ChevronLeft class='size-6' />
-                  <span class='sr-only'>Previous Order</span>
-              </Button>
-              </Pagination.Item>
-              <Pagination.Item>
-              <Button size='icon' variant='outline' class='size-7'>
-                  <ChevronRight class='size-6' />
-                  <span class='sr-only'>Next Order</span>
-              </Button>
-              </Pagination.Item>
-          </Pagination.Content>
-          </Pagination.Root>
+          
+          <Tool_Tip   t ='Track'>
+            <Button  size='icon'  variant='outline'  class='size-8 gap-1'>
+                    <Truck class='size-5' />
+                    <span   class='sr-only'>Track</span>
+            </Button>
+        </Tool_Tip>
+
+        <DropdownMenu.Root>
+            <DropdownMenu.Trigger asChild let:builder>
+              <Button
+                builders={[builder]}
+                size='icon'
+                variant='outline'
+                class='h-8 w-8'
+                >
+                <Tool_Tip   t='More' >
+                    <EllipsisVertical class='size-5' />
+                    <span class='sr-only'>More</span>
+                </Tool_Tip>
+              </Button>     
+
+            </DropdownMenu.Trigger>
+            <DropdownMenu.Content align='end'>
+            <DropdownMenu.Item>Edit</DropdownMenu.Item>
+            <DropdownMenu.Item>Export</DropdownMenu.Item>
+            <DropdownMenu.Separator />
+            <DropdownMenu.Item>Trash</DropdownMenu.Item>
+            </DropdownMenu.Content>
+        </DropdownMenu.Root>
+          
       </Card.Footer>
     </Card.Root>  <!--endof Last orders -->
   
