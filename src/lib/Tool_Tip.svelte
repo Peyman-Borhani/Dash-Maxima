@@ -12,12 +12,12 @@ let hov = false
       <span
             class  ='inline-grid   w-fit   {css} mx-auto  items-center   justify-between   
                      hover:text-foreground   rounded-md  text-black   place-content-between
-                     hover:scale-150  transition-all  duration-200   dark:text-foreground '
+                     hover:scale-150  transition-all  duration-200   dark:text-foreground cursor-pointer'
             use:builder.action   {...builder}
         >
             {@render children()}
             <span  class='sr-only'>{t}</span>
       </span>
     </Trigger>
-    <Content >{t}</Content>
+    <Content class='text-md lg:text-xl xl:text-2xl'>{t}</Content>
 </Root>
