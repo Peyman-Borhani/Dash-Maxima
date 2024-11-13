@@ -21,7 +21,7 @@ export function  load(){
     items: ['Home', 'Orders', 'Products', 'Customers', 'Analytics', 'Tag', 'Settings']
     ,
     table: [
-        [ 'Ariel Hermes', 'ariel@example.com',  'Sale',     'J', '2024-06-23', '250',   '+1 234 567 890', 'Unit 1, Main St. Anytown, CA 12345'],
+        [ 'Ariel Hermes', 'ariel@example.com',  'Sale',     'J', '2024-06-23', '329',   '+1 234 567 890', 'Unit 1, Main St. Anytown, CA 12345'],
         [ 'Olivia Smith', 'olivia@example.com', 'Refund',   'X', '2024-06-24', '150',   '+1 325 540 400', 'Unit 2, Main St. Anytown, CA 12345'],
         [ 'Noah Nollen',  'noah@example.com',   'Subscribe','J', '2024-06-25', '100',   '+1 214 766 801', 'Unit 3, Main St. Anytown, CA 12345'],
         [ 'Emma Brown',   'emma@example.com',   'Sale',     'P', '2024-06-26', '450',   '+1 222 521 421', 'Unit 4, Main St. Anytown, CA 12345'],
