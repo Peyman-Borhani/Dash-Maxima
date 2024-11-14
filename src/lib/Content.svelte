@@ -119,9 +119,9 @@
       <Card.Content class='grid  py-3 w-full text-md  bg-[#e7e5eb] dark:bg-[#191721]'>
           <div class='grid gap-3'>
           
-          <div class='inline-grid  items-center justify-between gap-3'> 
+          <div class='inline-flex  items-center justify-between gap-3'> 
             <Card-Header class='text-xl font-semibold'> Items </Card-Header>
-            <span class='text-sm landscape:text-md text-muted-foreground '> 23.11.2024 </span>
+            <span class='text-sm landscape:text-md text-muted-foreground '> {Tdata[0][4]} </span>
           </div>
           <hr>
           <ul class='grid gap-3'>
@@ -205,7 +205,7 @@
       </Card.Content>
       <Card.Footer class='inline-flex w-full h-[7ch] items-stretch *:self-end justify-between border-t bg-[#aac] dark:bg-[#102] px-3 py-3 '>
           <div class=' text-md text:black dark:text-muted-foreground items-end h-[3.2ch] font-semibold'>
-            Issued on:   <time dateTime='2024-11-23'> 23-11-2024 </time>
+            Issued on:   <time dateTime='2024-11-23'> {Tdata[0][4]} </time>
           </div>
           
           <Tool_Tip   t ='Track'>

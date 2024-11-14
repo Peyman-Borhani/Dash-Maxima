@@ -27,7 +27,7 @@ function  keyIn(e)
 <div  class ="inline-grid  absolute  w-fit  items-center   portrait:fixed  bg-none  opacity-100
             {Right? 'portrait:left-4' :'portrait:right-3'}   portrait:bottom-8  select-none 
             {view? 'fixed  rounded-r-xl  scale-150  landscape:-translate-x-60  landscape:mt-28'  :'rounded-full  hover:scale-150  portrait:opacity-80'} 
-            {view&&Right? 'portrait:left-20  ' :view? 'portrait:right-24 ' :''}
+            {view&&Right? 'portrait:left-24  ' :view? 'portrait:right-28 ' :''}
             z-50  self-center  place-items-center justify-self-start  rounded-full bg-none scale-110  transition-all duration-200 "
         style =' grid-template-columns: 90% 10%; '
         
