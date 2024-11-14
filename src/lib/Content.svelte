@@ -28,7 +28,7 @@
 
 
   <!-- Headline -->
-  <h1   class='text-3xl dark:text-foreground/80 mt-1 mb-9 font-medium xl:font-semibold'>Orders </h1>
+  <h1   class='text-3xl dark:text-foreground/80 mt-[.6ch] mb-[6svmin] font-medium xl:font-semibold'>Orders </h1>
   
   <article  class='grid  grid-cols-10   items-start  justify-between   min-h-full  gap-y-[5svh] 
                    auto-rows-max  col-span-full  gap-x-[3svw] portrait:gap-x-[1.4svw]'

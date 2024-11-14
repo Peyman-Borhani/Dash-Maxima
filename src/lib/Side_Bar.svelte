@@ -116,7 +116,7 @@ let  {fixed,  P_sbar,  S_bar,  Right,  menu, no_menu} = cfg;
       {#if items[i]}
         <Tooltip.Root>
             <Tooltip.Trigger  asChild  let:builder >
-            <a  href="{items[i]==='Home'? '/'  :('#'+items[i]) }"
+            <a  href="{items[i]==='Home'? ''  :('#'+items[i]) }"
                 class='inline-grid  group place-content-center  last:row-start-12 
                        rounded-md text-foreground/60 transition-all  hover:text-foreground  *:size-8 '
                 onpointerup={()=>On_Page=items[i]}
