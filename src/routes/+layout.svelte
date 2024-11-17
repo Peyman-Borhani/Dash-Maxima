@@ -17,16 +17,15 @@
   let {data, children} = $props();
 
   let  Active_Itm =$derived( 
-        (activeElement.current?.nodeName==='INPUT'? 'Search...' 
+        activeElement.current?.id==='Search'? 'Search' 
         : activeElement.current?.nodeName==='A'? '#'+activeElement.current?.textContent 
-        : activeElement.current?.nodeName!=='BODY'?  activeElement.current?.textContent
-        : activeElement.current?.nodeName==='BODY'?  "Doc Body - tap on interactive items"
-        : 'Search...') );
+        : activeElement.current?.nodeName==='BODY'?  "Page Body"
+        : activeElement.current?.textContent
+    );
 
   let  cfg   =new Object(data.cfg);
   let  Hide     = $state(cfg.Hide);  //just Content - hides Dashboard (no Side_Bar, no Header...) //let  None  =$derived(!P_sbar && !H_bar && !F_bar); 
   let  On_Page  = $state(cfg.On_Page)
-  
 </script>
 
 
