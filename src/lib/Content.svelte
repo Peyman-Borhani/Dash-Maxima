@@ -253,7 +253,6 @@
     
   <main class = 'grid col-span-full w-full  *:shadow-gray-500 *:shadow-inner '>
     <Card.Root>
-
       <section class='inline-grid  portrait:grid-rows-2 w-full  justify-between  items-start grid-flow-col '>
         <Card.Header>
                 <Card.Title class=' -mt-2 pb-4 tracking-wider text-2xl' >Orders Table</Card.Title>
@@ -296,8 +295,8 @@
       <hr>
       <Card.Content class= 'grid'>
         <Table.Root>
-          <Table.Header class='border-dotted '>
-            <Table.Row class=' grid grid-flow-col portrait:text-md text-lg bg-muted  *:table-cell *:h-10 *:bg-muted/80 border-collapse border-b-white'>
+          <Table.Header class='border-b border-b-black dark:border-b-white'>
+            <Table.Row class=' grid grid-flow-col portrait:text-md text-lg bg-muted  *:table-cell *:h-10 *:bg-muted/80 border-collapse border-b-4 border-b-black'>
                 <Table.Head >Customer</Table.Head>
                 <Table.Head >Type</Table.Head>
                 <Table.Head >Status</Table.Head>
@@ -308,7 +307,7 @@
             
           <Table.Body class='table-row-group grid w-full'>
             {#each Tdata  as  tr}
-                <Table.Row  class='grid  grid-flow-col grid-cols-5 w-full  text-start *:table-cell'>
+                <Table.Row  class='grid  grid-flow-col grid-cols-5 w-full  text-start *:table-cell border-dotted border-muted border-b'>
                     <Table.Cell>
                     <div  class='table-cell font-medium'>{tr[0]}</div>
                     <div  class='text-sm text-muted-foreground md:inline'>{tr[1]}</div>
