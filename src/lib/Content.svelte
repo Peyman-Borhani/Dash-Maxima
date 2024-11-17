@@ -40,13 +40,13 @@
 
 
   <!-- Headline -->
-  <h1   class='text-3xl dark:text-foreground/80 mt-[.6ch] mb-[6svmin] font-medium xl:font-semibold'>Orders </h1>
+  <h1   class='text-3xl dark:text-foreground/80 mt-[1svmin] mb-[3svmin] font-medium xl:font-semibold'>Orders </h1>
   
-  <article  class='grid  grid-cols-10   items-start  justify-between   min-h-full  gap-y-[5svh] 
+  <article  class='grid  grid-cols-12   items-start  justify-between   min-h-full  gap-y-[5svh] 
                    auto-rows-max  col-span-full  gap-x-[3svw] portrait:gap-x-[1.4svw]'
   >
   
-    <section  class='grid grid-cols-subgrid gap-[3svmin] portrait:gap-x-[1svw] row-start-1 col-span-full portrait:lg:col-span-6 landscape:col-span-6  *:shadow-gray-500 *:shadow-inner '>
+    <section  class='grid grid-cols-subgrid  gap-[3svmin] portrait:gap-x-[1svw] row-start-1 col-span-full portrait:lg:col-span-6 landscape:col-span-7  *:shadow-gray-500 *:shadow-inner '>
       
       <Card.Root class='col-span-full  '>
           <Card.Header class='pb-6'>
@@ -59,7 +59,7 @@
           </Card.Footer>
       </Card.Root>
   
-      <Card.Root  class='row-start-2 row-span-1 col-span-5  portrait:lg:col-span-3  landscape:col-span-3'>
+      <Card.Root  class='row-start-2 row-span-1  col-span-6  portrait:lg:col-span-3  landscape:col-span-4'>
           <Card.Header >
               <Card.Description  class='pb-2 text-xl font-medium  border-b-2 '>Weekly</Card.Description>
               <Card.Title class='text-3xl'>$1329</Card.Title>
@@ -70,7 +70,7 @@
           </Card.Footer>
       </Card.Root>
           
-      <Card.Root  class='row-start-2 row-span-1 col-span-5 portrait:lg:col-span-3 landscape:col-span-3'>
+      <Card.Root  class='row-start-2 row-span-1 col-span-6  portrait:lg:col-span-3 landscape:col-span-4'>
           <Card.Header  class='pb-2'>
               <Card.Description  class='pb-2 text-xl font-medium border-b'>Monthly</Card.Description>
               <Card.Title  class='text-3xl'>$5,329</Card.Title>
