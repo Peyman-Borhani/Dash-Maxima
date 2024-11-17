@@ -14,7 +14,7 @@
          items= ['Home', 'Orders', 'Products', 'Customers', 'Analytics', '', 'Settings']
   }=$props();     //max word size among items. min: 2 (char+icon) //const menu_size = `${items.reduce((x,On_Page)=> {return On_Page.length>x? On_Page.length :x}, 2)}ch`;
       
-  let  {fixed,  P_sbar,  S_bar,  Right,  menu, no_menu} = cfg;
+  let  {fixed,  Right,  S_bar,  P_sbar, Srch_top,  menu, no_menu} = cfg;
    
   //just Content - (no Side_Bar, no Header...)
   //let  None  =$derived(!P_sbar && !H_bar && !F_bar); 
@@ -51,7 +51,7 @@
   </Breadcrumb.Root>
   
     <span  class ='inline-grid   col-start-8 col-end-13 portrait:col-end-11 gap-2  mt-3  justify-evenly *:transition-all *:duration-300 '>
-      <Search_Bar {Right} {On_Page} {Active_Itm}/>             
+      <Search_Bar {Right} {P_sbar} {Srch_top} {Active_Itm}/>             
       <!--  _____________________KB shortcuts____________________
                   [alt + /]   (toggle Search_Bar on/off)
                   [Escape]    (clear input text 1st time or toggle
