@@ -22,7 +22,19 @@
     import  {Separator}   from  '$lib/components/ui/separator/index.js';
   
     let  {Tdata } =$props();
+    const  td_size = Tdata.length;
 
+    let  id  =$state(0);
+    let  oid =$state('0e31b70H');
+    const  orderID = n=>{n+=id; id = n<0? td_size  :n>td_size? 0 :n;  oid=id+'e31b70H'; console.log(id); };
+    
+    const   cost = Tdata.map(x=> new Object(
+                                {   price: x[5],
+                                    post: ((x[5]/100)+5),
+                                    tax:  (x[5]*8)/100,
+                                    total:(parseFloat(x[5])+parseFloat((x[5]/100)+5)+parseFloat((x[5]*8)/100)).toFixed(2)
+                                })        
+    );
   </script>
   
 
