@@ -83,29 +83,32 @@
     </section>
     
     
-    <!------------------------ Last orders -------------------------->
-    <Card.Root class='grid w-full overflow-y-hidden  col-span-full  col-start-1 row-start-3  *:shadow-gray-500 *:shadow-inner 
-                       focus:col-start-6 lg:col-start-7  lg:row-start-1   landscape:col-start-7  landscape:row-start-1 '
+    <!--------------------- Recent orders receipt--------------------->
+    <Card.Root class='grid w-full overflow-y-hidden  col-span-full  col-start-1 row-start-2  *:shadow-gray-500 *:shadow-inner 
+                      m-0 p-0 lg:col-start-7  lg:row-start-1   landscape:col-start-8  landscape:row-start-1 '
     >  <!-- nice purple theme from-[#dce] via-[#a9b] to-[#547]  dark:from-[#325] dark:via-[#213] dark:to-[#102] -->
-      <Card.Header class='inline-grid  w-full h-full col-span-full grid-flow-col row-start-1 items-stretch justify-between p-0.5  mt-0  mx-auto
+      <Card.Header class='inline-flex  w-full h-full  items-stretch justify-between p-0  m-0
                           bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))]  from-[#eef] via-[#ccd] to-[#98a]  dark:from-[#435] dark:via-[#213] dark:to-[#001] '
         >
             <Pagination.Root  count={10} >
-                <Pagination.Content  class='inline-grid grid-flow-col col-span-full gap-x-[2ch]  w-full h-fit items-stretch justify-between *:transition-all duration-300 overflow-hidden'
-                                    style ='grid-template: 10% 80% 10%; '
+                <Pagination.Content  class='inline-grid grid-flow-col col-span-full  gap-x-[2ch]  w-full h-fit items-stretch justify-between *:transition-all duration-300 overflow-hidden'
+                                    
                 >
                     <Pagination.Item>
-                      <Tool_Tip  t='Previous'  css='h-full -ml-2.5 rounded-ee-full opacity-25 hover:opacity-80   hover:scale-y-150  border-none shadow-[0_3pt_1ch_#102a_,_inset_0_0_2ch_#324a]  dark:shadow-[0_0_1ch_#abda_,_inset_0_0_1ch_#8afa]'>
-                          <ChevronLeft  class='size-[6.4ch]' />
-                          <span class='sr-only'>Previous Order</span>
+                        <Tool_Tip   t='Previous'
+                                    css='h-full -ml-1 pr-2 rounded-ee-md opacity-10 hover:opacity-80  border-none hover:shadow-[0_3pt_1ch_#102a_,_inset_0_0_2ch_#324a]  hover:dark:shadow-[0_0_1ch_#abda_,_inset_0_0_1ch_#8afa]'>
+                            <ChevronLeft  class='size-[6.4ch]'  onclick={_=>orderID(-1)} />
+                            <span class='sr-only'>Previous Order</span>
                       </Tool_Tip>
                     </Pagination.Item>
 
-                    <Card.Title   class='inline-grid  w-full    grid-flow-col  *:hover:opacity-100  transition-all  sm:font-medium gap-x-[1ch]
-                                    items-center justify-between  text-xl lg:portrait:text-lg  lg:landscape:text-xl  lg:font-semibold landscape:font-bold xl:font-bold '
+                    <Card.Title   class='inline-grid  w-fit absolute   grid-flow-col  *:hover:opacity-100  transition-all  sm:font-medium gap-x-[1ch]
+                                    place-self-center justify-items-between  text-xl  lg:font-semibold landscape:font-bold xl:font-bold '
                                 onclick = {e=> navigator.clipboard.writeText(e.currentTarget.childNodes[1].textContent)} 
-                    >   <span class='text-lg w-full text-muted-foreground  italic font-medium '>Order: </span>
-                        Oe31b70H
+                    >   <span class='inline-flex text-lg w-full  text-muted-foreground  italic font-medium '
+                        > ID: 
+                        </span>
+                        {oid}
                         <Tool_Tip   
                                 t   ='Copy Order ID'
                                 css ='opacity-0 '
@@ -119,91 +122,87 @@
                     </Card.Title>
 
                     <Pagination.Item>
-                        <Tool_Tip  t='Next'  css='h-full -mr-2 rounded-es-full opacity-25 hover:opacity-80  scale-x-100 hover:scale-y-150  border-none  shadow-[0_3pt_1ch_#102a_,_inset_0_0_2ch_#324a]  dark:shadow-[0_0_1ch_#abda_,_inset_0_0_1ch_#8afa]'>
-                            <ChevronRight  class='size-[6.4ch] ' />
+                        <Tool_Tip   t='Next'
+                                    css='h-full -mr-1 pl-2 rounded-es-md opacity-10 hover:opacity-80  border-none  hover:shadow-[0_3pt_1ch_#102a_,_inset_0_0_2ch_#324a]  hover:dark:shadow-[0_0_1ch_#abda_,_inset_0_0_1ch_#8afa]'>
+                            <ChevronRight  class='size-[6.4ch] '     onclick={_=>orderID(1)} />
                             <span class='sr-only'>Next Order</span>
                         </Tool_Tip>
-                      </Pagination.Item>
+                    </Pagination.Item>
                 </Pagination.Content>
             </Pagination.Root>
       </Card.Header>
 
-      <Card.Content class='grid  py-3 w-full text-md  bg-[#e7e5eb] dark:bg-[#191721]'>
-          <div class='grid gap-3'>
+      <Card.Content class='grid  py-2 w-full text-md  bg-[#e7e5eb] dark:bg-[#191721]'>
+          <div class='grid gap-1'>
           
-          <div class='inline-flex  items-center justify-between gap-3'> 
-            <Card-Header class='text-xl font-semibold'> Items </Card-Header>
-            <span class='text-sm landscape:text-md text-muted-foreground '> {Tdata[0][4]} </span>
+          <div class='inline-flex  items-center justify-between gap-4'> 
+            <Card-Header class='text-xl font-semibold '> Items </Card-Header>
+            <span class='text-sm landscape:text-md text-muted-foreground '> {Tdata[id][4]} </span>
           </div>
-          <hr>
+        <Separator class='bg-muted  my-2' />
+
           <ul class='grid gap-3'>
               <li class='flex items-center justify-between'>
               <span class='text-muted-foreground'>
-                  Glimmer Lamps x <span>2</span>
+                  3 Items (x, y, z) 
               </span>
-              <span>$250.00</span>
-              </li>
-              <li class='flex items-center justify-between'>
-              <span class='text-muted-foreground'>
-                  Aqua Filters x <span>1</span>
-              </span>
-              <span>$49.00</span>
+              <span>${Tdata[id][5]}.00</span>
               </li>
           </ul>
-          <Separator class='bg-muted  my-2' />
-          <ul class='grid gap-3'>
-              <li class='flex items-center justify-between'>
+            <Separator class='mb-2 p-0 bg-none border-b-2 border-black border-dotted' />
+          <ul class='grid gap-1'>
+              <!--li class='flex items-center justify-between'>
               <span class='text-muted-foreground'>Subtotal</span>
-              <span>$299.00</span>
-              </li>
+              <span>${Tdata[id][5]}.00</span>
+              </li -->
               <li class='flex items-center justify-between'>
               <span class='text-muted-foreground'>Shipping</span>
-              <span>$5.00</span>
+              <span>${cost[id].post}</span>
               </li>
               <li class='flex items-center justify-between'>
-              <span class='text-muted-foreground'>Tax</span>
-              <span>$25.00</span>
+              <span class='text-muted-foreground'>8% Tax </span>
+              <span>${cost[id].tax}</span>
               </li>
               <li class='flex items-center justify-between font-semibold'>
               <span class='text-muted-foreground'>Total</span>
-              <span>$329.00</span>
+              <span>${cost[id].total}</span>
               </li>
           </ul>
           </div>
           <Separator class='bg-muted  my-4' />
 
-          <section class='inline-grid w-full items-center gap-4 justify-between'>
+          <section class='inline-grid w-full items-center gap-2 justify-between'>
             <div class='font-semibold'>Shipping Address</div>
             <address class='grid gap-1 not-italic text-sm text-muted-foreground'>
-              <span>{Tdata[0][7]}</span>
+              <span>{Tdata[id][7]}</span>
             </address>
           </section>
           <Separator class='bg-muted  my-3' />
 
-          <div class='grid gap-3'>
+          <section class='grid gap-3'>
           <div class='font-semibold'>Customer Information</div>
-          <dl class='grid gap-3'>
+          <dl class='grid gap-1'>
               <div class='flex items-center justify-between'>
               <dt class='text-muted-foreground'>Customer</dt>
-              <dd>{Tdata[0][0]}</dd>
+              <dd>{Tdata[id][0]}</dd>
               </div>
               <div class='flex items-center justify-between'>
               <dt class='text-muted-foreground'>Email</dt>
               <dd>
-                  <a href='mailto:'>{Tdata[0][1]}</a>
+                  <a href='mailto:'>{Tdata[id][1]}</a>
               </dd>
               </div>
               <div class='flex items-center justify-between'>
               <dt class='text-muted-foreground'>Phone</dt>
               <dd>
-                  <a href='tel:'>{Tdata[0][6]}</a>
+                  <a href='tel:'>{Tdata[id][6]}</a>
               </dd>
               </div>
           </dl>
-          </div>
+          </section>
           <Separator class='bg-muted  my-3' />
 
-          <div class='grid gap-3'>
+          <div class='grid gap-1'>
           <div class='font-semibold'>Payment Information</div>
           <dl> <div class='flex items-center justify-between'>
                 <dt class='flex items-center gap-1 text-muted-foreground'>
@@ -215,9 +214,9 @@
           </dl>
           </div>
       </Card.Content>
-      <Card.Footer class='inline-flex w-full h-[7ch] items-stretch *:self-end justify-between border-t bg-[#aac] dark:bg-[#102] px-3 py-3 '>
-          <div class=' text-md text:black dark:text-muted-foreground items-end h-[3.2ch] font-semibold'>
-            Issued on:   <time dateTime='2024-11-23'> {Tdata[0][4]} </time>
+      <Card.Footer class='inline-flex w-full h-[7ch] items-stretch *:self-end justify-between border-t bg-[#aac] dark:bg-[#102] px-3 py-2 my-0'>
+          <div class=' text-md text:black dark:text-muted-foreground items-end h-[3ch] font-semibold'>
+            Date:   <time dateTime='2024-11-23'> {Tdata[0][4]} </time>
           </div>
           
           <Tool_Tip   t ='Track'>
@@ -229,18 +228,17 @@
 
         <DropdownMenu.Root>
             <DropdownMenu.Trigger asChild let:builder>
+            <Tool_Tip   t='More' >
               <Button
                 builders={[builder]}
                 size='icon'
                 variant='outline'
-                class='h-8 w-8'
+                class='h-8 w-6'
                 >
-                <Tool_Tip   t='More' >
                     <EllipsisVertical class='size-5' />
                     <span class='sr-only'>More</span>
-                </Tool_Tip>
               </Button>     
-
+            </Tool_Tip>
             </DropdownMenu.Trigger>
             <DropdownMenu.Content align='end'>
             <DropdownMenu.Item>Edit</DropdownMenu.Item>
@@ -249,9 +247,8 @@
             <DropdownMenu.Item>Trash</DropdownMenu.Item>
             </DropdownMenu.Content>
         </DropdownMenu.Root>
-          
       </Card.Footer>
-    </Card.Root>  <!--endof Last orders -->
+    </Card.Root>  <!--endof Recent orders receipt-->
   
     
   <main class = 'grid col-span-full w-full  *:shadow-gray-500 *:shadow-inner '>
