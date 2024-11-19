@@ -107,10 +107,9 @@ let  {fixed,  P_sbar,  S_bar,  Right,  menu, no_menu} = cfg;
   </Sheet.Root>
 
 <!------------------------- Side_Bar ---------------------------->
-
   {#if S_bar || (S_bar && P_sbar)}
     <nav  class="{sbar_vis}  grid-flow-row  pt-9  justify-evenly bg-inherit  px-2 landscape:px-5 group-hover:scale-150 
-                place-content-between  {Right? 'justify-start pr-4' :'justify-end  pl-4'}  "
+                place-content-around  {Right? 'justify-start pr-4' :'justify-end  pl-4'}  "
     > 
       {#each Array(items.length)  as  itm, i }
       {#if items[i]}
@@ -122,7 +121,7 @@ let  {fixed,  P_sbar,  S_bar,  Right,  menu, no_menu} = cfg;
                 onpointerup={()=>On_Page=items[i]}
                 use:builder.action   {...builder}
             >
-                {@render Icon(items[i],`${icon_css}  ${On_Page===items[i]? 'dark:text-foreground text-black shadow-[1px_1pt_1svh_#ddea]  dark:shadow-none  drop-shadow-[1px_1px_.1svmax_#000] dark:drop-shadow-[0_2pt_0.6svw_#fff] rounded-lg size-10 scale-150' :'shadow-lg shadow-muted'} `) }
+                {@render Icon(items[i],`${icon_css}  ${On_Page===items[i]? 'dark:text-foreground text-black shadow-[1px_1px_2svmin_#eefa]  dark:shadow-none  drop-shadow-[1px_1px_.2svmin_#000] dark:drop-shadow-[0_2pt_0.7svw_#fff] rounded-lg size-10 scale-150' :'shadow-lg shadow-muted'} `) }
                 <span  class='sr-only'>{items[i]}</span>
             </a>
             </Tooltip.Trigger>
@@ -149,27 +148,29 @@ let  {fixed,  P_sbar,  S_bar,  Right,  menu, no_menu} = cfg;
             Tag-name: 
             <span class='text-lg text-green-500'> {activeElement.current?.nodeName} </span>
                 &nbsp - &nbsp Item: 
-            <span class='text-lg  text-green-500'> {activeElement.current?.textContent} </span>
+            <span class='text-lg  text-green-500'> {Active_Itm} </span>
         </Tooltip.Content>
       </Tooltip.Root>
     {/if}
 
     {#if  !items[items.length-3]}
       <Tooltip.Root>
-        <Tooltip.Trigger asChild let:builder>
-            <a  href='https://github.com/Peyman-Borhani/Dash-Maxima'
-                class='{icon_css} row-start-7  row-end-8 mb-6 text-xl '
-                use:builder.action    {...builder}
-            >
-            <GitHub   class= ' hover:scale-150  transition-all duration-300 font-sans size-8 text-black bg-background dark:bg-muted-foreground shadow-[inset_0_0_2pt_#000_,_inset_0_0_1.6ch_#102] rounded-full opacity-80 hover:opacity-100 hover:brightness-150' 
-                       style='text-shadow: 0 0 1ch #def; '
-                />  
-                <span  class='sr-only'>GitHub</span>
-            </a>
+        <Tooltip.Trigger  asChild let:builder>
+          <span  class= 'row-start-8 row-end-7  mt-6  hover:scale-150  transition-all duration-300 hover:brightness-[2]
+                            size-9 text-black  bg-background dark:bg-muted-foreground  opacity-80 hover:opacity-100 hover:brightness-150
+                            rounded-full  shadow-[inset_0_0_2pt_#000_,_inset_0_0_1.6ch_#102]' 
+                style= 'filter: drop-shadow(0 0 1ch #daf)'
+                use:builder.action    {...builder}>
+            <GitHub class ='size-9 '  
+            />
+            <span  class='sr-only'>GitHub</span>
+          </span>
         </Tooltip.Trigger>
         <Tooltip.Content {side}  class ='ml-2 p-4 italic text-md font-semibold text-violet-600'>
-            will open repo:  
-            <span class='text-lg text-blue-600 '> &nbsp https://github.com/Peyman-Borhani/Dash-Maxima  </span>
+            <a  href='https://github.com/Peyman-Borhani/Dash-Maxima'
+                class='{icon_css} text-lg text-blue-600 '>
+                Tap to Link>> &nbsp https://github.com/Peyman-Borhani/Dash-Maxima
+            </a>
         </Tooltip.Content>
       </Tooltip.Root>
     {/if}
