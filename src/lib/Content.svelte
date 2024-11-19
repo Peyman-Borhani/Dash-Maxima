@@ -25,8 +25,8 @@
     const  td_size = Tdata.length;
 
     let  id  =$state(0);
-    let  oid =$state('0e31b70H');
-    const  orderID = n=>{n+=id; id = n<0? td_size  :n>td_size? 0 :n;  oid=id+'e31b70H'; console.log(id); };
+    let  oid =$state('1e31b70H');
+    const  orderID = n=>{n+=id; id = n<0? td_size-1  :n>=td_size? 0 :n;  oid=(id+1)+'e31b70H'; console.log(id); };
     
     const   cost = Tdata.map(x=> new Object(
                                 {   price: x[5],
@@ -46,7 +46,7 @@
                    auto-rows-max  col-span-full  gap-x-[3svw] portrait:gap-x-[1.4svw]'
   >
   
-    <section  class='grid grid-cols-subgrid  gap-[3svmin] portrait:gap-x-[1svw] row-start-1 col-span-full portrait:lg:col-span-6 landscape:col-span-7  *:shadow-gray-500 *:shadow-inner '>
+    <section  class='grid grid-cols-subgrid  gap-[3svmin] portrait:gap-x-[1svw] row-start-1 col-span-full portrait:lg:col-span-6 landscape:col-span-7 *:shadow-gray-600 dark:*:shadow-gray-500 *:shadow-inner '>
       
       <Card.Root class='col-span-full  '>
           <Card.Header class='pb-6'>
@@ -96,7 +96,7 @@
                 >
                     <Pagination.Item>
                         <Tool_Tip   t='Previous'
-                                    css='h-full -ml-1 pr-2 rounded-ee-md opacity-10 hover:opacity-80  border-none hover:shadow-[0_3pt_1ch_#102a_,_inset_0_0_2ch_#324a]  hover:dark:shadow-[0_0_1ch_#abda_,_inset_0_0_1ch_#8afa]'>
+                                    css='h-full -ml-1 pr-2 rounded-ee-md opacity-25 hover:opacity-80  border-none hover:shadow-[0_3pt_1ch_#102a_,_inset_0_0_2ch_#324a]  hover:dark:shadow-[0_0_1ch_#abda_,_inset_0_0_1ch_#8afa]'>
                             <ChevronLeft  class='size-[6.4ch]'  onclick={_=>orderID(-1)} />
                             <span class='sr-only'>Previous Order</span>
                       </Tool_Tip>
@@ -123,7 +123,7 @@
 
                     <Pagination.Item>
                         <Tool_Tip   t='Next'
-                                    css='h-full -mr-1 pl-2 rounded-es-md opacity-10 hover:opacity-80  border-none  hover:shadow-[0_3pt_1ch_#102a_,_inset_0_0_2ch_#324a]  hover:dark:shadow-[0_0_1ch_#abda_,_inset_0_0_1ch_#8afa]'>
+                                    css='h-full -mr-1 pl-2 rounded-es-md opacity-30 hover:opacity-80  border-none  hover:shadow-[0_3pt_1ch_#102a_,_inset_0_0_2ch_#324a]  hover:dark:shadow-[0_0_1ch_#abda_,_inset_0_0_1ch_#8afa]'>
                             <ChevronRight  class='size-[6.4ch] '     onclick={_=>orderID(1)} />
                             <span class='sr-only'>Next Order</span>
                         </Tool_Tip>
