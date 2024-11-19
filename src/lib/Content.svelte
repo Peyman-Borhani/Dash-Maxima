@@ -60,7 +60,7 @@
       </Card.Root>
   
       <Card.Root  class='row-start-2 row-span-1  col-span-6  portrait:lg:col-span-3  landscape:col-span-4'>
-          <Card.Header >
+          <Card.Header class='pb-2'>
               <Card.Description  class='pb-2 text-xl font-medium  border-b-2 '>Weekly</Card.Description>
               <Card.Title class='text-3xl'>$1329</Card.Title>
           </Card.Header>
@@ -72,7 +72,7 @@
           
       <Card.Root  class='row-start-2 row-span-1 col-span-6  portrait:lg:col-span-3 landscape:col-span-4'>
           <Card.Header  class='pb-2'>
-              <Card.Description  class='pb-2 text-xl font-medium border-b'>Monthly</Card.Description>
+              <Card.Description  class='pb-2 text-xl font-medium border-b-2'>Monthly</Card.Description>
               <Card.Title  class='text-3xl'>$5,329</Card.Title>
           </Card.Header>
           <Card.Content>    <div class='text-xs text-muted-foreground'>+10% from last month</div>
@@ -88,7 +88,7 @@
                       m-0 p-0 lg:col-start-7  lg:row-start-1   landscape:col-start-8  landscape:row-start-1 '
     >  <!-- nice purple theme from-[#dce] via-[#a9b] to-[#547]  dark:from-[#325] dark:via-[#213] dark:to-[#102] -->
       <Card.Header class='inline-flex  w-full h-full  items-stretch justify-between p-0  m-0
-                          bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))]  from-[#eef] via-[#ccd] to-[#98a]  dark:from-[#435] dark:via-[#213] dark:to-[#001] '
+                          bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))]  from-[#eef] via-[#ccd] to-[#879]  dark:from-[#435] dark:via-[#213] dark:to-[#001] '
         >
             <Pagination.Root  count={10} >
                 <Pagination.Content  class='inline-grid grid-flow-col col-span-full  gap-x-[2ch]  w-full h-fit items-stretch justify-between *:transition-all duration-300 overflow-hidden'
@@ -96,7 +96,7 @@
                 >
                     <Pagination.Item>
                         <Tool_Tip   t='Previous'
-                                    css='h-full -ml-1 pr-2 rounded-ee-md opacity-25 hover:opacity-80  border-none hover:shadow-[0_3pt_1ch_#102a_,_inset_0_0_2ch_#324a]  hover:dark:shadow-[0_0_1ch_#abda_,_inset_0_0_1ch_#8afa]'>
+                                    css='h-full -ml-1 pr-2 rounded-ee-md opacity-40 hover:opacity-80  border-none hover:shadow-[0_3pt_1ch_#102a_,_inset_0_0_2ch_#324a]  hover:dark:shadow-[0_0_1ch_#abda_,_inset_0_0_1ch_#8afa]'>
                             <ChevronLeft  class='size-[6.4ch]'  onclick={_=>orderID(-1)} />
                             <span class='sr-only'>Previous Order</span>
                       </Tool_Tip>
@@ -123,7 +123,7 @@
 
                     <Pagination.Item>
                         <Tool_Tip   t='Next'
-                                    css='h-full -mr-1 pl-2 rounded-es-md opacity-30 hover:opacity-80  border-none  hover:shadow-[0_3pt_1ch_#102a_,_inset_0_0_2ch_#324a]  hover:dark:shadow-[0_0_1ch_#abda_,_inset_0_0_1ch_#8afa]'>
+                                    css='h-full -mr-1 pl-2 rounded-es-md opacity-40 hover:opacity-80  border-none  hover:shadow-[0_3pt_1ch_#102a_,_inset_0_0_2ch_#324a]  hover:dark:shadow-[0_0_1ch_#abda_,_inset_0_0_1ch_#8afa]'>
                             <ChevronRight  class='size-[6.4ch] '     onclick={_=>orderID(1)} />
                             <span class='sr-only'>Next Order</span>
                         </Tool_Tip>
@@ -214,9 +214,9 @@
           </dl>
           </div>
       </Card.Content>
-      <Card.Footer class='inline-flex w-full h-[7ch] items-stretch *:self-end justify-between border-t bg-[#aac] dark:bg-[#102] px-3 py-2 my-0'>
-          <div class=' text-md text:black dark:text-muted-foreground items-end h-[3ch] font-semibold'>
-            Date:   <time dateTime='2024-11-23'> {Tdata[0][4]} </time>
+      <Card.Footer class='inline-flex w-full h-fit items-stretch *:self-end justify-between border-t bg-[#99a] dark:bg-[#102] px-3 py-2 my-0'>
+          <div class=' text-lg text:black dark:text-muted-foreground items-end  font-semibold'>
+            Date: &nbsp &nbsp  <time dateTime='2024-11-23'> {Tdata[0][4]} </time>
           </div>
           
           <Tool_Tip   t ='Track'>
@@ -255,8 +255,8 @@
     <Card.Root>
       <section class='inline-grid  portrait:grid-rows-2 w-full  justify-between  items-start grid-flow-col '>
         <Card.Header>
-                <Card.Title class=' -mt-2 pb-4 tracking-wider text-2xl' >Orders Table</Card.Title>
-                <Card.Description >Recent orders from store:</Card.Description>
+                <Card.Title class=' -mt-2 pb-4 tracking-wider text-2xl'>Orders Table</Card.Title>
+                <Card.Description class='sr-only'>Recent orders from store</Card.Description>
         </Card.Header>
         <span class= 'inline-grid grid-flow-col  justify-between  items-end gap-3 px-4 '> 
             <Tabs.Root  value='week'  > 
