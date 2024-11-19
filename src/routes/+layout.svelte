@@ -49,12 +49,12 @@
             <!--PROPS:      fixed        (stays, no shift/scroll)   {Active_Itm} {Right} {None}
                     vars:   {Active_Itm} {Right} {None}  (...sidebar status...)
     
-        ________________________Side_Bar contains_______________
-                            menu Button (triggers menu panel) 
-                            Exit (same as tapping none sidebar screen)
-                            menu Items   +   Settings (at the end)
+        ________________Side_Bar contains_______________
+            Sidebar and/or Button (triggers menu panel) 
+            Exit (same as tapping none sidebar screen)
+            menu Items   +   Settings (at the end)
         -->
-            <Side_Bar  {cfg} bind:On_Page={On_Page} />
+            <Side_Bar {Active_Itm} {cfg} bind:On_Page={On_Page} />
             <!--------------------- PROPS ----------------------
                         {Right}  {P_sbar}  {H_Sbar}
                         {On_Page}  {Active_Itm}   
