@@ -52,36 +52,49 @@ let Scrl=$state(0),     Mobile =(navigator.maxTouchPoints && navigator.maxTouchP
 </script>
 
 
+<svelte:head>  <title>Dash Maxima</title> </svelte:head>
 <ModeWatcher  />
-    
-    
-<span   class ='grid  fixed   w-svw  h-svh  p-0 m-0   place-self-stretch  place-content-evenly    
-                    grid-rows-12  grid-cols-12  bg-stone-50  dark:bg-stone-600 overflow-x-hidden '
+
+<svelte:window  bind:scrollY={Scrl}
+                onclick={_=> window.scroll(0,0)}
+/>
+
+
+<span   id    ='Page_Body'    
+        class ='grid  fixed   w-svw  h-svh  p-0 m-0   place-self-stretch  place-content-evenly   select-none
+                grid-rows-12  grid-cols-12  bg-stone-50  dark:bg-stone-600 overflow-x-hidden overflow-y-scroll '
 >
-{#if Hide}  <span   class='fixed  right-1 top-1 text-2xl'
-                    onpointerup ={Hide=!Hide}
-            > [-] 
-            </span>
+{#if cfg.No_bar}  
+    <Cross  class='fixed flex  size-9 right-[.1ch] top-[.1ch] hover:size-10 hover:right-[.6ch] hover:top-[.6ch] 
+                    rounded-lg items-center justify-center cursor-pointer
+                    z-50  text-[#eef] hover:text-red-700  bg-black/80  hover:scale-150 transition-all  opacity-60 hover:opacity-100'  
+            onpointerdown={_=> cfg.No_bar=!cfg.No_bar}
+    />
 {:else}
     <!--    _________________ Header contains _________________
-                Sheet (panel menu)  -   Breadcrumbs
-                Dark_Light (theme)  -   Avatar (user/login..)
-                Search_Bar (input, inline infopop, search data page/defined)
+            Sheet (panel menu)  -   Breadcrumbs
+            Dark_Light (theme)  -   Avatar (user/login..)
+            Search_Bar (input, inline infopop, search data page/defined)
     -->
-            <Header  {cfg}  {On_Page} {Active_Itm} />
-            <!--PROPS:      fixed        (stays, no shift/scroll)   {Active_Itm} {Right} {None}
-                    vars:   {Active_Itm} {Right} {None}  (...sidebar status...)
+    <Header  {Active_Itm} {Scrl}/>
+    <!--PROPS:  fixed        (stays, no shift/scroll)   {Active_Itm} {Right} {None}
+                vars:   {Active_Itm} {Right} {None}  (...sidebar status...)
+    -->
     
-        ________________Side_Bar contains_______________
-            Sidebar and/or Button (triggers menu panel) 
-            Exit (same as tapping none sidebar screen)
-            menu Items   +   Settings (at the end)
+    <!-- ____ Side_Bar ________________________ -->  
+        
+    {#if ( (!Mobile && cfg.S_bar)||(Mobile && cfg.P_sbar) )}
+        <!-- Side_Bar contains:______________
+            Sidebar and/or menu Button (triggers menu panel) 
+            Menu Panel & Exit (tap none sidebar screen is also exit)
+            menu Items   +  extra items + Settings (at the end)
         -->
-            <Side_Bar {Active_Itm} {cfg} bind:On_Page={On_Page} />
+            <Side_Bar {Active_Itm}  />
+    {/if}
             <!--------------------- PROPS ----------------------
                         {Right}  {P_sbar}  {H_Sbar}
                         {On_Page}  {Active_Itm}   
-                    x      means true for each prop  
+                 x      using prop name alone means true   
                 {x}     shorthand, variable value passed as prop
                         fixed   [stays, no shift/scroll]
                 var     P_sbar  [force side bar visible on both (portrait too)]
@@ -90,8 +103,7 @@ let Scrl=$state(0),     Mobile =(navigator.maxTouchPoints && navigator.maxTouchP
                         menu    [force menu panel on both(landscape too)]
                         no_menu [force no menu on both (portrait too)]
         -->
-    {/if}
-
+{/if}
     {@render  children()}
-
+    <!--span  class= 'fixed top-[4ch] left-[8ch] text-3xl z-50'> {Scrl} </span -->
 </span>
