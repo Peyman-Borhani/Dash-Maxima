@@ -3,29 +3,52 @@
 //  If useful, please do Support, credit/knowledgement, contribute, or at least
 //  follow/engage on X or Linkedin incentive for further open source development.
 
-    import      '../app.css';
-    import      {ModeWatcher}       from  'mode-watcher'
-    import      {activeElement}     from  'runed'
+import   '../app.css';
+import  {ModeWatcher}   from  'mode-watcher'
+import  {activeElement} from  'runed';
+import  {setContext}    from  'svelte'
+import  {getContext}    from  'svelte'
+import  {SvelteMap}     from  'svelte/reactivity';
+import   FS_Out         from  '~icons/radix-icons/exit-full-screen'
+import   Cross          from  '~icons/radix-icons/cross2';
 
-    import    Header        from    '$lib/Header.svelte'
-    import    Side_Bar      from    '$lib/Side_Bar.svelte'
+import   Header         from  '$lib/Header.svelte'
+import   Side_Bar       from  '$lib/Side_Bar.svelte';
+import  {makeDB}        from  '$lib/DB.server.svelte.js'
 
-    import { error } from '@sveltejs/kit';
-    if(error) console.log('Error:  something is not right...');
+import  {To, From}      from  '$lib/animate.js'
+import  {flip}          from  'svelte/animate'
 
-        
+//import  {error} from '@sveltejs/kit'; //if(error) console.log('Error:  something is not right...');    
   let {data, children} = $props();
+    
+  const  DB  = makeDB(data.DB);
 
-  let  Active_Itm =$derived( 
-        activeElement.current?.id==='Search'? 'Search' 
+  //Store.logData();
+  //Store.logUsers();
+
+  const  CONFIG =$state(data.CONFIG);
+  const  NAV_ITEMS  =$state(data.NAV_ITEMS);
+
+  setContext('CFG',  CONFIG);
+  setContext('NAV',  NAV_ITEMS);
+  setContext('DB',   DB );
+
+  let cfg   =getContext('CFG');
+//let nav =getContext('NAV');
+
+  let  Active_Itm =()=> 
+        activeElement.current?.nodeName==='Search'? 'Search' 
+        : activeElement.current?.id==='Page_Body'? 'Page_Body'  //: activeElement.current?.nodeName==='BODY'?  "Page Body"
         : activeElement.current?.nodeName==='A'? '#'+activeElement.current?.textContent 
-        : activeElement.current?.nodeName==='BODY'?  "Page Body"
-        : activeElement.current?.textContent
-    );
+        : activeElement.current?.id?  activeElement.current?.id 
+        : '';
 
-  let  cfg   =new Object(data.cfg);
-  let  Hide     = $state(cfg.Hide);  //just Content - hides Dashboard (no Side_Bar, no Header...) //let  None  =$derived(!P_sbar && !H_bar && !F_bar); 
-  let  On_Page  = $state(cfg.On_Page)
+//DB.logUsers();
+//DB.logData();
+
+let Scrl=$state(0),     Mobile =(navigator.maxTouchPoints && navigator.maxTouchPoints>0)? true  :false;
+
 </script>
 
 
