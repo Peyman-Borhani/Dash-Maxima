@@ -17,7 +17,7 @@ export  function  load({cookies}){
         Right :  false,     // T-> Right    F->Left  (Side_Bar's side)
         H_bar :  true,      // T-> Header   F->  none/hidden
         F_bar :  false,     // T-> Footer   F->  none/hidden
-        S_bar :  true,      // T-> S_bar    F->  no Side_Bar at all
+        L_sbar:  true,      // T-> L_sbar    F->  no Side_Bar at all
         P_sbar:  true,      // T-> force Side_Bar in portrait
         No_bar:  false,     // T-> No Dashboard (no Side_Bar, no Header... just an exit full Content button)
         Hide  :  false,     // T-> hides Dashboard by the edge (Bars trigger by scroll-down & pointer near the edge)
