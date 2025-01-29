@@ -31,23 +31,27 @@ const  items =getContext('NAV');
             menu    [force menu Btn+panel on both(landscape too)]
             no_menu [force no menu on both (portrait too)]
 */
- const  menu_css =`flex  w-fit items-center justify-items-between gap-4 p-3  hover:scale-125  transition-transform  whitespace-nowrap *:size-9 
-                    ${Right? 'flex-row-reverse self-start' : 'justify-self-end '} text-muted-foreground hover:text-foreground hover:text-foreground self-stretch `
+//max word size among items. min: 2 (char+icon) //const menu_size = `${items.reduce((x,itm)=> {return itm.length>x? itm.length :x}, 2)}ch`;
+ const  menu_css =`flex  w-fit items-center gap-x-[2ch] px-1 justify-evenly hover:scale-125  transition-transform  whitespace-nowrap *:size-9 
+                    ${cfg.Right? 'flex-row-reverse  justify-self-start  pr-3' : 'justify-self-end  pl-3'}  text-muted-foreground hover:text-foreground hover:text-foreground self-stretch `
         ,
-        icon_css ='size-8  group-hover:scale-150  transition-all duration-200  rounded-md ';
+        icon_css ='size-8  hover:scale-150  transition-all duration-150  rounded-md  cursor-pointer ';
 
- const  side  = Right? 'left'    :'right'; //Tooltip popup side
+ const  side  = cfg.Right? 'left'  :'right'; //Tooltip popup side
     //sidebar portrait visiblity
- const  sbar_vis =  !S_bar? ' hidden  h-0 '
-                    :(P_sbar && S_bar)?  'hidden  h-0  lg:portrait:inline-grid  lg:portrait:h-full  row-start-2  row-end-13  landscape:inline-grid  landscape:h-full '
-                    :(S_bar && !P_sbar)? 'portrait:hidden portrait:h-0 landscape:inline-grid  landscape:h-full landscape:row-start-2 landscape:row-end-13 '
+ const  sbar_vis =  !cfg.L_sbar? ' hidden  h-0 '
+                    :(cfg.P_sbar && cfg.L_sbar)?  'hidden  h-0  lg:portrait:inline-grid  lg:portrait:h-full  row-start-2  row-end-13  landscape:inline-grid  landscape:h-full '
+                    :(cfg.L_sbar && !cfg.P_sbar)? 'portrait:hidden portrait:h-0 landscape:inline-grid  landscape:h-full landscape:row-start-2 landscape:row-end-13 '
                     :' ';
                  
  const  sbar_css = ` 
-            ${fixed?  'fixed'  :'absolute'}  rounded-ee-xl  
-            ${S_bar&&P_sbar? 'lg:h-screen  lg:grid-rows-12  lg:portrait:rounded-none ' :S_bar? 'landscape:rounded-none ' :' '} 
-            ${!S_bar? 'h-fit grid-rows-1 row-span-1 p-2.5 '  :'landscape:h-screen  landscape:grid-rows-12 '}  
-            ${Right?  'col-start-13 -col-end-1  border-l  justify-self-end '  :'col-start-0 col-end-1  border-r '} 
+            ${cfg.fixed ? 'fixed  landscape:shadow-[1svw_10.2svh_2svw_#778a,.2svw_1svh_.6svw_#000]  landscape:dark:shadow-[1svw_10.2svh_1.6svw_#baca,1px_10.2svh_.4svw_#eeea] '
+                        :'absolute  rounded-ee-lg  landscape:shadow-[1svw_1svh_1svw_#889a,.2svw_.4svh_1svmin_#000]  landscape:dark:shadow-[.4svw_.8svh_1svw_#eefa,.1svw_.2svh_0.4svw_#effb] '
+            }
+            ${cfg.L_sbar&&cfg.P_sbar? 'h-screen  grid-rows-12  portrait:rounded-none ' :cfg.L_sbar? 'landscape:rounded-none ' :' '} 
+            ${!cfg.L_sbar? 'landscape:h-fit landscape:grid-rows-1 landscape:row-span-1  landscape:bg-[#aab] '  :'landscape:h-screen  landscape:grid-rows-12 landscape:bg-[#bbc] '}  
+            ${!cfg.P_sbar? 'portrait:h-fit portrait:grid-rows-1 portrait:row-span-1  portrait:bg-[#aab] '  :'portrait:h-screen  portrait:grid-rows-12 portrait:bg-[#bbc] '}  
+            ${cfg.Right?  'col-start-13 col-end-12  border-l  justify-start pr-1'  :'col-start-0 col-end-1  border-r justify-start pl-2'} 
             `;
 </script>
 
