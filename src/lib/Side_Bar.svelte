@@ -67,30 +67,29 @@ const  items =getContext('NAV');
 {/snippet}
 
 
+{#if  !cfg.No_bar}
 
-<aside   class ="inline-grid z-50  grid-flow-row  bg-[#bbc] dark:bg-background  content-between
-                {sbar_css} py-2.5   dark:shadow-stone-50  transition-all duration-300  select-none 
-                {S_bar? 'landscape:shadow-[0_9svh_4svw_#889a,0_9svh_1svw_#000]  landscape:dark:shadow-[0_10svh_4svw_#ccda,0_10svh_0.4svw_#eefa] ' : ' '} 
-                "
+<aside  class ='inline-grid   grid-cols-subgrid z-50  w-[7ch]  py-1.5   grid-flow-row  grid-row-12   dark:bg-background  content-between
+                {sbar_css}  dark:shadow-stone-50  transition-all duration-300  select-none '
 >
     <!--------------------  Menu  (side panel) -----------        style= 'filter: drop-shadow(0 9ch 2svw #ddfa)'------>
   <Sheet.Root  >
     <Sheet.Trigger  asChild  let:builder 
     >
-        <Button     builders ={[builder]}   size='icon'     variant='outline'
-                    class ="row-start-1 row-end-2 mx-1.5 place-self-center  justify-self-center size-fit z-50 {Right? 'mr-2' :'ml-2'} 
-                            max-h-[6.2ch]  max-w-[7ch] bg-inherit  shadow-[0_0_1ch_#666]  rounded-lg  hover:scale-125 transition-transform "
+        <Button     builders ={[builder]}   size='icon'     
+                    class ="size-fit  row-start-1  row-end-2  self-start justify-center px-1.5   bg-inherit  hover:bg-background border-none 
+                            z-50  dark:shadow-[0_1pt_14pt_#555]   hover:scale-125  transition-transform "
         >                   
-            <Menu   class ='size-12'/>
+            <Menu   class ='h-11 w-11 text-[#53445a] bg-background/50 rounded-lg'/>
             <span   class ='sr-only'> Toggle Menu </span>
         </Button>
     </Sheet.Trigger>
 
-    {#if menu  ||  !no_menu}
-      <Sheet.Content  side={Right? 'right' :'left'}   class ='w-fit h-full '
+    {#if cfg.menu  ||  !cfg.no_menu}
+      <Sheet.Content  side={cfg.Right? 'right' :'left'}   class ='w-fit h-full '
       > <!-- v Hides tiny useless Btn v         //onpointerleave={e=> {e.currentTarget.lastElementChild.click()}} -->
-        <span class='absolute  p-4 z-50  right-1  top-0  select-none  outline-none bg-background '> </span>
-        <button class="absolute  py-2 z-40  top-0  {Right? 'rounded-es-full -ml-1 -left-14  hover:-ml-3 pl-3' :'rounded-ee-full -right-14 hover:-right-16 pr-3'} hover:top-1  transition-all duration-150 scale-y-110 hover:scale-x-125 hover:scale-y-150 select-none outline-none  bg-[#3332] landscape:opacity-70 hover:opacity-100
+        <span class='absolute  p-5 z-50  right-1  top-0  select-none  outline-none bg-background '> </span>
+        <button class="absolute  py-4 z-40  top-0  {cfg.Right? 'rounded-es-full -ml-1 -left-14  hover:-ml-3 pl-3' :'rounded-ee-full -right-14 hover:-right-16 pr-3'} hover:top-1  transition-all duration-150 scale-y-110 hover:scale-x-125 hover:scale-y-150 select-none outline-none  bg-[#3332] landscape:opacity-70 hover:opacity-100
                             shadow-xl shadow-muted-foreground hover:shadow-red-400  dark:shadow-muted-foreground/60  dark:hover:shadow-red-900/60 "
                 onpointerup={e=> e.target.parentElement.parentElement.lastElementChild.click()}
                 > <Cross  class="w-11 h-12  z-50  place-self-center  transition-all text-muted-foreground hover:text-red-900  border-none  outline-none "
