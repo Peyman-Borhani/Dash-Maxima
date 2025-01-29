@@ -1,4 +1,5 @@
 <script>
+    import  {getContext}  from  'svelte';
     import  Home          from  '~icons/lucide/home'
     import  LineChart     from  '~icons/lucide/line-chart'
     import  Package       from  '~icons/lucide/package'
@@ -9,23 +10,22 @@
     import  Tags          from  '~icons/lucide/tags'
     import  GitHub        from  '~icons/radix-icons/github-logo'
     import  Cross         from  '~icons/radix-icons/cross2';
-
+    import  Tool_Tip      from  '$lib/Tool_Tip.svelte';
+    
     import  * as Sheet      from  '$lib/components/ui/sheet/index.js'
     import  {Button}        from  '$lib/components/ui/button/index.js'
-    import  * as Tooltip    from  '$lib/components/ui/tooltip/index.js'
+    import  * as Tooltip    from  '$lib/components/ui/tooltip/index.js';
     import  {activeElement} from  'runed';
 
 
-let     {cfg,    Active_Itm,    On_Page=$bindable('Home'),
-        items= ['Home', 'Orders', 'Products', 'Customers', 'Analytics', '', '', 'Settings']
-}=$props();     //max word size among items. min: 2 (char+icon) //const menu_size = `${items.reduce((x,itm)=> {return itm.length>x? itm.length :x}, 2)}ch`;
+let  {Active_Itm}=$props();    
+const  cfg =getContext('CFG')
+const  items =getContext('NAV');
 
-//let  fixed=cfg.fixed,  P_sbar=cfg.P_sbar,  S_bar=cfg.S_bar,  Right=cfg.Right,  menu=cfg.menu;
-let  {fixed,  P_sbar,  S_bar,  Right,  menu, no_menu} = cfg;
-
-/*  Props:   
+/* CFG Context:
+            No_bar  [no bars, almost as disabled]
             fixed   [stays, no shift/scroll]
-            S_bar   [Side_Bar visiblity]
+            L_sbar   [Side_Bar visiblity]
             P_sbar  [force side bar visiblity (on portrait too)]
             Right   [side]      -      Active_Itm  [focused element]
             menu    [force menu Btn+panel on both(landscape too)]
