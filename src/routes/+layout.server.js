@@ -4,9 +4,11 @@ export  const  prerender  =true;
 import  {DB}    from  './data.server.js';
 
 
+
 export  function  load({cookies})
 { 
   const   visited = cookies.get('visited');
+  const   Views   = cookies.get('views');
 
   return {
     DB
@@ -30,9 +32,10 @@ export  function  load({cookies})
         No_Menu : false,    // T-> no Menu panel in any condition
         SrBtn_Up: true,    // T-> Searchbar Always on Top (also Portrait)
         On_Page : 'Home',   // current landing item/page focus
-        User    : {name:'Peyman', logged: false, input: ''},
         Portrait: false,
+        User    : {name:'Peyman', logged: false, input: ''},
         Visited : visited===true,
+        Views   : Views,    // Page views
         Scroll  : {at:'start', path:'none', result:'none', action:false, done:false}
             //start page end - down up hold - path summary - scroll function completed
     }
