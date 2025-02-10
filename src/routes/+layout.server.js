@@ -33,8 +33,8 @@ export  function  load({cookies})
         User    : {name:'Peyman', logged: false, input: ''},
         Portrait: false,
         Visited : visited===true,
-        Scroll  : {at:'start', action:'none', path:'none'}
-                //start page end    //down up hold none
+        Scroll  : {at:'start', path:'none', result:'none', action:false, done:false}
+            //start page end - down up hold - path summary - scroll function completed
     }
   }
 }
