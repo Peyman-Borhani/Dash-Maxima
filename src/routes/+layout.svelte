@@ -1,31 +1,32 @@
 <script>  
 //  Dash-Maxima:   by Peyman Borhani (Systemic Labs)
 //  If useful, please do Support, credit/knowledgement, contribute, or at least
-//  follow/engage on X or Linkedin incentive for further open source development.
+//  follow/engage on X or Linkedin, as incentive for more open source development +code sharing.
 
 import   '../app.css';
 import  {ModeWatcher}   from  'mode-watcher'
 import  {activeElement} from  'runed';
-import  {setContext}    from  'svelte'
-import  {getContext}    from  'svelte'
-import  {SvelteMap}     from  'svelte/reactivity';
+import  {SvelteMap}     from  'svelte/reactivity'
+import  {setContext, getContext}  from  'svelte';
+
 import   FS_Out         from  '~icons/radix-icons/exit-full-screen'
 import   Cross          from  '~icons/radix-icons/cross2';
 
 import   Header         from  '$lib/Header.svelte'
 import   Side_Bar       from  '$lib/Side_Bar.svelte';
 import  {makeDB}        from  '$lib/DB.server.svelte.js'
+import  * as scroll     from  '$lib/scroll.js'
+import  {To, From}      from  '$lib/animate.js';
 
-import  {To, From}      from  '$lib/animate.js'
 import  {flip}          from  'svelte/animate'
-
+import  {MediaQuery}    from  'svelte/reactivity';
+import  {innerHeight, scrollY, online}  from  'svelte/reactivity/window';
 //import  {error} from '@sveltejs/kit'; //if(error) console.log('Error:  something is not right...');    
-  let {data, children} = $props();
-    
-  const  DB  = makeDB(data.DB);
 
-  //Store.logData();
-  //Store.logUsers();
+  let {data, children} = $props();
+
+  const  DB  = makeDB(data.DB);
+  //DB.logData(); //DB.logUsers();
 
   const  CONFIG =$state(data.CONFIG);
   const  NAV_ITEMS  =$state(data.NAV_ITEMS);
