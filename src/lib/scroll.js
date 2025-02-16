@@ -1,3 +1,13 @@
+// scroll.js => efficiently monitor's user scroll behavior and intent
+// returns  => status/scroll/intent info: result, Y, path sequences, path intent summary, at page section
+
+// Written by Peyman Borhani  -  Systemic Labs
+//
+// To use it for free please do mention/support author by
+// placing this comment block or at least this single line:  
+// "scroll.js Written by Peyman Borhani - Systemic Labs"
+// in your readme + a comment line above scroll.js file import
+// thanks - enjoy coding.
 
 let                         // P-> path -> (up, down, hold)
         P = [],             // each scroll event path:  p[0]->path p[1],p[2]->continued
