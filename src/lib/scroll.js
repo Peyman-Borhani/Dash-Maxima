@@ -24,7 +24,18 @@ let                         // P-> path -> (up, down, hold)
         cycle   =false,     // cycle page when reach end points
         delay   =false;     // delay amount between scroll scan execution
 
-
+function  Log ()
+{
+    console.table( {'prv':prv, 'path':P} );
+    console.table( {
+                    'start' :start,
+                    'end'   :end,
+                    'result':result,
+                    'at'    :at,
+                    'sum'   :sum,
+                    'delay' :delay
+    });
+}
 // Runs a function on timed intervals until condition met to stop
 async function intervalRun(x, dly=1000)
 {
@@ -40,17 +51,15 @@ async function intervalRun(x, dly=1000)
     }
     tFunc()
   })
-}
-//await intervalRun(4).then(r=>console.log('res: ',r) );
+}//await intervalRun(4).then(r=>console.log('res: ',r) );
 
 //const //compare = a=> (a[0]<a[1]) && (a[1]<a[2]) && (a[2]<a[3])
-
     
-    //const t =setTimeout(_=>{ done =true; return clearTimeout(t)}, delay)
+//const t =setTimeout(_=>{ done =true; return clearTimeout(t)}, delay)
 
-export  function  init (y, c=false, d=false) {iH=y;  cycle=c;  delay=d}
+function  init (h, c=false, d=false) {iH=h;  cycle=c;  delay=d}
 
-export  function  Scroll (e, cycle=false)
+function  Scan (e)
 {   //only process if previous run is done 
     //if(delay  && !done) return;
     //done=false;
@@ -80,7 +89,8 @@ export  function  Scroll (e, cycle=false)
       //console.log ('result: ', sum, P1, P2, result, start, end, iH, action);
     }
     
-    console.log('sum: ' , sum, Y);
+    Log()
+    console.log('Y: ', Y);
 
     //Start/End detection (Page landmarks) 
     if(start-5<iH){     start  =cycle? end-start :0;  
@@ -98,9 +108,9 @@ export  function  Scroll (e, cycle=false)
     //done=true;
 
     return {Y, at, path:P, result, action};
+}
                     //Y:        Y axis scroll amount (num)
                     //at:       page placement
                     //path:     each event scroll paths (up to 3)
                     //result:   user scroll verdict (major)
                     //action:   user trigger defined action
-}
