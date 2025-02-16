@@ -8,6 +8,7 @@
 // "scroll.js Written by Peyman Borhani - Systemic Labs"
 // in your readme + a comment line above scroll.js file import
 // thanks - enjoy coding.
+export {init, Scan, Log}
 
 let                         // P-> path -> (up, down, hold)
         P = [],             // each scroll event path:  p[0]->path p[1],p[2]->continued
@@ -20,6 +21,7 @@ let                         // P-> path -> (up, down, hold)
         sum     =0,         // sum (intent) of user scroll direction
         done    =false,     // scroll function process is completed 
           iH    =0,         // inner height size
+        cycle   =false,     // cycle page when reach end points
         delay   =false;     // delay amount between scroll scan execution
 
 
