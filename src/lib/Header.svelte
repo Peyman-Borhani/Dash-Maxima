@@ -19,12 +19,15 @@
   let items =getContext('NAV');
 
   //just Content - (no Side_Bar, no Header...)
-  //let  None  =$derived(!P_sbar && !H_bar && !F_bar); 
-  
-  //const itm  = $derived.by(()=>{ (Active_Itm?.slice(0,2)==='# '? Active_Itm?.slice(2,Active_Itm?.length-2) :Active_Itm[0]==='#'? Active_Itm?.slice(1,Active_Itm.length-1)  :On_Page) })  ;
-  let itm = $derived.by(()=>((On_Page!=='Home' && Active_Itm[0]!=='#' && typeof Active_Itm==='string')? Active_Itm  :null) );
-</script>
-  
+  //let  None  =$derived(!cfg.P_sbar && !H_bar && !F_bar); 
+  //const itm  = $derived.by(()=>{ (Active_Itm?.slice(0,2)==='# '? Active_Itm?.slice(2,Active_Itm?.length-2) :Active_Itm[0]==='#'? Active_Itm?.slice(1,Active_Itm.length-1)  :cfg.On_Page) })  ;
+  let  hov  =$state(cfg.H_hbar)
+  let  viz  =$derived(hov || cfg.H_hbar);
+  let  itm  =$derived.by(()=>((cfg.On_Page!=='Home' && Active_Itm[0]!=='#' && typeof Active_Itm==='string')? Active_Itm  :null) );
+//cfg.Right? ' col-start-1  mr-[2.6ch] px-[6ch]'  :'col-start-2  -ml-[2.6ch] px-[6ch]'
+
+</script>  
+
 
 
 <span   class = "{fixed? 'fixed' :'portrait:fixed absolute'} w-full h-fit  m-0 p-0  {!S_bar? 'px-[1.2ch]' :Right? ' col-start-1  mr-[2.2ch] pr-[4ch]'  :'col-start-2  -ml-[2.2ch] pl-[4ch]'} 
