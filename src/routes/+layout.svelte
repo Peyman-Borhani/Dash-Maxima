@@ -61,6 +61,7 @@ aspRatio();
 </script>
 
 
+
 <svelte:head>  <title>Dash Maxima</title> </svelte:head>
 <ModeWatcher  />
 
@@ -85,33 +86,34 @@ aspRatio();
             Dark_Light (theme)  -   Avatar (user/login..)
             Search_Bar (input, inline infopop, search data page/defined)
     -->
-    <Header  {Active_Itm} {Scrl}/>
-    <!--PROPS:  fixed        (stays, no shift/scroll)   {Active_Itm} {Right} {None}
-                vars:   {Active_Itm} {Right} {None}  (...sidebar status...)
-    -->
-    
-    <!-- ____ Side_Bar ________________________ -->  
-        
-    {#if ( (!Mobile && cfg.S_bar)||(Mobile && cfg.P_sbar) )}
-        <!-- Side_Bar contains:______________
-            Sidebar and/or menu Button (triggers menu panel) 
-            Menu Panel & Exit (tap none sidebar screen is also exit)
-            menu Items   +  extra items + Settings (at the end)
-        -->
-            <Side_Bar {Active_Itm}  />
+    {#if (cfg.H_bar && !cfg.No_bar)} 
+                <Header  {Active_Itm}  {online}/>
     {/if}
-            <!--------------------- PROPS ----------------------
-                        {Right}  {P_sbar}  {H_Sbar}
-                        {On_Page}  {Active_Itm}   
-                 x      using prop name alone means true   
-                {x}     shorthand, variable value passed as prop
-                        fixed   [stays, no shift/scroll]
-                var     P_sbar  [force side bar visible on both (portrait too)]
-                var     S_bar   [force side bar hidden on both (landscape too)]
-                var     Right   [side]   -   Active_Itm  [focused element]
-                        menu    [force menu panel on both(landscape too)]
-                        no_menu [force no menu on both (portrait too)]
-        -->
+    <!--PROPS:  fixed    (stays, no shift/scroll)   {Active_Itm} {Right} {None}
+        vars:   {Active_Itm} {Right} {None}  (...sidebar status...)
+    -->
+
+    <!-- ____ Side_Bar ________________________ -->
+    {#if (!cfg.No_bar && (!Portrait && cfg.L_sbar)||(Portrait && cfg.P_sbar) )}
+    <!-- Side_Bar contains:______________
+        Sidebar and/or menu Button (triggers menu panel) 
+        Menu Panel & Exit (tap none sidebar screen is also exit)
+        menu Items  +  bar items  +  extra items + Settings (at the end)
+    -->
+        <Side_Bar {Active_Itm}  />
+    {/if}
+    <!--------------------- PROPS ----------------------
+                    {Right}  {P_sbar}  {H_Sbar}
+                    {On_Page}  {Active_Itm}   
+             x      using prop name alone means true   
+            {x}     shorthand, variable value passed as prop
+                    fixed   [stays, no shift/scroll]
+            var     P_sbar  [force side bar visible on both (portrait too)]
+            var     L_sbar   [force side bar hidden on both (landscape too)]
+            var     Right   [side]   -   Active_Itm  [focused element]
+                    menu    [force menu panel on both(landscape too)]
+                    no_menu [force no menu on both (portrait too)]
+    -->
 {/if}
     {@render  children()}
     <!--span  class= 'fixed top-[4ch] left-[8ch] text-3xl z-50'> {Scrl} </span -->
