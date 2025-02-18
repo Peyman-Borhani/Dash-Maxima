@@ -9,20 +9,24 @@
 // in your readme + a comment line above scroll.js file import
 // thanks - enjoy coding.
 export {init, Scan, Log}
+//export const data={result, at, action, path:P, sum, done }
 
-let                         // P-> path -> (up, down, hold)
-        P = [],             // each scroll event path:  p[0]->path p[1],p[2]->continued
-        start   =0,         // scroll top position
-        end     =0,         // scroll bottom position
-        prv     =[],        // previous scroll
-        result  ='hold',    // up, down, hold->(undetermined)
-        at      ='page',    // scroll place (page start end)
-        action  =false,     // pre-defined scroll action achieved
-        sum     =0,         // sum (intent) of user scroll direction
-        done    =false,     // scroll function process is completed 
-          iH    =0,         // inner height size
-        cycle   =false,     // cycle page when reach end points
-        delay   =false;     // delay amount between scroll scan execution
+let                     // P-> path -> (up, down, hold)
+        P       = [],   // each scroll event path:  p[0]->path p[1],p[2]->continued
+        start   =0,     // scroll top position
+        end     =0,     // scroll bottom position
+        prv     =[],    // previous scroll
+        result  ='hold',// up, down, hold->(undetermined)
+        at      ='page',// scroll place (page start end)
+        action  =false, // pre-defined scroll action achieved
+        sum     =0,     // sum (intent) of user scroll direction
+        done    =true,  // scroll function process completion
+        iH      =0,     // inner height size
+        cycle   =false, // cycle page when reach end points
+        dur     =0,     // delay duration between scroll scan execution
+        delay   =false, // delay state: waiting for process timeout to be true
+        state   ='inactive', // user scroll status: scrolling/stopped/inactive
+        inactive=0;     // time passed where user was inactive
 
 function  Log ()
 {
@@ -33,7 +37,11 @@ function  Log ()
                     'result':result,
                     'at'    :at,
                     'sum'   :sum,
-                    'delay' :delay
+                    'done'  :done,
+                    'delay' :delay,
+                    'dur'   :dur,
+                    'state' :state,
+                    'inactive':inactive
     });
 }
 // Runs a function on timed intervals until condition met to stop
