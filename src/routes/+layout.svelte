@@ -45,10 +45,18 @@ import  {innerHeight, scrollY, online}  from  'svelte/reactivity/window';
         : activeElement.current?.id?  activeElement.current?.id 
         : '';
 
-//DB.logUsers();
-//DB.logData();
+const Portrait  = new MediaQuery('orientation: portrait');
+let   iH  =$derived(innerHeight.current);
 
-let Scrl=$state(0),     Mobile =(navigator.maxTouchPoints && navigator.maxTouchPoints>0)? true  :false;
+let   Scrl ={},
+      Mobile    =(navigator.maxTouchPoints && navigator.maxTouchPoints>0)? true  :false;
+
+   
+
+scroll.init(iH, false, 30);  //inner Height,  cycle,  scan delay ms
+
+const aspRatio = ()=> cfg.Portrait =Portrait.current;
+aspRatio();
 
 </script>
 
