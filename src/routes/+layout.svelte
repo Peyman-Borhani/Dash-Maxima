@@ -64,8 +64,8 @@ aspRatio();
 <svelte:head>  <title>Dash Maxima</title> </svelte:head>
 <ModeWatcher  />
 
-<svelte:window  bind:scrollY={Scrl}
-                onclick={_=> window.scroll(0,0)}
+<svelte:window  onscrollcapture ={e=>{Scrl=scroll.Scan(e);  if(Scrl) {console.log(Scrl); scroll.Log();  cfg.H_hbar= Scrl.action}} }
+                onresizecapture ={aspRatio}
 />
 
 
@@ -74,9 +74,9 @@ aspRatio();
                 grid-rows-12  grid-cols-12  bg-stone-50  dark:bg-stone-600 overflow-x-hidden overflow-y-scroll '
 >
 {#if cfg.No_bar}  
-    <Cross  class='fixed flex  size-9 right-[.1ch] top-[.1ch] hover:size-10 hover:right-[.6ch] hover:top-[.6ch] 
-                    rounded-lg items-center justify-center cursor-pointer
-                    z-50  text-[#eef] hover:text-red-700  bg-black/80  hover:scale-150 transition-all  opacity-60 hover:opacity-100'  
+    <Cross  class="fixed flex  size-9  right-[.1ch] top-[.1ch]  hover:size-10 hover:right-[.6ch] hover:top-[.6ch] 
+                    rounded-lg items-center justify-center cursor-pointer  {cfg.H_hbar? 'opacity-50' :'opacity-90'}  hover:opacity-100
+                    z-50  text-[#eef] hover:text-red-700  bg-black/80  hover:scale-150 transition-all "
             onpointerdown={_=> cfg.No_bar=!cfg.No_bar}
     />
 {:else}
