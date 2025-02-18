@@ -36,28 +36,30 @@
             items-center justify-stretch  place-items-center  place-content-evenly   border-b  border-white dark:border-gray-300/60
             grid-flow-col  col-span-full  transition-all  duration-400  bg-[#aab]  dark:bg-black hover:dark:border-white/70
             gap-x-2  shadow-lg   hover:shadow-muted-foreground  shadow-stone-500/70 "
-  >
-  
-  <Breadcrumb.Root  class ='inline-grid  invisible  md:visible  bg-[#ccd] dark:bg-[#181822]  *:text-[#556] dark:*:text-[#778] rounded-lg 
-                            col-start-1  col-end-8  {Right? 'portrait:ml-3' :'ml-3'} p-2  justify-self-start font-medium '
-  >
-    <Breadcrumb.List  class= 'text-md  landscape:text-lg ' >
-      <Breadcrumb.Item class='portrait:sm:hidden portrait:md:inline-flex '>Dashboard</Breadcrumb.Item>
-      <Breadcrumb.Separator class={!On_Page? 'hidden '  :'portrait:hidden '}/>
-      <Breadcrumb.Item >   <!-- {activeElement.nodeName=='A' && items.includes(Active_Itm)? Active_Itm :'Dashboard'} -->
-        <Breadcrumb.Link    href={On_Page==='Home'? '/' :'#{On_Page}'}
-                            class={Active_Itm[0]!=='#'? 'hidden '  :' '}> {On_Page} </Breadcrumb.Link>
-      </Breadcrumb.Item>
-      <Breadcrumb.Separator   class={!itm? 'hidden ' :'portrait:hidden portrait:md:inline-flex'}/>
-      <Breadcrumb.Item    class={On_Page===itm? 'hidden ' :'portrait:hidden md:inline-flex'}>
-        <Breadcrumb.Page  href='#{itm}'> {itm? itm :''} </Breadcrumb.Page>
-      </Breadcrumb.Item>
-  
-    </Breadcrumb.List>
-  </Breadcrumb.Root>
-  
-    <span  class ='inline-grid   col-start-8 col-end-13 portrait:col-end-11 gap-2  mt-3  justify-evenly *:transition-all *:duration-300 '>
-      <Search_Bar {Right} {P_sbar} {Srch_top} {Active_Itm}/>             
+            onpointerenter={_=>{hov=true}}
+            onpointerleave={_=>{hov=false}}
+  > 
+  {#if (cfg.fixed || viz)}
+    <Breadcrumb.Root  class ='inline-grid  invisible  md:visible landscape:visible bg-[#ccd] dark:bg-[#181822]  *:text-[#556] dark:*:text-[#778] rounded-lg 
+                            {cfg.Right? 'col-start-1 landscape:col-start-2 col-end-6 ' :'col-start-1 landscape:col-start-2  col-end-7 ml-[3ch]'} p-2  justify-self-start font-medium '
+    >
+      <Breadcrumb.List  class= 'text-md  landscape:text-lg ' >
+        <Breadcrumb.Item class='portrait:sm:hidden portrait:md:inline-flex '>Dashboard</Breadcrumb.Item>
+        <Breadcrumb.Separator class={!cfg.On_Page? 'hidden '  :'portrait:hidden '}/>
+        <Breadcrumb.Item >   <!-- {activeElement.nodeName=='A' && items.includes(Active_Itm)? Active_Itm :'Dashboard'} -->
+            <Breadcrumb.Link    href={cfg.On_Page==='Home'? 'Home' :'#'+cfg.On_Page}
+                                class={Active_Itm[0]!=='#'? 'hidden '  :' '}> {cfg.On_Page}
+            </Breadcrumb.Link>
+        </Breadcrumb.Item>
+       <!--
+        <Breadcrumb.Separator   class={!itm? 'hidden ' :'portrait:hidden portrait:md:inline-flex'}/>
+        <Breadcrumb.Item    class={cfg.On_Page===itm? 'hidden ' :'portrait:hidden md:inline-flex'}>
+            <Breadcrumb.Page  href='#{itm}'> {itm? itm :''} </Breadcrumb.Page>
+        </Breadcrumb.Item>
+      -->
+      </Breadcrumb.List>
+    </Breadcrumb.Root>
+
       <!--  _____________________KB shortcuts____________________
                   [alt + /]   (toggle Search_Bar on/off)
                   [Escape]    (clear input text 1st time or toggle
