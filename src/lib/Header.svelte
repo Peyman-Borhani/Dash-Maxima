@@ -1,21 +1,23 @@
 <script>
+  import    {getContext}        from  'svelte';
     
   import    * as Breadcrumb     from  '$lib/components/ui/breadcrumb/index.js'
   import    * as DropdownMenu   from  '$lib/components/ui/dropdown-menu/index.js'
   import    Dark_Light          from  '$lib/Dark_Light.svelte'
   import    Search_Bar          from  '$lib/Search_Bar.svelte'
   import    {Button}            from  '$lib/components/ui/button/index.js'
-//import    Fullscreen          from  '~icons/radix-icons/enter-full-screen'
-  import    Fullscreen          from  '~icons/lucide/fullscreen'
-  import    GitHub              from  '~icons/radix-icons/github-logo'
+  import    FS_In               from  '~icons/radix-icons/enter-full-screen'  //import    Fullscreen          from  '~icons/lucide/fullscreen'
+  import    GitHub              from  '~icons/radix-icons/github-logo';
+  import    Arrow_D             from  '~icons/radix-icons/double-arrow-down';
   
   
-  let   {cfg,   Active_Itm=$bindable(''),     On_Page=$bindable('Home'),
-         items= ['Home', 'Orders', 'Products', 'Customers', 'Analytics', '', 'Settings']
-  }=$props();     //max word size among items. min: 2 (char+icon) //const menu_size = `${items.reduce((x,On_Page)=> {return On_Page.length>x? On_Page.length :x}, 2)}ch`;
-      
-  let  {fixed,  Right,  S_bar,  P_sbar, Srch_top,  menu, no_menu} = cfg;
-   
+  let   {Active_Itm,  avatar ='https://avatars.githubusercontent.com/u/26680960?v=4'
+        }=$props(); //items= ['Home', 'Orders', 'Products', 'Customers', 'Analytics', '', 'Settings']
+        //max word size among items. min: 2 (char+icon) //const menu_size = `${items.reduce((x,cfg.On_Page)=> {return cfg.On_Page.length>x? cfg.On_Page.length :x}, 2)}ch`;
+  
+  let cfg   =getContext('CFG');
+  let items =getContext('NAV');
+
   //just Content - (no Side_Bar, no Header...)
   //let  None  =$derived(!P_sbar && !H_bar && !F_bar); 
   
