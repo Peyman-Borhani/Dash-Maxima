@@ -63,14 +63,17 @@ async function intervalRun(x, dly=1000)
 
 //const //compare = a=> (a[0]<a[1]) && (a[1]<a[2]) && (a[2]<a[3])
     
-//const t =setTimeout(_=>{ done =true; return clearTimeout(t)}, delay)
 
-function  init (h, c=false, d=false) {iH=h;  cycle=c;  delay=d}
+function  init (h, c=false, d=false) {iH=h;  cycle=c;  dur=d}
 
-function  Scan (e)
-{   //only process if previous run is done 
-    //if(delay  && !done) return;
-    //done=false;
+
+function  Scan(e)
+{   //only process if previous run is done
+    if(delay && dur)  return false;
+    console.log(delay, dur, done);
+    delay=false;
+    const t =setTimeout(_=>{delay=true;  return clearTimeout(t)}, dur);
+
     prv.push(start);
     start   =Math.round(e.target.scrollTop+iH+3);
     end     =e.target.scrollHeight;
@@ -87,18 +90,17 @@ function  Scan (e)
         sum+= b-a;
     }
 
-    if(pID===3)
+    if(pID===3)     //if P's Array filled full, then do proceed
     { 
       sum = (prv[1]-prv[0]) + (prv[2]-prv[1]) + (prv[3]-prv[2]); //let sum = (prv[2]-prv[3]) + (prv[1]-prv[2]) + (prv[0]-prv[1]);
       //P3 = compare(prv[2],prv[3]) //(sum>9 && compare(prv[3],prv[4]))? 'down'  :(sum< -12 && compareB(prv.toReversed()))?'up' :'hold';
       if(P.every(n=> n===P[0])) result = sum>9? 'down' :sum< -12? 'up': 'hold';//if(P1===P2 && P2===P3)
       else result = 'hold';
-      action = result==='up' //apply hiding as action
-      //console.log ('result: ', sum, P1, P2, result, start, end, iH, action);
+      action = result==='up'; //apply hiding as action
+      const iv =setinterval(_=>{inactive+=dur;  return clearInterval(t)}, dur);
+ //console.log ('result: ', sum, P1, P2, result, start, end, iH, action);
     }
-    
-    Log()
-    console.log('Y: ', Y);
+    //Log()
 
     //Start/End detection (Page landmarks) 
     if(start-5<iH){     start  =cycle? end-start :0;  
@@ -120,5 +122,5 @@ function  Scan (e)
                     //Y:        Y axis scroll amount (num)
                     //at:       page placement
                     //path:     each event scroll paths (up to 3)
-                    //result:   user scroll verdict (major)
+                    //result:   user scroll result (verdict)
                     //action:   user trigger defined action
