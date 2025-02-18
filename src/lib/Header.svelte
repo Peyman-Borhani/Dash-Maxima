@@ -29,11 +29,12 @@
 </script>  
 
 
-
-<span   class = "{fixed? 'fixed' :'portrait:fixed absolute'} w-full h-fit  m-0 p-0  {!S_bar? 'px-[1.2ch]' :Right? ' col-start-1  mr-[2.2ch] pr-[4ch]'  :'col-start-2  -ml-[2.2ch] pl-[4ch]'} 
-            inline-grid  grid-cols-12  top-0 z-50  min-h-[6ch]  hover:min-h-[7.4ch] portrait:min-h-[8ch]  border-b-2  sm:border-b  border-black
-            items-center justify-stretch  place-items-center  place-content-evenly  dark:border-gray-400/70 
-            grid-flow-col  col-span-full  transition-all  duration-300  bg-[#aab]  dark:bg-[#000]
+<!-- {cfg.fixed? 'fixed' :'portrait:fixed landscape:absolute' -->
+<span   class = "fixed  top-0 m-0 p-0  {viz? 'mt-0 *:opacity-100'  :'-mt-[1ch] opacity-30 ' } 
+            inline-grid z-50  w-full h-fit max-h-[7ch]  grid-cols-12  col-start-1 col-end-13
+            {!cfg.L_sbar? 'portrait:px-[1ch] landscape:px-[2ch]' :cfg.Right? 'pr-[4ch]' :'pr-[1ch]'}  min-h-[6.8ch]  portrait:min-h-[7.2ch]   hover:min-h-[7.6ch] 
+            items-center justify-stretch  place-items-center  place-content-evenly   border-b  border-white dark:border-gray-300/60
+            grid-flow-col  col-span-full  transition-all  duration-400  bg-[#aab]  dark:bg-black hover:dark:border-white/70
             gap-x-2  shadow-lg   hover:shadow-muted-foreground  shadow-stone-500/70 "
   >
   
