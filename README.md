@@ -33,7 +33,7 @@
 
 ## Project Setup
 
-Download the repo, modify config files, add/remove extras if needed... then:
+Clone or download the repo, modify config files, add/remove extras,  update missing parts... then:
 
 ```bash
 pnpm install
@@ -47,9 +47,13 @@ For more details and customization check specific library docs(Shadcn-svelte, vi
 
 Dash-Maxima: v.0.2.0  by Peyman Borhani (Systemic Labs)  
 
-Open and free to use, but for commercial usage is better to order or license, get it better & more secure, +support a hard working dev...  
+Open and free to use, yet the code shared here is for target user educational purpose, and might not include all updates for a working condition.
+Takes at least 100 stars for dedication and open contribution.
+Perhaps in future...  
 
-> If it was useful, please do support, credit/knowledgement, contribute, or at least follow/engage on X or Linkedin incentive for further open source development.  
+Latest for commercial usage is better to order or license, get it better & more secure, +support a hard working dev...  
+
+> If it was useful, please do support, credit/knowledgement, contribute, or at least follow/engage on X, Linkedin or here as incentive for further open source development.  
 
 ##### That's it, the rest is Svelte.dev's starter guide...  
 
