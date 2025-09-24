@@ -69,7 +69,7 @@
 }
  
 @layer base {
-  *     {@apply border-border tracking-[0.016rem];}
+  *     {@apply border-border tracking-[0.016rem]}
   body  {@apply bg-background text-foreground  w-svw  h-svh  overflow-x-hidden;}
 }
 @media screen and (orientation: portrait) {

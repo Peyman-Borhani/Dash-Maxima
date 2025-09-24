@@ -1,12 +1,13 @@
 //_____Data table______________default demo data_____
 export  const DB =
-{    
+{
+ 
 Extras :
     [//  item code  item description    price
         ['all_AZ', 'All items sales',   '999' ],
         ['delivr', 'Delivery & Setup',  '70'  ],
         ['coupon', 'Cashable coupon',   '-50' ]
-    ]
+]
 ,
 Items:
     [//  item code  item description    price
@@ -31,8 +32,8 @@ Users :
     [ 'Alec Bret',    'alec@example.com',   '+1 620 412 558', 'Unit 64, 6th St. Dockyard, PL 23435'],
     [ 'Matt Willis',  'matt@example.com',   '+1 264 650 723', 'Unit 73, 7th St. Bazar, CA 34501'],
     [ 'Anna Jensen',  'anna@example.com',   '+1 140 227 929', 'Unit 82, 8th St. Crossway, TX 5600']
-]// Map-Key (uid)=>  to be added when creating new Map
-,
+] //note: (User-ID / encrypted Map-Data-Key) will be added for new data or ramDB when each new row is inserted
+, 
 Records :
     [//  itm id                 status      date
         ['sale00 box111 coupon', 'S', '2024-06-23'],
@@ -43,7 +44,9 @@ Records :
         ['sale00 puzABC puzSet', 'S', '2024-06-27'],
         ['kit222 kit123 cartAZ', 'P', '2024-06-28'],
         ['box111 sale00 cardsG', 'P', '2024-06-28']
-    ]// S: sold/done/true   X: return/refund/false  P: Processing/undefined
-};
+    ]
+}
+    // S: sold/done/true   X: return/refund/false  P: Processing/undefined
     //Map-Key: (rid)=> to be added when creating new Map 
     //FK-ref: (iid)=> exists  (uid)=> to insert into records
+ //DB: {Extras, Items, Customers, Records}
